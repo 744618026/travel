@@ -1,12 +1,12 @@
-package travel.service.serviceImpl;
+package travel.service.serviceImpl.poi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import travel.dao.POI;
+import travel.dao.poi.POI;
 import travel.enums.ResultEnum;
 import travel.exceptions.SellException;
-import travel.mapper.POIMapper;
-import travel.service.POIService;
+import travel.mapper.poi.POIMapper;
+import travel.service.poi.POIService;
 
 import java.util.List;
 

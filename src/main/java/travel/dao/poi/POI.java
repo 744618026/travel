@@ -1,4 +1,4 @@
-package travel.dao;
+package travel.dao.poi;
 
 import java.math.BigDecimal;
 import java.util.Date;

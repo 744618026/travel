@@ -1,6 +1,6 @@
-package travel.service;
+package travel.service.poi;
 
-import travel.dao.POI;
+import travel.dao.poi.POI;
 
 import java.util.List;
 
