@@ -1,8 +1,8 @@
 package travel.exceptions;
 
-public class SellException extends RuntimeException{
+public class NullException extends RuntimeException{
     private String message;
-    public SellException(String message){
+    public NullException(String message){
         super(message);
         this.message = message;
     }
