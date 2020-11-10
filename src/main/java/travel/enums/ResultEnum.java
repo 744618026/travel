@@ -2,7 +2,9 @@ package travel.enums;
 
 public enum ResultEnum {
     POI_NOT_EXISTS(1,"景点不存在"),
-    FOLKWAYS_NOT_EXISTS(2,"民俗不存在");
+    FOLKWAYS_NOT_EXISTS(2,"民俗不存在"),
+    COMMENT_NOT_EXISTS(3,"评论不存在"),
+    IMAGE_NOT_EXISTS(4,"图片不存在");
     private Integer code;
     private String message;
     ResultEnum(Integer code,String message){

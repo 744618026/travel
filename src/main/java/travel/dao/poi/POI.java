@@ -9,83 +9,82 @@ import java.util.Date;
 
 public class POI {
     /**景点ID*/
-    private String PIOId;
+    private String poiId;
     /**景点名称*/
-    private String PIOName;
+    private String poiName;
     /**景点描述*/
-    private String PIODescribe;
+    private String poiDescribe;
     /**地区ID*/
-    private String RegionId;
+    private String regionId;
     /**门票价格*/
-    private BigDecimal PIOTicketPrice;
+    private BigDecimal poiTicketPrice;
     /**门票库存*/
-    private Integer PIO_Stock;
+    private Integer poiStock;
     /**创建时间*/
-    private Date CreateTime;
+    private Date createTime;
     /**更新时间*/
-    private Date UpdateTime;
-
+    private Date updateTime;
     public String getPIOId() {
-        return PIOId;
+        return poiId;
     }
 
-    public void setPIOId(String PIOId) {
-        this.PIOId = PIOId;
+    public void setPIOId(String poiId) {
+        this.poiId = poiId;
     }
 
     public String getPIOName() {
-        return PIOName;
+        return poiName;
     }
 
-    public void setPIOName(String PIOName) {
-        this.PIOName = PIOName;
+    public void setPIOName(String poiName) {
+        this.poiName = poiName;
     }
 
     public String getPIODescribe() {
-        return PIODescribe;
+        return poiDescribe;
     }
 
-    public void setPIODescribe(String PIODescribe) {
-        this.PIODescribe = PIODescribe;
+    public void setPIODescribe(String poiDescribe) {
+        this.poiDescribe = poiDescribe;
     }
 
     public String getRegionId() {
-        return RegionId;
+        return regionId;
     }
 
     public void setRegionId(String regionId) {
-        RegionId = regionId;
+        this.regionId = regionId;
     }
 
     public Date getCreateTime() {
-        return CreateTime;
+        return createTime;
     }
 
     public void setCreateTime(Date createTime) {
-        CreateTime = createTime;
+        this.createTime = createTime;
     }
 
     public Date getUpdateTime() {
-        return UpdateTime;
+        return updateTime;
     }
 
     public void setUpdateTime(Date updateTime) {
-        UpdateTime = updateTime;
+        this.updateTime = updateTime;
     }
 
     public BigDecimal getPIOTicketPrice() {
-        return PIOTicketPrice;
+        return poiTicketPrice;
     }
 
-    public void setPIOTicketPrice(BigDecimal PIOTicketPrice) {
-        this.PIOTicketPrice = PIOTicketPrice;
+    public void setPIOTicketPrice(BigDecimal poiTicketPrice) {
+        this.poiTicketPrice = poiTicketPrice;
     }
 
     public Integer getPIO_Stock() {
-        return PIO_Stock;
+        return poiStock;
     }
 
-    public void setPIO_Stock(Integer PIO_Stock) {
-        this.PIO_Stock = PIO_Stock;
+    public void setPIO_Stock(Integer poiStock) {
+        this.poiStock = poiStock;
     }
 }

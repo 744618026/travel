@@ -2,33 +2,33 @@ package travel.dao.poi;
 
 public class POIImage {
     /**图片ID*/
-    private String POIImageId;
+    private String poiImageId;
     /**景点ID**/
-    private String POIId;
+    private String poiId;
     /**景点图片Url**/
-    private String POIImageUrl;
+    private String poiImageUrl;
 
     public String getPOIImageId() {
-        return POIImageId;
+        return poiImageId;
     }
 
-    public void setPOIImageId(String POIImageId) {
-        this.POIImageId = POIImageId;
+    public void setPOIImageId(String poiImageId) {
+        this.poiImageId = poiImageId;
     }
 
     public String getPOIId() {
-        return POIId;
+        return poiId;
     }
 
     public void setPOIId(String POIId) {
-        this.POIId = POIId;
+        this.poiId = POIId;
     }
 
     public String getPOIImageUrl() {
-        return POIImageUrl;
+        return poiImageUrl;
     }
 
-    public void setPOIImageUrl(String POIImageUrl) {
-        this.POIImageUrl = POIImageUrl;
+    public void setPOIImageUrl(String poiImageUrl) {
+        this.poiImageUrl = poiImageUrl;
     }
 }

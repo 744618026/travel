@@ -9,6 +9,7 @@ import travel.mapper.poi.POIMapper;
 import travel.service.poi.POIService;
 import travel.utils.KeyUtils;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -21,11 +22,8 @@ public class POIServiceImpl implements POIService {
     }
 
     @Override
-    public POI findByPOIId(String POIId) {
-        POI poi = POIMapper.findByPOIId(POIId);
-        if(poi ==null){
-            throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
-        }
+    public POI findByPOIId(String poiId) {
+        POI poi = POIMapper.findByPOIId(poiId);
         return poi;
     }
 
@@ -40,8 +38,12 @@ public class POIServiceImpl implements POIService {
     }
 
     @Override
-    public  boolean delete(String POIId) {
-        int result = POIMapper.delete(POIId);
+    public  boolean delete(String poiId) {
+        POI poi = POIMapper.findByPOIId(poiId);
+        if(poi == null){
+            throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
+        }
+        int result = POIMapper.delete(poiId);
         if(result ==0){
             return false;
         }
@@ -49,12 +51,25 @@ public class POIServiceImpl implements POIService {
     }
 
     @Override
-    public  boolean updatePOIStock(Integer POIStock, String POIId) {
-        POI poi = POIMapper.findByPOIId(POIId);
+    public  boolean updatePOIStock(Integer poiStock, String poiId) {
+        POI poi = POIMapper.findByPOIId(poiId);
         if(poi == null){
             throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
         }
-        int result = POIMapper.updatePOIStock(POIStock,POIId);
+        int result = POIMapper.updatePOIStock(poiStock,poiId);
+        if(result == 0){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean updatePOITicketPrice(BigDecimal poiTicketPrice, String poiId) {
+        POI poi = POIMapper.findByPOIId(poiId);
+        if(poi == null){
+            throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
+        }
+        int result = POIMapper.updatePOITicketPrice(poiTicketPrice,poiId);
         if(result == 0){
             return false;
         }

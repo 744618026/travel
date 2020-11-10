@@ -4,3 +4,6 @@ spring:
     username: root
     password: admin
     url: jdbc:mysql://49.234.70.188/travel?characterEncoding=utf-8&useSSL=false
+server:
+  servlet:
+    context-path: /travel

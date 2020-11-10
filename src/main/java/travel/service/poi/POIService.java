@@ -3,6 +3,7 @@ package travel.service.poi;
 import org.apache.ibatis.annotations.Param;
 import travel.dao.poi.POI;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface POIService {
@@ -27,16 +28,24 @@ public interface POIService {
     boolean insert(POI poi);
     /**
      *
-     * @param POIId 景点Id
+     * @param poiId 景点Id
      * @return boolean false为失败，true为成功
      */
-    boolean delete(String POIId);
+    boolean delete(String poiId);
 
     /**
      *
-     * @param POIStock 门票库存
-     * @param POIId 景点Id
+     * @param poiStock 门票库存
+     * @param poiId 景点Id
      * @return boolean false为失败，true为成功
      */
-    boolean  updatePOIStock(Integer POIStock,String POIId);
+    boolean  updatePOIStock(Integer poiStock,String poiId);
+
+    /**
+     *
+     * @param poiTicketPrice 门票价格
+     * @param poiId 景点Id
+     * @return boolean false为失败，true为成功
+     */
+    boolean  updatePOITicketPrice(BigDecimal poiTicketPrice, String poiId);
 }

@@ -5,25 +5,26 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import travel.dao.poi.POI;
 
+import java.math.BigDecimal;
 import java.util.List;
 @Repository
 @Mapper
 public interface POIMapper {
     /**
      *
-     * @param RegionId 通过地区ID查询
+     * @param regionId 通过地区ID查询
      * @return 该地区所有的景点
      */
     @Select("Select * From POI Where Region_Id= #{regionId}")
-    List<POI> findByRegionId(@Param("regionId")String RegionId);
+    List<POI> findByRegionId(@Param("regionId")String regionId);
 
     /**
      *
-     * @param POIId 通过景点ID查询
+     * @param poiId 通过景点ID查询
      * @return 该景点的信息
      */
     @Select("Select * FROM POI Where POI_Id=#{POI_Id}")
-    POI findByPOIId(@Param("POI_Id")String POIId);
+    POI findByPOIId(@Param("POI_Id")String poiId);
 
     /**
      *
@@ -36,18 +37,27 @@ public interface POIMapper {
 
     /**
      *
-     * @param POIId 景点Id
+     * @param poiId 景点Id
      * @return int
      */
     @Delete("delete from POI where POI_Id=#{POIId}")
-    int delete(@Param("POIId")String POIId);
+    int delete(@Param("POIId")String poiId);
 
     /**
      *
-     * @param POIStock 门票库存
-     * @param POIId 景点Id
+     * @param poiStock 门票库存
+     * @param poiId 景点Id
      * @return int
      */
     @Update("update POI set POI_Stock = #{POIStock} where POI_Id=#{POIId}")
-    int updatePOIStock(@Param("POIStock")Integer POIStock,@Param("POIId")String POIId);
+    int updatePOIStock(@Param("POIStock")Integer poiStock,@Param("POIId")String poiId);
+
+    /**
+     *
+     * @param poiTicketPrice 门票价格
+     * @param poiId 景点Id
+     * @return int
+     */
+    @Update("update POI set POI_TicketPrice = #{POITicketPrice} where POI_Id=#{POIId}")
+    int updatePOITicketPrice(@Param("POITicketPrice")BigDecimal poiTicketPrice, @Param("POIId")String poiId);
 }

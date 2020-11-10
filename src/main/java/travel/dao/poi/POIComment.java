@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class POIComment {
     /*评论ID**/
-    private String POICommentId;
+    private String poiCommentId;
     /**景点ID*/
-    private String POIId;
+    private String poiId;
     /**用户名*/
     private String userName;
     /**内容*/
@@ -23,19 +23,19 @@ public class POIComment {
     }
 
     public String getPOICommentId() {
-        return POICommentId;
+        return poiCommentId;
     }
 
     public void setPOICommentId(String POICommentId) {
-        this.POICommentId = POICommentId;
+        this.poiCommentId = POICommentId;
     }
 
     public String getPOIId() {
-        return POIId;
+        return poiId;
     }
 
     public void setPOIId(String POIId) {
-        this.POIId = POIId;
+        this.poiId = POIId;
     }
 
     public String getUserName() {

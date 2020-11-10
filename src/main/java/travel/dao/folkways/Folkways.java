@@ -2,43 +2,43 @@ package travel.dao.folkways;
 
 public class Folkways {
     /**民俗Id*/
-    private String FolkwaysId;
+    private String folkwaysId;
     /**民俗名称*/
-    private String FolkwaysName;
+    private String folkwaysName;
     /**地区Id*/
-    private String RegionId;
+    private String regionId;
     /**民俗内容*/
-    private String FolkwaysContent;
+    private String folkwaysContent;
 
     public String getFolkwaysId() {
-        return FolkwaysId;
+        return folkwaysId;
     }
 
     public void setFolkwaysId(String folkwaysId) {
-        FolkwaysId = folkwaysId;
+        this.folkwaysId = folkwaysId;
     }
 
     public String getFolkwaysName() {
-        return FolkwaysName;
+        return folkwaysName;
     }
 
     public void setFolkwaysName(String folkwaysName) {
-        FolkwaysName = folkwaysName;
+        this.folkwaysName = folkwaysName;
     }
 
     public String getRegionId() {
-        return RegionId;
+        return regionId;
     }
 
     public void setRegionId(String regionId) {
-        RegionId = regionId;
+        this.regionId = regionId;
     }
 
     public String getFolkwaysContent() {
-        return FolkwaysContent;
+        return folkwaysContent;
     }
 
     public void setFolkwaysContent(String folkwaysContent) {
-        FolkwaysContent = folkwaysContent;
+        this.folkwaysContent = folkwaysContent;
     }
 }
