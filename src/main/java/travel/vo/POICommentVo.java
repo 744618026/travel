@@ -1,17 +1,23 @@
-package travel.dao.poi;
+package travel.vo;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
-public class POIComment {
-    /*评论ID**/
+public class POICommentVo {
+    @JsonProperty("commentId")
     private String poiCommentId;
     /**景点ID*/
+    @JsonProperty("poiId")
     private String poiId;
     /**用户名*/
+    @JsonProperty("userName")
     private String userName;
     /**内容*/
+    @JsonProperty("content")
     private String content;
     /**评论时间*/
+    @JsonProperty("createTime")
     private Date createTime;
 
     public String getPoiCommentId() {

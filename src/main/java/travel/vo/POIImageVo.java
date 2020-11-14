@@ -1,12 +1,17 @@
-package travel.dao.poi;
+package travel.vo;
 
-public class POIImage {
-    /**图片ID*/
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class POIImageVo {
+    @JsonProperty("imageId")
     private Integer poiImageId;
     /**景点ID**/
+    @JsonProperty("poiId")
     private String poiId;
     /**景点图片Url**/
+    @JsonProperty("url")
     private String poiImageUrl;
+
     public Integer getPoiImageId() {
         return poiImageId;
     }

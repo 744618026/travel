@@ -16,12 +16,20 @@ public class POICommentServiceImpl implements POICommentService {
     private POICommentMapper poiCommentMapper;
     @Override
     public List<POIComment> findByPOIId(String poiId) {
-        return poiCommentMapper.findByPOIId(poiId);
+        List<POIComment> poiCommentList = poiCommentMapper.findByPOIId(poiId);
+        if(poiCommentList.size()==0){
+            throw new NullException(ResultEnum.DATA_GET_NULL.getMessage());
+        }
+        return poiCommentList;
     }
 
     @Override
     public POIComment findByCommentId(String commentId) {
-        return poiCommentMapper.findByCommentId(commentId);
+        POIComment poiComment = poiCommentMapper.findByCommentId(commentId);
+        if(poiComment == null){
+            throw new NullException(ResultEnum.COMMENT_NOT_EXISTS.getMessage());
+        }
+        return poiComment;
     }
     @Override
     public boolean deleteComment(String userName, String commentId) {
@@ -38,7 +46,7 @@ public class POICommentServiceImpl implements POICommentService {
 
     @Override
     public boolean insert(POIComment poiComment) {
-        poiComment.setPOICommentId(KeyUtils.getUniqueKey());
+        poiComment.setPoiCommentId(KeyUtils.getUniqueKey());
         int result = poiCommentMapper.insert(poiComment);
         if(result ==0){
             return false;

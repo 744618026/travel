@@ -1,37 +1,24 @@
-package travel.dao.poi;
+package travel.dataForm;
 
-
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
-import java.util.Date;
 
-/**
- * 景点
- */
-public class POI {
-    /**景点ID*/
-    private String poiId;
+public class POIForm {
     /**景点名称*/
+    @NotEmpty(message = "景点名不能为空")
     private String poiName;
     /**景点描述*/
+
     private String poiDescribe;
     /**地区ID*/
+    @NotEmpty(message = "景点所属地区不能为空")
     private String regionId;
     /**门票价格*/
+    @NotEmpty(message = "门票价格不为空")
     private BigDecimal poiTicketPrice;
     /**门票库存*/
+    @NotEmpty(message = "门票库存不为空")
     private Integer poiStock;
-    /**创建时间*/
-    private Date createTime;
-    /**更新时间*/
-    private Date updateTime;
-
-    public String getPoiId() {
-        return poiId;
-    }
-
-    public void setPoiId(String poiId) {
-        this.poiId = poiId;
-    }
 
     public String getPoiName() {
         return poiName;
@@ -71,21 +58,5 @@ public class POI {
 
     public void setPoiStock(Integer poiStock) {
         this.poiStock = poiStock;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 }

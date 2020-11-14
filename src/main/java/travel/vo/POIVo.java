@@ -1,29 +1,39 @@
-package travel.dao.poi;
+package travel.vo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import travel.dao.poi.POIImage;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.util.List;
 
-/**
- * 景点
- */
-public class POI {
-    /**景点ID*/
+public class POIVo {
+    @JsonProperty("poiId")
     private String poiId;
     /**景点名称*/
+    @JsonProperty("name")
     private String poiName;
     /**景点描述*/
+    @JsonProperty("describe")
     private String poiDescribe;
     /**地区ID*/
+    @JsonProperty("regionId")
     private String regionId;
     /**门票价格*/
+    @JsonProperty("ticketPrice")
     private BigDecimal poiTicketPrice;
     /**门票库存*/
+    @JsonProperty("ticketStock")
     private Integer poiStock;
-    /**创建时间*/
-    private Date createTime;
-    /**更新时间*/
-    private Date updateTime;
+    @JsonProperty("image")
+    private List<POIImageVo> poiImageList;
+
+    public List<POIImageVo> getPoiImageList() {
+        return poiImageList;
+    }
+
+    public void setPoiImageList(List<POIImageVo> poiImageList) {
+        this.poiImageList = poiImageList;
+    }
 
     public String getPoiId() {
         return poiId;
@@ -71,21 +81,5 @@ public class POI {
 
     public void setPoiStock(Integer poiStock) {
         this.poiStock = poiStock;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 }

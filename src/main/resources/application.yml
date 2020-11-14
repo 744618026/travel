@@ -2,8 +2,10 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: admin
+    password: 744618026
     url: jdbc:mysql://49.234.70.188/travel?characterEncoding=utf-8&useSSL=false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 server:
   servlet:
     context-path: /travel

@@ -1,33 +1,32 @@
-package travel.dao.poi;
+package travel.dao.hotel;
 
 import java.util.Date;
 
-public class POIComment {
-    /*评论ID**/
-    private String poiCommentId;
-    /**景点ID*/
-    private String poiId;
+public class HotelComment {
+    /**酒店评论Id*/
+    private String hotelCommentId;
+    /**酒店Id*/
+    private String hotelId;
     /**用户名*/
     private String userName;
     /**内容*/
     private String content;
-    /**评论时间*/
+    /**创建时间 */
     private Date createTime;
-
-    public String getPoiCommentId() {
-        return poiCommentId;
+    public String getHotelCommentId() {
+        return hotelCommentId;
     }
 
-    public void setPoiCommentId(String poiCommentId) {
-        this.poiCommentId = poiCommentId;
+    public void setHotelCommentId(String hotelCommentId) {
+        this.hotelCommentId = hotelCommentId;
     }
 
-    public String getPoiId() {
-        return poiId;
+    public String getHotelId() {
+        return hotelId;
     }
 
-    public void setPoiId(String poiId) {
-        this.poiId = poiId;
+    public void setHotelId(String hotelId) {
+        this.hotelId = hotelId;
     }
 
     public String getUserName() {
@@ -45,7 +44,6 @@ public class POIComment {
     public void setContent(String content) {
         this.content = content;
     }
-
     public Date getCreateTime() {
         return createTime;
     }

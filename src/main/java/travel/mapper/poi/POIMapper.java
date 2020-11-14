@@ -15,7 +15,7 @@ public interface POIMapper {
      * @param regionId 通过地区ID查询
      * @return 该地区所有的景点
      */
-    @Select("Select * From POI Where Region_Id= #{regionId}")
+    @Select("Select * From POI Where regionId= #{regionId}")
     List<POI> findByRegionId(@Param("regionId")String regionId);
 
     /**
@@ -23,16 +23,16 @@ public interface POIMapper {
      * @param poiId 通过景点ID查询
      * @return 该景点的信息
      */
-    @Select("Select * FROM POI Where POI_Id=#{POI_Id}")
-    POI findByPOIId(@Param("POI_Id")String poiId);
+    @Select("Select * FROM POI Where poiId=#{poiId}")
+    POI findByPOIId(@Param("poiId")String poiId);
 
     /**
      *
      * @param poi 景点对象
      * @return int
      */
-    @Insert("Insert Into PIO(POI_Id,POI_Name,POI_Describe,POI_TicketPrice,Region_Id,Create_Time)" +
-            "values(#{POIId},#{POIName},#{POIDescribe},#{POITicketPrice},#{RegionId},#{CreateTime, jdbcType=TIMESTAMP})")
+    @Insert("Insert Into PIO(poiId,poiName,poiDescribe,poiTicketPrice,regionId,createTime)" +
+            "values(#{poiId},#{poiName},#{poiDescribe},#{poiTicketPrice},#{regionId},#{createTime, jdbcType=TIMESTAMP})")
     int insert(POI poi);
 
     /**
