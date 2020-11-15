@@ -1,6 +1,7 @@
 package travel.service.poi;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.multipart.MultipartFile;
 import travel.dao.poi.POIImage;
 
 import java.util.List;
@@ -29,7 +30,8 @@ public interface POIImageService {
     /**
      *
      * @param poiImage 图片对象
+     * @param file 上传文件
      * @return boolean
      */
-    boolean insert(POIImage poiImage);
+    boolean insert(POIImage poiImage, MultipartFile file);
 }

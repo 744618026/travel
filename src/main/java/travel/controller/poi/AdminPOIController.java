@@ -11,8 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 import travel.dao.poi.POI;
 import travel.dao.poi.POIImage;
 import travel.dataForm.POIForm;
-import travel.enums.ResultEnum;
 import travel.enums.ReturnMessage;
+import travel.service.serviceImpl.poi.POIImageServiceImpl;
 import travel.service.serviceImpl.poi.POIServiceImpl;
 import travel.vo.ResultVo;
 
@@ -24,6 +24,8 @@ import java.net.URL;
 public class AdminPOIController {
     @Autowired
     private POIServiceImpl poiService;
+    @Autowired
+    private POIImageServiceImpl poiImageService;
     @PostMapping("/add")
     public ResultVo poiAdd(@Valid POIForm poiForm, BindingResult bindingResult){
         ResultVo resultVo = new ResultVo();
@@ -66,14 +68,17 @@ public class AdminPOIController {
     @PostMapping("/image/upload")
     public ResultVo poiImageUpload(@RequestParam("file")MultipartFile file,@RequestParam("poiId")String poiId){
         ResultVo resultVo = new ResultVo();
-        if(file.isEmpty()){
-            resultVo.setCode(ReturnMessage.FAILED.getCode());
-            resultVo.setMessage(ResultEnum.UPLOAD_FILE_NULL.getMessage());
-        }
         try{
             POIImage poiImage = new POIImage();
             poiImage.setPoiId(poiId);
-            String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+            boolean result = poiImageService.insert(poiImage,file);
+            if(result){
+                resultVo.setCode(ReturnMessage.SUCCESS.getCode());
+                resultVo.setMessage(ReturnMessage.SUCCESS.getMessage());
+            }else{
+                resultVo.setCode(ReturnMessage.FAILED.getCode());
+                resultVo.setMessage(ReturnMessage.FAILED.getMessage());
+            }
         }catch (Exception e){
             resultVo.setCode(ReturnMessage.FAILED.getCode());
             resultVo.setMessage(e.getMessage());
