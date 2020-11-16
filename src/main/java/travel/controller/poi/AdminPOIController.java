@@ -3,31 +3,27 @@ package travel.controller.poi;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import travel.dao.poi.POI;
 import travel.dao.poi.POIImage;
 import travel.dataForm.POIForm;
 import travel.enums.ReturnMessage;
+import travel.exceptions.ExceptionHandlers;
 import travel.service.serviceImpl.poi.POIImageServiceImpl;
 import travel.service.serviceImpl.poi.POIServiceImpl;
 import travel.vo.ResultVo;
-
 import javax.validation.Valid;
-import java.net.URL;
 
 @RestController
 @RequestMapping("/admin/poi")
-public class AdminPOIController {
+public class AdminPOIController{
     @Autowired
     private POIServiceImpl poiService;
     @Autowired
     private POIImageServiceImpl poiImageService;
     @PostMapping("/add")
-    public ResultVo poiAdd(@Valid POIForm poiForm, BindingResult bindingResult){
+    public ResultVo poiAdd(@Valid POIForm poiForm,BindingResult bindingResult){
         ResultVo resultVo = new ResultVo();
         if(bindingResult.hasErrors()){
             resultVo.setCode(ReturnMessage.FAILED.getCode());
@@ -47,7 +43,7 @@ public class AdminPOIController {
             return resultVo;
         }
     }
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public ResultVo delete(@RequestParam("poiId")String poiId){
         ResultVo resultVo = new ResultVo();
         try{

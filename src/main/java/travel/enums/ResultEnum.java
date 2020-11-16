@@ -7,7 +7,8 @@ public enum ResultEnum {
     IMAGE_NOT_EXISTS(4,"图片不存在"),
     HOTEL_NOT_EXISTS(5,"酒店不存在"),
     DATA_GET_NULL(6,"获取数据为空"),
-    UPLOAD_FILE_NULL(7,"上传文件为空");
+    UPLOAD_FILE_NULL(7,"上传文件为空"),
+    SQL_Syntax_Error_Exception(8,"SQL错误");
     private Integer code;
     private String message;
     ResultEnum(Integer code,String message){

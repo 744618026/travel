@@ -37,6 +37,6 @@ public interface POIImageMapper {
      * @param poiImage 图片对象
      * @return int
      */
-    @Insert("Insert Into POIImage(POI_Id,POI_Image_Url) value(#{POIId},#{POIImageUrl})")
+    @Insert("Insert Into POIImage(poiId,poiImageUrl) value(#{poiId},#{poiImageUrl})")
     int insert(POIImage poiImage);
 }

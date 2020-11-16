@@ -31,8 +31,8 @@ public interface POIMapper {
      * @param poi 景点对象
      * @return int
      */
-    @Insert("Insert Into PIO(poiId,poiName,poiDescribe,poiTicketPrice,regionId,createTime)" +
-            "values(#{poiId},#{poiName},#{poiDescribe},#{poiTicketPrice},#{regionId},#{createTime, jdbcType=TIMESTAMP})")
+    @Insert("Insert Into POI(poiId,poiName,poiDescribe,poiTicketPrice,poiStock,regionId,createTime)" +
+            "values(#{poiId},#{poiName},#{poiDescribe},#{poiTicketPrice},#{poiStock},#{regionId},#{createTime, jdbcType=TIMESTAMP})")
     int insert(POI poi);
 
     /**
@@ -40,8 +40,8 @@ public interface POIMapper {
      * @param poiId 景点Id
      * @return int
      */
-    @Delete("delete from POI where POI_Id=#{POIId}")
-    int delete(@Param("POIId")String poiId);
+    @Delete("delete from POI where poiId=#{poiId}")
+    int delete(@Param("poiId")String poiId);
 
     /**
      *
@@ -49,8 +49,8 @@ public interface POIMapper {
      * @param poiId 景点Id
      * @return int
      */
-    @Update("update POI set POI_Stock = #{POIStock} where POI_Id=#{POIId}")
-    int updatePOIStock(@Param("POIStock")Integer poiStock,@Param("POIId")String poiId);
+    @Update("update POI set poiStock = #{poiStock} where poiId=#{poiId}")
+    int updatePOIStock(@Param("poiStock")Integer poiStock,@Param("poiId")String poiId);
 
     /**
      *
