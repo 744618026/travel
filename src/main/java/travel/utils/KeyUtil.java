@@ -2,7 +2,7 @@ package travel.utils;
 
 import java.util.Random;
 
-public class KeyUtils {
+public class KeyUtil {
     public static synchronized String getUniqueKey(){
         Random random = new Random();
 

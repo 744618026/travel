@@ -1,12 +1,14 @@
 package travel.enums;
 
-public enum ReturnMessage {
+public enum ReturnMessageEnum {
     SUCCESS(0,"成功"),
-    FAILED(1,"失败");
+    FAILED(1,"失败"),
+    EXISTS(2,"存在"),
+    NOT_EXISTS(3,"不存在");
 
     private Integer code;
     private String message;
-    ReturnMessage(Integer code,String message){
+    ReturnMessageEnum(Integer code, String message){
         this.code = code;
         this.message = message;
     }

@@ -8,8 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import travel.dao.poi.POI;
 import travel.dao.poi.POIImage;
 import travel.dataForm.POIForm;
-import travel.enums.ReturnMessage;
-import travel.exceptions.ExceptionHandlers;
+import travel.enums.ReturnMessageEnum;
 import travel.service.serviceImpl.poi.POIImageServiceImpl;
 import travel.service.serviceImpl.poi.POIServiceImpl;
 import travel.vo.ResultVo;
@@ -26,7 +25,7 @@ public class AdminPOIController{
     public ResultVo poiAdd(@Valid POIForm poiForm,BindingResult bindingResult){
         ResultVo resultVo = new ResultVo();
         if(bindingResult.hasErrors()){
-            resultVo.setCode(ReturnMessage.FAILED.getCode());
+            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
             resultVo.setMessage(bindingResult.getFieldError().getDefaultMessage());
             return resultVo;
         }
@@ -34,12 +33,12 @@ public class AdminPOIController{
         BeanUtils.copyProperties(poiForm,poi);
         boolean result = poiService.insert(poi);
         if(result){
-            resultVo.setCode(ReturnMessage.SUCCESS.getCode());
-            resultVo.setMessage(ReturnMessage.SUCCESS.getMessage());
+            resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());
+            resultVo.setMessage(ReturnMessageEnum.SUCCESS.getMessage());
             return resultVo;
         }else{
-            resultVo.setCode(ReturnMessage.FAILED.getCode());
-            resultVo.setMessage(ReturnMessage.FAILED.getMessage());
+            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
+            resultVo.setMessage(ReturnMessageEnum.FAILED.getMessage());
             return resultVo;
         }
     }
@@ -49,14 +48,14 @@ public class AdminPOIController{
         try{
             boolean result = poiService.delete(poiId);
             if(result){
-                resultVo.setCode(ReturnMessage.SUCCESS.getCode());
-                resultVo.setMessage(ReturnMessage.SUCCESS.getMessage());
+                resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());
+                resultVo.setMessage(ReturnMessageEnum.SUCCESS.getMessage());
             }else{
-                resultVo.setCode(ReturnMessage.FAILED.getCode());
-                resultVo.setMessage(ReturnMessage.FAILED.getMessage());
+                resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
+                resultVo.setMessage(ReturnMessageEnum.FAILED.getMessage());
             }
         }catch (Exception e){
-            resultVo.setCode(ReturnMessage.FAILED.getCode());
+            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
             resultVo.setMessage(e.getMessage());
         }
         return resultVo;
@@ -67,16 +66,17 @@ public class AdminPOIController{
         try{
             POIImage poiImage = new POIImage();
             poiImage.setPoiId(poiId);
+            file.getOriginalFilename();
             boolean result = poiImageService.insert(poiImage,file);
             if(result){
-                resultVo.setCode(ReturnMessage.SUCCESS.getCode());
-                resultVo.setMessage(ReturnMessage.SUCCESS.getMessage());
+                resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());
+                resultVo.setMessage(ReturnMessageEnum.SUCCESS.getMessage());
             }else{
-                resultVo.setCode(ReturnMessage.FAILED.getCode());
-                resultVo.setMessage(ReturnMessage.FAILED.getMessage());
+                resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
+                resultVo.setMessage(ReturnMessageEnum.FAILED.getMessage());
             }
         }catch (Exception e){
-            resultVo.setCode(ReturnMessage.FAILED.getCode());
+            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
             resultVo.setMessage(e.getMessage());
         }
         return resultVo;

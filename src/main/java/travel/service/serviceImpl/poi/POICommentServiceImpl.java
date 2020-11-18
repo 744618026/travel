@@ -7,7 +7,7 @@ import travel.enums.ResultEnum;
 import travel.exceptions.NullException;
 import travel.mapper.poi.POICommentMapper;
 import travel.service.poi.POICommentService;
-import travel.utils.KeyUtils;
+import travel.utils.KeyUtil;
 
 import java.util.List;
 @Service
@@ -46,7 +46,7 @@ public class POICommentServiceImpl implements POICommentService {
 
     @Override
     public boolean insert(POIComment poiComment) {
-        poiComment.setPoiCommentId(KeyUtils.getUniqueKey());
+        poiComment.setPoiCommentId(KeyUtil.getUniqueKey());
         int result = poiCommentMapper.insert(poiComment);
         if(result ==0){
             return false;

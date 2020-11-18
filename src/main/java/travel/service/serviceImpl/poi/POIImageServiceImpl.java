@@ -10,6 +10,7 @@ import travel.exceptions.NullException;
 import travel.mapper.poi.POIImageMapper;
 import travel.mapper.poi.POIMapper;
 import travel.service.poi.POIImageService;
+import travel.utils.FileNameUtil;
 
 import java.io.File;
 import java.util.List;
@@ -44,13 +45,14 @@ public class POIImageServiceImpl implements POIImageService {
         }
         try {
             String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-            String resource = "static/poiImage/" + poiImage.getPoiId() + "/";
+            String resource = "static/poiImage/" + poiImage.getPoiId();
             File dir = new File(path + resource);
             if (!dir.exists()) {
-                dir.mkdir();
+                boolean result = dir.mkdirs();
+
             }
-            String fileName = getNewFileName(file);
-            File file1 = new File(path + dir + fileName);
+            String fileName = FileNameUtil.getNewFileName(file);
+            File file1 = new File(path + resource +"/"+ fileName);
             file.transferTo(file1);
             String url = "/travel/poiImage/"+poiImage.getPoiId()+"/"+fileName;
             poiImage.setPoiImageUrl(url);
@@ -85,16 +87,5 @@ public class POIImageServiceImpl implements POIImageService {
         }else {
             return true;
         }
-    }
-    private static String getNewFileName(MultipartFile  file){
-        String oldFileName = file.getName();
-        String extension = oldFileName.substring(oldFileName.lastIndexOf("."));
-        String newName = getFileName() + "." + extension;
-        return newName;
-    }
-    private static synchronized String getFileName(){
-        Random random = new Random();
-        Integer integer = random.nextInt(90000) + 10000;
-        return System.currentTimeMillis() + integer.toString();
     }
 }

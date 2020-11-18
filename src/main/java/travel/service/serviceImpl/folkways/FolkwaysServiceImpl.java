@@ -7,7 +7,7 @@ import travel.enums.ResultEnum;
 import travel.exceptions.NullException;
 import travel.mapper.folkways.FolkwaysMapper;
 import travel.service.folkways.FolkwaysService;
-import travel.utils.KeyUtils;
+import travel.utils.KeyUtil;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class FolkwaysServiceImpl implements FolkwaysService {
     }
     @Override
     public boolean insert(Folkways folkways) {
-        folkways.setFolkwaysId(KeyUtils.getUniqueKey());
+        folkways.setFolkwaysId(KeyUtil.getUniqueKey());
         int result = folkwaysMapper.insert(folkways);
         if(result == 0){
             return false;

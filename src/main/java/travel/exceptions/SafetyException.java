@@ -1,17 +1,14 @@
 package travel.exceptions;
 
-public class NullException extends NullPointerException{
+public class SafetyException extends SecurityException{
     private String message;
-    public NullException(String message){
+
+    public SafetyException(String message) {
         super(message);
         this.message = message;
     }
     @Override
     public String getMessage() {
         return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }
