@@ -42,22 +42,11 @@ public interface POIMapper {
      */
     @Delete("delete from POI where poiId=#{poiId}")
     int delete(@Param("poiId")String poiId);
-
     /**
      *
-     * @param poiStock 门票库存
-     * @param poiId 景点Id
+     * @param poi
      * @return int
      */
-    @Update("update POI set poiStock = #{poiStock} where poiId=#{poiId}")
-    int updatePOIStock(@Param("poiStock")Integer poiStock,@Param("poiId")String poiId);
-
-    /**
-     *
-     * @param poiTicketPrice 门票价格
-     * @param poiId 景点Id
-     * @return int
-     */
-    @Update("update POI set POI_TicketPrice = #{POITicketPrice} where POI_Id=#{POIId}")
-    int updatePOITicketPrice(@Param("POITicketPrice")BigDecimal poiTicketPrice, @Param("POIId")String poiId);
+    @Update("update POI set poiName=#{poiName},poiDescribe=#{poiDescribe},regionId=#{regionId},poiTicketPrice=#{poiTicketPrice},poiStock=#{poiStock} where poiId=#{poiId}")
+    int update(POI poi);
 }

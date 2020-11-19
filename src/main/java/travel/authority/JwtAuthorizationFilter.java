@@ -34,6 +34,9 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
     private UsernamePasswordAuthenticationToken getAuthentication(String tokenHeader) {
         String token = tokenHeader.replace(JwtUtils.TOKEN_PREFIX, "");
+        if(!JwtUtils.isExpiration(token)){
+            return null;
+        }
         String username = JwtUtils.getUsername(token);
         String role = JwtUtils.getUserRole(token);
         if (username != null){

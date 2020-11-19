@@ -56,25 +56,12 @@ public class POIServiceImpl implements POIService {
     }
 
     @Override
-    public  boolean updatePOIStock(Integer poiStock, String poiId) {
-        POI poi = POIMapper.findByPOIId(poiId);
-        if(poi == null){
+    public  boolean update(POI poi) {
+        POI poi1 = POIMapper.findByPOIId(poi.getPoiId());
+        if(poi1 == null){
             throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
         }
-        int result = POIMapper.updatePOIStock(poiStock,poiId);
-        if(result == 0){
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public boolean updatePOITicketPrice(BigDecimal poiTicketPrice, String poiId) {
-        POI poi = POIMapper.findByPOIId(poiId);
-        if(poi == null){
-            throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
-        }
-        int result = POIMapper.updatePOITicketPrice(poiTicketPrice,poiId);
+        int result = POIMapper.update(poi);
         if(result == 0){
             return false;
         }

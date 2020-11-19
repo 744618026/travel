@@ -2,12 +2,14 @@ package travel.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResultVo<T>{
+public class ResultVo<T> implements Serializable {
+    private static final long serialVersionUID = 1161647445596221995L;
     private Integer code;
     private String message;
     private T data;
-
     public Integer getCode() {
         return code;
     }

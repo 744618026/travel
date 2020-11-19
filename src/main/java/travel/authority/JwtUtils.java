@@ -53,13 +53,4 @@ public class JwtUtils {
             return null;
         }
     }
-    public static Claims checkJWT(String token) {
-        try {
-            final Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-            return claims;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 }

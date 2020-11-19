@@ -2,9 +2,11 @@ package travel.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class POICommentVo {
+public class POICommentVo implements Serializable {
+    private static final long serialVersionUID = 3524193494566992154L;
     @JsonProperty("commentId")
     private String poiCommentId;
     /**景点ID*/

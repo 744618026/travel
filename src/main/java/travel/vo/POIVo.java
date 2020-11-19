@@ -3,10 +3,12 @@ package travel.vo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import travel.dao.poi.POIImage;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class POIVo {
+public class POIVo implements Serializable {
+    private static final long serialVersionUID = -7084401949022632492L;
     @JsonProperty("poiId")
     private String poiId;
     /**景点名称*/

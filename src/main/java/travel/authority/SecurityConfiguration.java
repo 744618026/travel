@@ -29,16 +29,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 //.httpBasic().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                //.antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/tasks/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/register").permitAll()
+                .antMatchers("/register").permitAll()
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
                 .addFilter(new JwtAuthorizationFilter(authenticationManager()));
 
-        //http.headers().cacheControl();
-        //http.addFilterBefore(authenticationTokenFilterBean(),JwtAuthenticationTokenFilter.class);
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

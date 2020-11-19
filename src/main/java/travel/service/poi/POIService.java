@@ -35,17 +35,9 @@ public interface POIService {
 
     /**
      *
-     * @param poiStock 门票库存
-     * @param poiId 景点Id
+     * @param poi 景点
      * @return boolean false为失败，true为成功
      */
-    boolean  updatePOIStock(Integer poiStock,String poiId);
+    boolean  update(POI poi);
 
-    /**
-     *
-     * @param poiTicketPrice 门票价格
-     * @param poiId 景点Id
-     * @return boolean false为失败，true为成功
-     */
-    boolean  updatePOITicketPrice(BigDecimal poiTicketPrice, String poiId);
 }

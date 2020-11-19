@@ -1,10 +1,10 @@
 package travel.dataForm;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public class POIForm {
+    private String poiId;
     /**景点名称*/
     @NotNull(message = "景点名不能为空")
     private String poiName;
@@ -19,6 +19,14 @@ public class POIForm {
     /**门票库存*/
     @NotNull(message = "门票库存不为空")
     private Integer poiStock;
+
+    public String getPoiId() {
+        return poiId;
+    }
+
+    public void setPoiId(String poiId) {
+        this.poiId = poiId;
+    }
 
     public String getPoiName() {
         return poiName;

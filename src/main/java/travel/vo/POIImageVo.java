@@ -2,7 +2,10 @@ package travel.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class POIImageVo {
+import java.io.Serializable;
+
+public class POIImageVo implements Serializable {
+    private static final long serialVersionUID = -159801947318150987L;
     @JsonProperty("imageId")
     private Integer poiImageId;
     /**景点ID**/

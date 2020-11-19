@@ -15,13 +15,13 @@ import travel.vo.ResultVo;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("")
 public class UserController {
     @Autowired
     private UserServiceImpl userService;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    @GetMapping("/check")
+    @GetMapping("/user/check")
     public ResultVo check(@RequestParam("userName")String userName){
         ResultVo resultVo = new ResultVo();
         try{
