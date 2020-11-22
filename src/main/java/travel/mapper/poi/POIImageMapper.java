@@ -26,6 +26,13 @@ public interface POIImageMapper {
 
     /**
      *
+     * @param poiId  景点Id
+     * @return
+     */
+    @Delete("delete from POIImage where poiId=#{poiId}")
+    int delete(@Param("poiId")String poiId);
+    /**
+     *
      * @param imageId 图片Id
      * @return 该图片信息
      */

@@ -13,82 +13,67 @@ import travel.dataForm.POIForm;
 import travel.enums.ReturnMessageEnum;
 import travel.service.serviceImpl.poi.POIImageServiceImpl;
 import travel.service.serviceImpl.poi.POIServiceImpl;
+import travel.utils.ResultUtil;
 import travel.vo.ResultVo;
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/admin/poi")
-@CacheEvict(cacheNames = "pois",key = "123")
+@CacheEvict(cacheNames = "pois",key = "1")
 public class AdminPOIController{
     @Autowired
     private POIServiceImpl poiService;
     @Autowired
     private POIImageServiceImpl poiImageService;
+    //添加景点
     @PostMapping("/add")
     public ResultVo poiAdd(@Valid POIForm poiForm,BindingResult bindingResult){
-        ResultVo resultVo = new ResultVo();
         if(bindingResult.hasErrors()){
-            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-            resultVo.setMessage(bindingResult.getFieldError().getDefaultMessage());
-            return resultVo;
+            return ResultUtil.fail(bindingResult.getFieldError().getDefaultMessage());
         }
         POI poi = new POI();
         BeanUtils.copyProperties(poiForm,poi);
         boolean result = poiService.insert(poi);
         if(result){
-            resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());
-            resultVo.setMessage(ReturnMessageEnum.SUCCESS.getMessage());
-            return resultVo;
+            return ResultUtil.success();
         }else{
-            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-            resultVo.setMessage(ReturnMessageEnum.FAILED.getMessage());
-            return resultVo;
+            return ResultUtil.fail();
         }
     }
+    //删除景点
     @GetMapping("/delete")
     public ResultVo delete(@RequestParam("poiId")String poiId){
-        ResultVo resultVo = new ResultVo();
         try{
             boolean result = poiService.delete(poiId);
             if(result){
-                resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());
-                resultVo.setMessage(ReturnMessageEnum.SUCCESS.getMessage());
+                return ResultUtil.success();
             }else{
-                resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-                resultVo.setMessage(ReturnMessageEnum.FAILED.getMessage());
+                return ResultUtil.fail();
             }
         }catch (Exception e){
-            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-            resultVo.setMessage(e.getMessage());
+            return ResultUtil.fail(e.getMessage());
         }
-        return resultVo;
     }
+    //更新景点信息
     @GetMapping("/update")
     public ResultVo poiUpdate(@Valid POIForm poiForm, BindingResult bindingResult){
-        ResultVo resultVo = new ResultVo();
-        //TODO
         if(bindingResult.hasErrors()){
-            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-            resultVo.setMessage(bindingResult.getFieldError().getDefaultMessage());
-            return resultVo;
+            return ResultUtil.fail(bindingResult.getFieldError().getDefaultMessage());
         }
         try{
             POI poi = new POI();
             BeanUtils.copyProperties(poiForm,poi);
             boolean result = poiService.update(poi);
             if(result){
-                resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());
-                resultVo.setMessage(ReturnMessageEnum.SUCCESS.getMessage());
+                return ResultUtil.success();
             }else{
-                resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-                resultVo.setMessage(ReturnMessageEnum.FAILED.getMessage());
+                return ResultUtil.fail();
             }
         }catch (Exception e){
-            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-            resultVo.setMessage(e.getMessage());
+            return ResultUtil.fail(e.getMessage());
         }
-        return resultVo;
     }
+    //添加景点图片
     @PostMapping("/image/upload")
     public ResultVo poiImageUpload(@RequestParam("file")MultipartFile file,@RequestParam("poiId")String poiId){
         ResultVo resultVo = new ResultVo();
@@ -98,22 +83,26 @@ public class AdminPOIController{
             file.getOriginalFilename();
             boolean result = poiImageService.insert(poiImage,file);
             if(result){
-                resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());
-                resultVo.setMessage(ReturnMessageEnum.SUCCESS.getMessage());
+                return ResultUtil.success();
             }else{
-                resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-                resultVo.setMessage(ReturnMessageEnum.FAILED.getMessage());
+                return ResultUtil.fail();
             }
         }catch (Exception e){
-            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-            resultVo.setMessage(e.getMessage());
+            return ResultUtil.fail(e.getMessage());
         }
-        return resultVo;
     }
+    //删除景点图片
     @GetMapping("/image/delete")
-    public ResultVo poiImageDelete(@RequestParam("imageId")String imageId){
-        ResultVo resultVo = new ResultVo();
-
-        return resultVo;
+    public ResultVo poiImageDelete(@RequestParam("imageId")Integer imageId){
+        try{
+            boolean result = poiImageService.delete(imageId);
+            if(result){
+                return ResultUtil.success();
+            }else{
+                return ResultUtil.fail();
+            }
+        }catch (Exception e){
+            return ResultUtil.fail(e.getMessage());
+        }
     }
 }

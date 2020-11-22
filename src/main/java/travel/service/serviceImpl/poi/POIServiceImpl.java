@@ -3,18 +3,23 @@ package travel.service.serviceImpl.poi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import travel.dao.poi.POI;
+import travel.dao.poi.POIImage;
 import travel.enums.ResultEnum;
 import travel.exceptions.NullException;
+import travel.mapper.poi.POIImageMapper;
 import travel.mapper.poi.POIMapper;
 import travel.service.poi.POIService;
 import travel.utils.POIKeyUtil;
-import java.math.BigDecimal;
+
+import java.io.File;
 import java.util.List;
 
 @Service
 public class POIServiceImpl implements POIService {
     @Autowired
     private POIMapper POIMapper;
+    @Autowired
+    private POIImageMapper poiImageMapper;
     @Override
     public List<POI> findByRegionId(String regionId) {
         List<POI> poiList = POIMapper.findByRegionId(regionId);
@@ -48,13 +53,22 @@ public class POIServiceImpl implements POIService {
         if(poi == null){
             throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
         }
+        List<POIImage> poiImageList = poiImageMapper.findByPOIId(poi.getPoiId());
+        for(POIImage poiImage : poiImageList){
+            String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+            String resource = "static/poiImage/";
+            String fileName = poiImage.getPoiImageUrl().substring(poiImage.getPoiImageUrl().lastIndexOf("/"));
+            File file = new File(path+resource+fileName);
+            if(file.exists()){
+                file.delete();
+            }
+        }
         int result = POIMapper.delete(poiId);
         if(result ==0){
             return false;
         }
         return true;
     }
-
     @Override
     public  boolean update(POI poi) {
         POI poi1 = POIMapper.findByPOIId(poi.getPoiId());

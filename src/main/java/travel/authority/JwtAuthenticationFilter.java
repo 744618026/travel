@@ -22,7 +22,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     }
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             return authenticationManager.authenticate(
@@ -43,7 +42,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         String tokenStr = JwtUtils.TOKEN_PREFIX + token;
         response.setHeader("token",tokenStr);
     }
-
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
         response.getWriter().write("authentication failed, reason: " + failed.getMessage());

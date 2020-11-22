@@ -27,14 +27,13 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
             chain.doFilter(request, response);
             return;
         }
-
         SecurityContextHolder.getContext().setAuthentication(getAuthentication(tokenHeader));
         super.doFilterInternal(request, response, chain);
     }
 
     private UsernamePasswordAuthenticationToken getAuthentication(String tokenHeader) {
         String token = tokenHeader.replace(JwtUtils.TOKEN_PREFIX, "");
-        if(!JwtUtils.isExpiration(token)){
+        if(JwtUtils.isExpiration(token)){
             return null;
         }
         String username = JwtUtils.getUsername(token);
