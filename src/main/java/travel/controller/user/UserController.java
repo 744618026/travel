@@ -43,11 +43,8 @@ public class UserController {
     @PostMapping("/register")
     //账户注册
     public ResultVo add(@Valid UserForm userForm, BindingResult bindingResult){
-        ResultVo resultVo = new ResultVo();
         if(bindingResult.hasErrors()){
-            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-            resultVo.setMessage(bindingResult.getFieldError().getDefaultMessage());
-            return resultVo;
+            return ResultUtil.fail(bindingResult.getFieldError().getDefaultMessage());
         }
         try {
             User user = new User();
@@ -59,13 +56,10 @@ public class UserController {
             user.setPassword(bCryptPasswordEncoder.encode(userForm.getPassword()));
             //TODO 验证用户名或者邮箱是否已经注册
             userService.insert(user);
-            resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());
-            resultVo.setMessage(ReturnMessageEnum.SUCCESS.getMessage());
+            return ResultUtil.success();
         }catch (Exception e){
-            resultVo.setCode(ReturnMessageEnum.FAILED.getCode());
-            resultVo.setMessage(e.getMessage());
+            return ResultUtil.fail(e.getMessage());
         }
-        return resultVo;
     }
     //通过查询邮箱和用户名来找回密码
     @GetMapping("/password/forget")
