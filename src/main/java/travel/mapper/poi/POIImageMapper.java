@@ -22,7 +22,7 @@ public interface POIImageMapper {
      * @return int
      */
     @Delete("delete from POIImage where poiImageId=#{imageId}")
-    int delete(@Param("imageId") Integer imageId);
+    int deleteByImageId(@Param("imageId") Integer imageId);
 
     /**
      *
@@ -30,7 +30,7 @@ public interface POIImageMapper {
      * @return
      */
     @Delete("delete from POIImage where poiId=#{poiId}")
-    int delete(@Param("poiId")String poiId);
+    int deleteByPoiId(@Param("poiId")String poiId);
     /**
      *
      * @param imageId 图片Id

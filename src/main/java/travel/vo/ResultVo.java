@@ -33,4 +33,10 @@ public class ResultVo<T> implements Serializable {
     public void setData(T data) {
         this.data = data;
     }
+    public String toString(){
+        return "{\n" +
+                " code:" + this.code+",\n"+
+                " message:" + this.message+
+                "}";
+    }
 }

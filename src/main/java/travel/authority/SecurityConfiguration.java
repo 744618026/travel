@@ -12,6 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.OncePerRequestFilter;
+import travel.authority.code.ValidateCodeFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -33,9 +36,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/register").permitAll()
                 .and()
+                .addFilterBefore(new ValidateCodeFilter(), UsernamePasswordAuthenticationFilter.class)
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
                 .addFilter(new JwtAuthorizationFilter(authenticationManager()));
-
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

@@ -17,7 +17,10 @@ import travel.service.serviceImpl.user.UserServiceImpl;
 import travel.utils.ResultUtil;
 import travel.vo.ResultVo;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @RestController
 @RequestMapping("")
@@ -27,9 +30,8 @@ public class UserController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @GetMapping("/checkUser")
-    //检查用户是否已经注册
-    public ResultVo check(@RequestParam("userName")String userName){
-        ResultVo resultVo = new ResultVo();
+    //检查用户是否存在
+    public ResultVo check(@RequestParam("userName")String userName) {
         try{
             //用户不存在抛出异常
             userService.findByUserName(userName);
@@ -55,6 +57,7 @@ public class UserController {
                 user.setUserIcon("/travel/userIcon/default.jpeg");
             }
             user.setPassword(bCryptPasswordEncoder.encode(userForm.getPassword()));
+            //TODO 验证用户名或者邮箱是否已经注册
             userService.insert(user);
             resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());
             resultVo.setMessage(ReturnMessageEnum.SUCCESS.getMessage());

@@ -18,7 +18,7 @@ public interface POIImageService {
      * @param imageId 图片Id
      * @return boolean
      */
-    boolean delete(Integer imageId);
+    boolean deleteByImageId(Integer imageId);
 
     /**
      *

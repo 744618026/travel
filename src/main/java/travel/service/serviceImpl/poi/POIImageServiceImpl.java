@@ -68,7 +68,7 @@ public class POIImageServiceImpl implements POIImageService {
         }
     }
     @Override
-    public boolean delete(Integer imageId) {
+    public boolean deleteByImageId(Integer imageId) {
         POIImage poiImage = poiImageMapper.findByImageId(imageId);
         if(poiImage == null){
             throw new NullException(ResultEnum.IMAGE_NOT_EXISTS.getMessage());
@@ -81,7 +81,7 @@ public class POIImageServiceImpl implements POIImageService {
         if(file.exists()){
             file.delete();
         }
-        int result = poiImageMapper.delete(imageId);
+        int result = poiImageMapper.deleteByImageId(imageId);
         if(result == 0){
             return false;
         }else {

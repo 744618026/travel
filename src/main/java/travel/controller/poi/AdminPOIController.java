@@ -95,7 +95,7 @@ public class AdminPOIController{
     @GetMapping("/image/delete")
     public ResultVo poiImageDelete(@RequestParam("imageId")Integer imageId){
         try{
-            boolean result = poiImageService.delete(imageId);
+            boolean result = poiImageService.deleteByImageId(imageId);
             if(result){
                 return ResultUtil.success();
             }else{
