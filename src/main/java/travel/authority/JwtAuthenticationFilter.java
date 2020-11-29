@@ -69,6 +69,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         return reloadableResourceBundleMessageSource;
     }
     private MessageSourceService messageSourceService(){
+
         return new MessageSourceService(messageSource());
     }
 
