@@ -2,6 +2,7 @@ package travel.mapper.region;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import travel.dao.region.Region;
@@ -15,4 +16,6 @@ public interface RegionMapper {
     List<Region> findAll();
     @Insert("Insert into Region(regionId,regionName) values(#{regionId},#{regionName})")
     int insert(Region region);
+    @Select("Select * from Region Where regionId=#{regionId}")
+    Region findByRegionId(@Param("regionId") String regionId);
 }

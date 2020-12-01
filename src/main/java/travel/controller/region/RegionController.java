@@ -12,27 +12,36 @@ import travel.dao.region.Region;
 import travel.enums.ReturnMessageEnum;
 import travel.service.serviceImpl.region.RegionServiceImpl;
 import travel.utils.ResultUtil;
+import travel.vo.RegionVo;
 import travel.vo.ResultVo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/region")
 public class RegionController {
     @Autowired
     private RegionServiceImpl regionService;
-    @GetMapping("/regions")
+    @GetMapping("/getRegions")
     @Cacheable(cacheNames = "regions",key = "2")
-    public ResultVo getAll(){
+    public ResultVo getAllRegions(){
         try{
             List<Region> regionList = regionService.findAll();
-            return  ResultUtil.success(regionList);
+            List<RegionVo> regionVoList = new ArrayList<>();
+            for(Region region : regionList){
+                RegionVo regionVo = new RegionVo();
+                regionVo.setName(region.getRegionName());
+                regionVo.setRegionId(region.getRegionId());
+                regionVoList.add(regionVo);
+            }
+            return  ResultUtil.success(regionVoList);
         }catch (Exception e){
             return ResultUtil.fail(e.getMessage());
         }
     }
-    @PostMapping("/admin/region/add")
     @CacheEvict(cacheNames = "regions",key = "2")
+    @PostMapping("/admin/region/add")
     public ResultVo addRegion(@Param("regionName")String regionName){
         ResultVo resultVo = new ResultVo();
 

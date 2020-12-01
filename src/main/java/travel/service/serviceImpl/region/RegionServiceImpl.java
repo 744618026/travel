@@ -3,6 +3,8 @@ package travel.service.serviceImpl.region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import travel.dao.region.Region;
+import travel.enums.ResultEnum;
+import travel.exceptions.NullException;
 import travel.mapper.region.RegionMapper;
 import travel.service.region.RegionService;
 
@@ -22,6 +24,15 @@ public class RegionServiceImpl implements RegionService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Region findByRegionId(String regionId) {
+        Region region = regionMapper.findByRegionId(regionId);
+        if(region == null){
+            throw new NullException(ResultEnum.REGION_NOT_EXISTS.getMessage());
+        }
+        return region;
     }
 
 }

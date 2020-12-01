@@ -11,7 +11,8 @@ public enum ResultEnum {
     SQL_Syntax_Error_Exception(8,"SQL错误"),
     USER_NOT_EXISTS(9,"用户不存在"),
     USER_EXISTS(10,"用户已存在"),
-    EMAIL_REGISTERED(11,"邮箱已注册");
+    EMAIL_REGISTERED(11,"邮箱已注册"),
+    REGION_NOT_EXISTS(12,"地区不存在");
     private Integer code;
     private String message;
     ResultEnum(Integer code,String message){

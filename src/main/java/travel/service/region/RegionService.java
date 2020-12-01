@@ -9,4 +9,6 @@ public interface RegionService {
     List<Region> findAll();
 
     boolean insert(Region region);
+
+    Region findByRegionId(String regionId);
 }

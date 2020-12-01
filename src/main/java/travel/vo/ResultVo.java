@@ -36,7 +36,7 @@ public class ResultVo<T> implements Serializable {
     public String toString(){
         return "{\n" +
                 "\"code\":" + this.code+",\n"+
-                "\"message\":" + this.message+
-                "}";
+                "\"message\":\"" + this.message+
+                "\"}";
     }
 }

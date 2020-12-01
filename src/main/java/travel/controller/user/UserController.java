@@ -1,7 +1,6 @@
 package travel.controller.user;
 
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,16 +10,11 @@ import org.springframework.web.multipart.MultipartFile;
 import travel.dao.user.User;
 import travel.dataForm.UserForm;
 import travel.enums.ResultEnum;
-import travel.enums.ReturnMessageEnum;
 import travel.enums.RoleEnum;
 import travel.service.serviceImpl.user.UserServiceImpl;
 import travel.utils.ResultUtil;
 import travel.vo.ResultVo;
-
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 @RestController
 @RequestMapping("")
@@ -31,10 +25,10 @@ public class UserController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @GetMapping("/checkUser")
     //检查用户是否存在
-    public ResultVo check(@RequestParam("userName")String userName) {
+    public ResultVo check(@RequestParam("username")String username) {
         try{
             //用户不存在抛出异常
-            userService.findByUserName(userName);
+            userService.findByUserName(username);
             return ResultUtil.success();
         }catch (Exception e){
             return ResultUtil.fail(e.getMessage());

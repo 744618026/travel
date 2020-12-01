@@ -3,7 +3,10 @@ package travel.utils;
 import travel.enums.ReturnMessageEnum;
 import travel.vo.ResultVo;
 
+import java.io.Serializable;
+
 public class ResultUtil {
+    //private static final long serialVersionUID = -232961394107847165L;
     public static ResultVo success(Object object){
         ResultVo resultVo = new ResultVo();
         resultVo.setCode(ReturnMessageEnum.SUCCESS.getCode());

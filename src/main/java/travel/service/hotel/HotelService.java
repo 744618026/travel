@@ -1,7 +1,9 @@
 package travel.service.hotel;
 
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 import travel.dao.hotel.Hotel;
+
+import java.util.List;
 
 public interface HotelService {
     /**
@@ -18,16 +20,15 @@ public interface HotelService {
     boolean delete(String hotelId);
     /**
      *
-     * @param hotelId 酒店id
-     * @param describe 描述
-     * @return boolean
+     * @param hotel
+     * @return
      */
-    boolean updateDescribe(String describe,String hotelId);
+    boolean update(Hotel hotel);
+
     /**
      *
-     * @param hotelName 酒店名
-     * @param hotelId 酒店Id
-     * @return boolean
+     * @param regionId 地区Id
+     * @return
      */
-    boolean updateHotelName(String hotelName,String hotelId);
+    List<Hotel> findByRegionId(String regionId);
 }
