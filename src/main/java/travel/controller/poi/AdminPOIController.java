@@ -3,46 +3,54 @@ package travel.controller.poi;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import travel.dao.poi.POI;
 import travel.dao.poi.POIImage;
+import travel.dao.region.Region;
 import travel.dataForm.POIForm;
-import travel.enums.ReturnMessageEnum;
 import travel.service.serviceImpl.poi.POIImageServiceImpl;
 import travel.service.serviceImpl.poi.POIServiceImpl;
+import travel.service.serviceImpl.region.RegionServiceImpl;
 import travel.utils.ResultUtil;
 import travel.vo.ResultVo;
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/admin/poi")
-@CacheEvict(cacheNames = "pois",key = "1")
 public class AdminPOIController{
     @Autowired
     private POIServiceImpl poiService;
     @Autowired
     private POIImageServiceImpl poiImageService;
+    @Autowired
+    private RegionServiceImpl regionService;
     //添加景点
+    @CacheEvict(key = "'/poi/list?'+#poiForm.regionId")
     @PostMapping("/add")
     public ResultVo poiAdd(@Valid POIForm poiForm,BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return ResultUtil.fail(bindingResult.getFieldError().getDefaultMessage());
         }
-        POI poi = new POI();
-        BeanUtils.copyProperties(poiForm,poi);
-        boolean result = poiService.insert(poi);
-        if(result){
-            return ResultUtil.success();
-        }else{
-            return ResultUtil.fail();
+        try{
+            regionService.findByRegionId(poiForm.getRegionId());
+            POI poi = new POI();
+            BeanUtils.copyProperties(poiForm,poi);
+            boolean result = poiService.insert(poi);
+            if(result){
+                return ResultUtil.success();
+            }else{
+                return ResultUtil.fail();
+            }
+        }catch (Exception e){
+            return ResultUtil.fail(e.getMessage());
         }
     }
+    @CacheEvict(key = "'/poi/list?'+#regionId")
     //删除景点
     @GetMapping("/delete")
-    public ResultVo delete(@RequestParam("poiId")String poiId){
+    public ResultVo delete(@RequestParam("poiId")String poiId,@RequestParam("regionId")String regionId){
         try{
             boolean result = poiService.delete(poiId);
             if(result){

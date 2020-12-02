@@ -2,8 +2,11 @@ package travel.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.core.serializer.Serializer;
+import travel.dao.hotel.Hotel;
+import travel.dao.hotel.HotelImage;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class HotelVo implements Serializable {
     private static final long serialVersionUID = -4044478237212554787L;
@@ -18,6 +21,16 @@ public class HotelVo implements Serializable {
     /**地区Id**/
     @JsonProperty("regionId")
     private String regionId;
+    @JsonProperty("images")
+    private List<HotelImageVo> hotelImageVoList;
+
+    public List<HotelImageVo> getHotelImageVoList() {
+        return hotelImageVoList;
+    }
+
+    public void setHotelImageVoList(List<HotelImageVo> hotelImageVoList) {
+        this.hotelImageVoList = hotelImageVoList;
+    }
 
     public String getHotelId() {
         return hotelId;

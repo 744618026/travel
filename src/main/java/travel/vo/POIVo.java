@@ -26,16 +26,6 @@ public class POIVo implements Serializable {
     /**门票库存*/
     @JsonProperty("ticketStock")
     private Integer poiStock;
-    @JsonProperty("image")
-    private List<POIImageVo> poiImageList;
-
-    public List<POIImageVo> getPoiImageList() {
-        return poiImageList;
-    }
-
-    public void setPoiImageList(List<POIImageVo> poiImageList) {
-        this.poiImageList = poiImageList;
-    }
 
     public String getPoiId() {
         return poiId;

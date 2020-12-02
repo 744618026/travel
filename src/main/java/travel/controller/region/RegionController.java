@@ -41,10 +41,14 @@ public class RegionController {
         }
     }
     @CacheEvict(cacheNames = "regions",key = "2")
-    @PostMapping("/admin/region/add")
+    @PostMapping("/admin/add")
     public ResultVo addRegion(@Param("regionName")String regionName){
-        ResultVo resultVo = new ResultVo();
-
-        return resultVo;
+        Region region = new Region();
+        region.setRegionName(regionName);
+        boolean result = regionService.insert(region);
+        if(result){
+            return ResultUtil.success();
+        }
+        return ResultUtil.fail();
     }
 }

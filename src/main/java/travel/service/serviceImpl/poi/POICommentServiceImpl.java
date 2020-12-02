@@ -17,9 +17,6 @@ public class POICommentServiceImpl implements POICommentService {
     @Override
     public List<POIComment> findByPOIId(String poiId) {
         List<POIComment> poiCommentList = poiCommentMapper.findByPOIId(poiId);
-        if(poiCommentList.size()==0){
-            throw new NullException(ResultEnum.DATA_GET_NULL.getMessage());
-        }
         return poiCommentList;
     }
 

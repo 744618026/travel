@@ -25,9 +25,6 @@ public class POIImageServiceImpl implements POIImageService {
     @Override
     public List<POIImage> findByPOIId(String POIId) {
         List<POIImage> poiImageList = poiImageMapper.findByPOIId(POIId);
-        if(poiImageList.size()==0){
-            throw new NullException(ResultEnum.DATA_GET_NULL.getMessage());
-        }
         return poiImageList;
     }
     @Override

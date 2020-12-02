@@ -7,6 +7,7 @@ import travel.enums.ResultEnum;
 import travel.exceptions.NullException;
 import travel.mapper.region.RegionMapper;
 import travel.service.region.RegionService;
+import travel.utils.RegionKeyUtil;
 
 import java.util.List;
 @Service
@@ -19,13 +20,13 @@ public class RegionServiceImpl implements RegionService {
     }
     @Override
     public boolean insert(Region region) {
+        region.setRegionId(RegionKeyUtil.getKey());
         int result = regionMapper.insert(region);
         if(result!=0){
             return true;
         }
         return false;
     }
-
     @Override
     public Region findByRegionId(String regionId) {
         Region region = regionMapper.findByRegionId(regionId);

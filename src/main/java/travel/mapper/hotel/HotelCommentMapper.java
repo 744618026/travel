@@ -16,7 +16,6 @@ public interface HotelCommentMapper {
      * @param hotelId
      * @return 该酒店所有评论list
      */
-    @Select("Select * from Hotel_Comment where Hotel_Id=#{hotelId}")
+    @Select("Select * from Hotel_Comment where hotelId=#{hotelId}")
     List<HotelComment> findByHotelId(@Param("hotelId") String hotelId);
-
 }
