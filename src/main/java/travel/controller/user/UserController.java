@@ -24,10 +24,10 @@ public class UserController {
     private UserServiceImpl userService;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    @GetMapping("/login")
+    @GetMapping("/userLogin")
     public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("");
+        modelAndView.setViewName("/login/login.html");
         return modelAndView;
     }
     @GetMapping("/checkUser")
