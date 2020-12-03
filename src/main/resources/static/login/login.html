@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Login</title>
+		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		<script src="login.js"></script>
+		<link rel="stylesheet" href="/travel/css/login.css" type="text/css"/>
+	</head>
+	<body>
+			<div class="container">
+				<div class="login">
+					<hi>账户登录</hi>
+					<div>
+						<span id="d" class="error_tip">验证码为空</span>
+					</div>
+				</div>
+
+				<div class="input">
+					<form  method="post" id="form">
+						<div class="a1">
+							<img src="../img/login.jpg"><input type="text" placeholder="Username" id="username" name="username" readonly onfocus="this.removeAttribute('readonly');" onblur="this.setAttribute('readonly',true);">
+							<span id="u">用户名不能为空</span>
+						</div>
+						<div class="a2">
+							<img src="../img/mima.jpg"><input type="password" placeholder="Password" id="password" name="password">
+							<span id="m">密码不能为空</span>
+						</div>
+						<div class="code">
+							<input type="text" placeholder="验证码" name="imageCode" id="code">
+							<img src="/travel/code/getCode" class="pcode">
+							<span id="c" class="empty_tip">验证码为空</span>
+						</div>
+					</form>
+						<div class="btn">
+							<button type="submit" id="btn-log">登录</button>
+							<button id="forget_password">
+								<a href="../ForgetPassword.html" class="forget-href">忘记密码</a>
+							</button>
+							<button type="submit" class="regist">
+								<a href="../regist.html" class="regist-herf">注册</a></button>
+						</div>
+				</div>
+
+			</div>
+	</body>
+</html>
+
+            

@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url(/travel/img/2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 170%;
+}
+.container{
+    margin-bottom: 100px;
+    width:480px;
+    height: auto;
+    border: 1px black solid;
+    margin: 100px auto;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    background-color: rgba(255,255,250,0.2);
+}
+.container hi{
+    font-size: 20px;
+}
+.error_tip{
+    width: 160px;
+    height: 21px;
+    font-size: 15px;
+    position: relative;
+    left: 140px;
+    top: 5px;
+    color: red;
+    display: none;
+}
+.empty_tip{
+    width: 100px;
+    height: 21px;
+    font-size: 14px;
+    position: relative;
+    left: 5px;
+    top: 5px;
+    color: red;
+    display: none;
+    float: left;
+}
+.login{
+    margin: 20px;
+    color: white;
+}
+.input .a1{
+    width: 480px;
+    height: 50px;
+}
+.input input{
+    display: block;
+    width: 200px;
+    height: 30px;
+    border: none;
+    /* 鼠标点击框时的 */
+    border-bottom: 2px white solid;
+    padding: 0 10px;
+    border-radius: 5px;
+    float: left;
+    margin-left: 10px;
+    outline: none;
+}
+.input .a1 img{
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+
+    margin-left: 100px;
+}
+.input .a1 span{
+    width: 100px;
+    height: auto;
+    font-size: 14px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: red;
+    display: none;
+}
+
+.input .a2{
+    width: 480px;
+    height: 50px;
+}
+.input .a2 img{
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin-left: 100px;
+}
+.input .a2 span{
+    width: 90px;
+    height: auto;
+    font-size: 14px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: red;
+    display: none;
+}
+.input .btn{
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    position: relative;
+    left: 5px;
+}
+.btn button{
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    border: 0;
+    margin: 0;
+    /* 按钮边框不显示 */
+    font-size: 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    background-color: transparent;
+    /* 按钮背景颜色与背景图一样 */
+    position: relative;
+    left: 5px;
+}
+
+.btn button:hover{
+    background-image: linear-gradient(19deg, #8EC5FC 0%,#E0C3FC 100%);
+    cursor: pointer;
+}
+/* 按钮的监听，渐变色   */
+.regist a{
+    border-radius: 10px;
+}
+#login{
+    margin-right: 15px;
+}
+.input{
+    position: relative;
+}
+
+.forget-href{
+    text-decoration: none;
+    color: white;
+}
+.regist-herf{
+    text-decoration: none;
+    color: white;
+}
+.code{
+    width: 480px;
+    height: 50px;
+}
+#code{
+    display: block;
+    width: 80px;
+    height: 30px;
+    border: none;
+    position: relative;
+    margin-left: 140px;
+}
+.pcode{
+    position: relative;
+    width: 108px;
+    height: 30px;
+    left: 10px;
+    float: left;
+    border-radius: 5px;
+}

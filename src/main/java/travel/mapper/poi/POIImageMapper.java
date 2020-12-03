@@ -36,7 +36,7 @@ public interface POIImageMapper {
      * @param imageId 图片Id
      * @return 该图片信息
      */
-    @Select("Select * From POIImage where poiImage_Id=#{imageId}")
+    @Select("Select * From POIImage where poiImageId=#{imageId}")
     POIImage findByImageId(@Param("imageId")Integer imageId);
 
     /**
