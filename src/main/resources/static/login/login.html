@@ -4,8 +4,8 @@
 		<meta charset="utf-8" />
 		<title>Login</title>
 		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-		<script src="login.js"></script>
-		<link rel="stylesheet" href="/travel/css/login.css" type="text/css"/>
+		<script src="/travel/login/login.js"></script>
+		<link rel="stylesheet" href="/travel/login/login.css" type="text/css"/>
 	</head>
 	<body>
 			<div class="container">
@@ -19,11 +19,11 @@
 				<div class="input">
 					<form  method="post" id="form">
 						<div class="a1">
-							<img src="../img/login.jpg"><input type="text" placeholder="Username" id="username" name="username" readonly onfocus="this.removeAttribute('readonly');" onblur="this.setAttribute('readonly',true);">
+							<img src="/travel/login/login.jpg"><input type="text" placeholder="Username" id="username" name="username" readonly onfocus="this.removeAttribute('readonly');" onblur="this.setAttribute('readonly',true);">
 							<span id="u">用户名不能为空</span>
 						</div>
 						<div class="a2">
-							<img src="../img/mima.jpg"><input type="password" placeholder="Password" id="password" name="password">
+							<img src="/travel/login/mima.jpg"><input type="password" placeholder="Password" id="password" name="password">
 							<span id="m">密码不能为空</span>
 						</div>
 						<div class="code">
@@ -35,10 +35,10 @@
 						<div class="btn">
 							<button type="submit" id="btn-log">登录</button>
 							<button id="forget_password">
-								<a href="../ForgetPassword.html" class="forget-href">忘记密码</a>
+								<a href="travel/ForgetPassword/ForgetPassword.html" class="forget-href">忘记密码</a>
 							</button>
 							<button type="submit" class="regist">
-								<a href="../regist.html" class="regist-herf">注册</a></button>
+								<a href="travel/regist/regist.html" class="regist-herf">注册</a></button>
 						</div>
 				</div>
 
