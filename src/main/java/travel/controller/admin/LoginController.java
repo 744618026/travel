@@ -13,4 +13,16 @@ public class LoginController {
         mv.setViewName("/login/adminLogin.html");
         return mv;
     }
+    @RequestMapping(method = RequestMethod.GET,value = "/forgetPwd")
+    public ModelAndView forget(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/forgetPwd/ForgetPassword.html");
+        return mv;
+    }
+    @RequestMapping(method = RequestMethod.GET,value = "/userRegister")
+    public ModelAndView register(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/regist/regist.html");
+        return mv;
+    }
 }
