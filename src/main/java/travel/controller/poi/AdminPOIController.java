@@ -3,6 +3,7 @@ package travel.controller.poi;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,7 +28,7 @@ public class AdminPOIController{
     @Autowired
     private RegionServiceImpl regionService;
     //添加景点
-    @CacheEvict(key = "'/poi/list?'+#poiForm.regionId")
+    @CacheEvict(key = "'/poi/list?'+#poiForm.oldRegionId")
     @PostMapping("/add")
     public ResultVo poiAdd(@Valid POIForm poiForm,BindingResult bindingResult){
         if(bindingResult.hasErrors()){
@@ -62,6 +63,7 @@ public class AdminPOIController{
             return ResultUtil.fail(e.getMessage());
         }
     }
+    @CacheEvict(key ="'/poi/list?'+#poiForm.oldRegionId")
     //更新景点信息
     @GetMapping("/update")
     public ResultVo poiUpdate(@Valid POIForm poiForm, BindingResult bindingResult){
@@ -81,6 +83,7 @@ public class AdminPOIController{
             return ResultUtil.fail(e.getMessage());
         }
     }
+    @CacheEvict(key = "'/poi/images?'+#poiId")
     //添加景点图片
     @PostMapping("/image/upload")
     public ResultVo poiImageUpload(@RequestParam("file")MultipartFile file,@RequestParam("poiId")String poiId){
@@ -99,6 +102,7 @@ public class AdminPOIController{
             return ResultUtil.fail(e.getMessage());
         }
     }
+    @CacheEvict(key = "'/poi/images?'+#poiId")
     //删除景点图片
     @GetMapping("/image/delete")
     public ResultVo poiImageDelete(@RequestParam("imageId")Integer imageId){

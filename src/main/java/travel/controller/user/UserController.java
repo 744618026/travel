@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import travel.dao.user.User;
 import travel.dataForm.UserForm;
 import travel.enums.ResultEnum;
@@ -23,6 +24,12 @@ public class UserController {
     private UserServiceImpl userService;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @GetMapping("/login")
+    public ModelAndView login(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("");
+        return modelAndView;
+    }
     @GetMapping("/checkUser")
     //检查用户是否存在
     public ResultVo check(@RequestParam("username")String username) {

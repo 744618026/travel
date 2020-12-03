@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理登录</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="/travel/login/adminLogin.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/travel/login/adminlogin.js"></script>
+</head>
+<body>
+<div class="back">
+    <div class="cover">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <h3 class="text-center text-info">
+                        管理中心
+                    </h3>
+                    <div class="error">
+                        <span id="error-text">用户名或密码错误</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form">
+                <form role="form" id="form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">管理员账号</label><input type="email" name="username" class="form-control" id="exampleInputEmail1" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">管理员密码</label><input type="text"  name="password" autocomplete="off" onfocus="this.type='password'" class="form-control" id="exampleInputPassword" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="label">验证码</label><input type="text" name="imageCode" class="form-control verify" id="exampleInputPassword1" />
+                        <img src="/travel/code/getCode" style="float: left" class="img">
+                    </div>
+                    <div class="button">
+                        <button type="button" class="btn btn-default btn-primary btn-block" id="log-btn">登录</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

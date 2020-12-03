@@ -12,13 +12,23 @@ public class POIForm {
     private String poiDescribe;
     /**地区ID*/
     @NotNull(message = "景点所属地区不能为空")
-    private String regionId;
+    private String oldRegionId;
     /**门票价格*/
     @NotNull(message = "门票价格不为空")
     private BigDecimal poiTicketPrice;
     /**门票库存*/
     @NotNull(message = "门票库存不为空")
     private Integer poiStock;
+
+    private String regionId;
+
+    public String getOldRegionId() {
+        return oldRegionId;
+    }
+
+    public void setOldRegionId(String oldRegionId) {
+        this.oldRegionId = oldRegionId;
+    }
 
     public String getPoiId() {
         return poiId;
