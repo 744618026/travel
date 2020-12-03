@@ -1,0 +1,118 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+.title{
+    position: relative;
+    width:100%;
+    height: 70px;
+    background-color: #00CED1;
+}
+.title .title-text{
+    width:500px;
+    height: 70px;
+    display: inline-block;
+}
+.title h1{
+    margin: 0px 0px 0px 30px;
+    color: white;
+}
+.title .title-text span{
+    margin: 5px 0px 0px 30px;
+    color: white;
+    font-size: 18px;
+}
+.title .user{
+    float: right;
+    display: inline-block;
+    width: 250px;
+    height: 70px;
+    color: white;
+}
+.title .user span{
+    position: relative;
+    text-align: center;
+    top:-7px;
+}
+.title .user img{
+    position: relative;
+    display: inline-block;
+    width:50px;
+    height: 50px;
+    border-radius: 25px;
+    top: 10px;
+    left: 3px;
+}
+
+.title .user a{
+    position: relative;
+    top:-7px;
+}
+.content{
+    position: relative;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.content .nav{
+    width: 150px;
+    height: 100%;
+}
+.content .nav ul{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 170px;
+    height: 400px;
+    background-color: #333333;
+}
+.nav ul li{
+    list-style: none;
+    width: 100%;
+    margin: 0px;
+}
+.nav ul .user{
+    height: 70px;
+}
+.nav ul .user img{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+.nav ul .user div{
+    float: left;
+    height: 100%;
+}
+.nav ul .user .user-icon{
+    width: 70px;
+}
+.nav ul .user .user-icon img{
+    position: relative;
+    top:5px;
+    left: 10px;
+}
+.nav ul .user .user-info{
+    width: 100px;
+}
+.nav ul .user .user-info span{
+    display: block;
+}
+.nav ul .user .user-info span:first-child{
+    position: relative;
+    color: #00CED1;
+    top:10px;
+    left: 10px;
+    bottom: 5px;
+    font-size: 18px;
+}
+.nav ul .user .user-info span:last-child{
+    position: relative;
+    color: white;
+    left: 10px;
+    top:10px;
+    font-size: 14px;
+}
