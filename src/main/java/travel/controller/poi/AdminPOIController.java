@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import travel.dao.poi.POI;
 import travel.dao.poi.POIImage;
 import travel.dao.region.Region;
@@ -27,6 +28,13 @@ public class AdminPOIController{
     private POIImageServiceImpl poiImageService;
     @Autowired
     private RegionServiceImpl regionService;
+
+    @GetMapping("/list")
+    public ModelAndView poi(){
+        ModelAndView mv =new ModelAndView();
+        mv.setViewName("/admin/poi/list.html");
+        return mv;
+    }
     //添加景点
     @CacheEvict(key = "'/poi/list?'+#poiForm.oldRegionId")
     @PostMapping("/add")

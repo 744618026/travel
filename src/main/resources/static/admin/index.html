@@ -5,7 +5,9 @@
     <title>旅游后台管理系统</title>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link rel="stylesheet" href="/travel/admin/css/index.css">
+    <link rel="stylesheet" href="/travel/admin/css/guide.css">
     <script src="/travel/admin/js/index.js"></script>
+    <script src="/travel/admin/js/guide.js"></script>
 </head>
 <body>
 <div class="container">
@@ -18,6 +20,11 @@
             <a>退出登录</a>
             <span>|</span>
             <a>修改密码</a>
+            <span>|</span>
+            <a id="region">地区选择 <caret></caret><div class="region">
+
+            </div></a>
+
             <span>|</span>
             <img src="/travel/admin/img/userIcon.jpg">
         </div>
@@ -34,19 +41,120 @@
                         <span>欢迎登录！</span>
                     </div>
                 </li>
-                <li>
-
-                </li>
-                <li>
-
-                </li>
-                <li>
-
-                </li>
+                <div class="list">
+                    <div class="bank"></div>
+                    <li class="index active">
+                        首页&ensp;&ensp;
+                    </li>
+                    <li class="index">
+                        <a href="/travel/admin/region/list">地区&ensp;</a>
+                    </li>
+                    <li class="item">
+                        <a>景点 <caret></caret></a>
+                        <span style="display: none">.interests</span>
+                    </li>
+                    <div class="dd interests">
+                        <div class="d"><a href="/travel/admin/poi/list">查看</a></div>
+                        <div class="d">添加</div>
+                        <div class="d">订单</div>
+                    </div>
+                    <li class="item">
+                        <a>民俗  <caret></caret></a>
+                        <span style="display: none">.festival</span>
+                    </li>
+                    <div class="dd festival">
+                        <div class="d">查看</div>
+                        <div class="d">添加</div>
+                    </div>
+                    <li class="item">
+                        <a>酒店  <caret></caret></a>
+                        <span style="display: none">.hotel</span>
+                    </li>
+                    <div class="dd hotel">
+                        <div class="d">查看</div>
+                        <div class="d">添加</div>
+                        <div class="d">订单</div>
+                    </div>
+                </div>
             </ul>
         </div>
         <div class="table">
-
+            <div class="content">
+                <div class="statistics">
+                    <div class="interest">
+                        <div class="img">
+                            <img src="/travel/admin/img/interest.jpg">
+                        </div>
+                        <div class="info">
+                            <span>景点数量</span>
+                            <span class="interest-num">10000</span>
+                        </div>
+                    </div>
+                    <div class="interest">
+                        <div class="img">
+                            <img src="/travel/admin/img/festival.png">
+                        </div>
+                        <div class="info">
+                            <span>民俗数量</span>
+                            <span class="interest-num">10000</span>
+                        </div>
+                    </div>
+                    <div class="interest">
+                        <div class="img">
+                            <img src="/travel/admin/img/hotel.png">
+                        </div>
+                        <div class="info">
+                            <span>酒店数量</span>
+                            <span class="interest-num">10000</span>
+                        </div>
+                    </div>
+                    <div class="interest">
+                        <div class="img">
+                            <img src="/travel/admin/img/users.png">
+                        </div>
+                        <div class="info">
+                            <span>用户数量</span>
+                            <span class="interest-num">10000</span>
+                        </div>
+                    </div>
+                    <div class="interest">
+                        <div class="img">
+                            <img src="/travel/admin/img/order1.png">
+                        </div>
+                        <div class="info">
+                            <span>景点订单总数</span>
+                            <span class="interest-num">10000</span>
+                        </div>
+                    </div>
+                    <div class="interest">
+                        <div class="img">
+                            <img src="/travel/admin/img/order2.jpg">
+                        </div>
+                        <div class="info">
+                            <span>酒店订单总数</span>
+                            <span class="interest-num">10000</span>
+                        </div>
+                    </div>
+                    <div class="interest">
+                        <div class="img">
+                            <img src="/travel/admin/img/amount1.png">
+                        </div>
+                        <div class="info">
+                            <span>景点销售总额</span>
+                            <span class="interest-num">10000</span>
+                        </div>
+                    </div>
+                    <div class="interest">
+                        <div class="img">
+                            <img src="/travel/admin/img/amount2.png">
+                        </div>
+                        <div class="info">
+                            <span>酒店销售总额</span>
+                            <span class="interest-num">10000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

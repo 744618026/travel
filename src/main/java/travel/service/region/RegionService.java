@@ -11,4 +11,6 @@ public interface RegionService {
     boolean insert(Region region);
 
     Region findByRegionId(String regionId);
+
+    List<Region> find(Integer currPage,Integer pageSize);
 }

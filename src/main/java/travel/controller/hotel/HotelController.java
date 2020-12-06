@@ -2,6 +2,7 @@ package travel.controller.hotel;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class HotelController {
     private RegionServiceImpl regionService;
     @Autowired
     private HotelImageServiceImpl hotelImageService;
-    //@Cacheable(cacheNames = "hotels",key = "3")
+    @Cacheable(key = "'hotel/list?'+#regionId")
     @RequestMapping("/list")
     public ResultVo findByRegionId(@RequestParam("regionId")String regionId){
         try {

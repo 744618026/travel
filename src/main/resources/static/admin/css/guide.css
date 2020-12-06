@@ -1,0 +1,281 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    min-width: 1430px;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+.title{
+    position: relative;
+    width:100%;
+    height: 70px;
+    background-color: #00CED1;
+}
+.title .title-text{
+    width:500px;
+    height: 70px;
+    display: inline-block;
+}
+.title h1{
+    margin: 0px 0px 0px 30px;
+    color: white;
+}
+.title:hover{
+    cursor: default;
+}
+.title .title-text span{
+    margin: 5px 0px 0px 30px;
+    color: white;
+    font-size: 18px;
+}
+.title .user{
+    float: right;
+    display: inline-block;
+    width: 300px;
+    height: 70px;
+    color: white;
+}.title .user  a:hover{
+     cursor: pointer;
+ }
+.title .user span{
+    position: relative;
+    text-align: center;
+    top:-7px;
+}
+.title .user img{
+    position: relative;
+    display: inline-block;
+    width:50px;
+    height: 50px;
+    border-radius: 25px;
+    top: 10px;
+    left: 3px;
+}
+.title .user .region{
+    display: none;
+    position: absolute;
+    margin-left: 100px;
+    margin-top:0px;
+    overflow: scroll;
+    width: 150px;
+    height: 300px;
+    border: 1px solid gainsboro;
+    background-color: white;
+    z-index: 999;
+}
+.title .user a{
+    position: relative;
+    top:-7px;
+}
+.content{
+    position: relative;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.content .nav{
+    width: 170px;
+    height: 100%;
+    float: left;
+}
+.content .nav ul{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 170px;
+    height: 400px;
+    background-color: #333333;
+    min-height: 600px;
+}
+.content .nav ul .list{
+    margin: 0;
+    width: 100%;
+    min-height: 530px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.nav ul li{
+    position: relative;
+    list-style: none;
+    width: 100%;
+    margin: 0px;
+}
+.nav ul .user{
+    height: 70px;
+}
+.nav ul .user img{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+.nav ul .user div{
+    float: left;
+    height: 100%;
+}
+.nav ul .user .user-icon{
+    width: 70px;
+}
+.nav ul .user .user-icon img{
+    position: relative;
+    top:5px;
+    left: 10px;
+}
+.nav ul .user .user-info{
+    width: 100px;
+}
+.nav ul .user .user-info span{
+    display: block;
+}
+.nav ul .user .user-info span:hover{
+    cursor: default;
+}
+.nav ul .user .user-info span:first-child{
+    position: relative;
+    color: #00CED1;
+    top:10px;
+    left: 10px;
+    bottom: 5px;
+    font-size: 18px;
+}
+.nav ul .user .user-info span:last-child{
+    position: relative;
+    color: white;
+    left: 10px;
+    top:10px;
+    font-size: 14px;
+}
+.nav ul .item{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid #888888;
+}
+.nav ul .bank{
+    idth: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid #888888;
+}
+.nav ul .item:hover{
+    cursor: pointer;
+    background-color: #888888;
+}
+caret{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid white;
+    transition: all .3s linear;
+    -webkit-transtion:all .3s linear;
+}
+.rotate{
+    transform: rotate(180deg);
+    transition: all .3s linear;
+    -webkit-transform:rotate(180deg);
+    -webkit-transtion:all .3s linear;
+}
+.nav ul .dd{
+    display: none;
+    width: 100%;
+    height: auto;
+    margin: 0px;
+}
+.nav ul  .dd .d{
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+}
+.nav ul  .dd .d:last-child{
+    border-bottom: 1px solid #888888;
+}
+.nav ul  .dd a:hover{
+    cursor: pointer;
+    background-color: #888888;
+}
+.nav ul li:hover{
+    cursor: pointer;
+}
+.nav ul .active{
+    background-color: #00CED1;
+    border: 1px solid #00CED1;
+}
+.nav ul .dd .d a{
+    text-decoration: none;
+    color: white;
+}
+.nav ul .dd .d:hover{
+    cursor: pointer;
+}
+.nav ul .index{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #888888;
+    line-height: 40px;
+    text-align: center;
+}
+.nav ul .interest{
+    display: none;
+}
+.nav ul a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    width:170px;
+    height: 40px;
+}
+.table{
+    float: left;
+}
+.table .content{
+    width:1000px;
+    margin: 0px auto;
+}
+.top{
+    margin: 0px;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid gainsboro;
+}
+.top a{
+    position: relative;
+    text-align: center;
+    color: #888888;
+    top: 15px;
+    text-decoration: none;
+}
+.top a:hover{
+    cursor: pointer;
+}
+.top span{
+    position: relative;
+    color: #888888;
+    top:13px;
+}
+.top span:hover{
+    cursor: default;
+}
+.region .item{
+    width:60px;
+    height:20px;
+    color: black;
+}
+#region:hover caret{
+    transform: rotate(180deg);
+    transition: all .3s linear;
+    -webkit-transform:rotate(180deg);
+    -webkit-transtion:all .3s linear;
+}
+#region:hover .region{
+    display: block;
+}

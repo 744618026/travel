@@ -36,4 +36,15 @@ public class RegionServiceImpl implements RegionService {
         return region;
     }
 
+    @Override
+    public List<Region> find(Integer currPage, Integer pageSize) {
+        List<Region> list = regionMapper.findAll();
+        Integer firstIndex = (currPage-1)*pageSize;
+        Integer lastIndex=currPage * pageSize;
+        if(list.size()<pageSize || lastIndex>list.size()){
+            lastIndex = list.size();
+        }
+        return list.subList(firstIndex,lastIndex);
+    }
+
 }

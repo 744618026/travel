@@ -11,7 +11,10 @@ public class RegionVo implements Serializable {
     private String regionId;
 
     @JsonProperty("name")
-    private String name;
+    private String regionName;
+    @JsonProperty("province")
+    private String province;
+
     public String getRegionId() {
         return regionId;
     }
@@ -19,11 +22,19 @@ public class RegionVo implements Serializable {
         this.regionId = regionId;
     }
 
-    public String getName() {
-        return name;
+    public String getRegionName() {
+        return regionName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 }

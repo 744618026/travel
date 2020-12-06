@@ -10,19 +10,7 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.GET,value = "/adminLogin")
     public ModelAndView adminLogin(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/login/adminLogin.html");
-        return mv;
-    }
-    @RequestMapping(method = RequestMethod.GET,value = "/forgetPwd")
-    public ModelAndView forget(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/forgetPwd/ForgetPassword.html");
-        return mv;
-    }
-    @RequestMapping(method = RequestMethod.GET,value = "/userRegister")
-    public ModelAndView register(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/regist/regist.html");
+        mv.setViewName("/adminLogin/adminLogin.html");
         return mv;
     }
 }
