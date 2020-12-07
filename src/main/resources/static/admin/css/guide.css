@@ -135,6 +135,26 @@ body{
     width: 100%;
     margin: 0px;
 }
+.nav ul .current-region{
+    width:100%;
+    height: 40px;
+    text-align: center;
+}
+.nav ul .current-region span{
+    display: inline-block;
+    position: relative;
+    margin-top: 5px;
+    font-size: 15px;
+}
+.nav ul .current-region span:hover{
+    cursor: default;
+}
+.nav ul .current-region span:first-child{
+    color: white;
+}
+.nav ul .current-region span:last-child{
+    color: #00CED1;
+}
 .nav ul .user{
     height: 70px;
 }

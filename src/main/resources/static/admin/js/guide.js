@@ -52,4 +52,5 @@ $(document).ready(function (){
         }
     })
     $("#current-region").html(localStorage.getItem("current-region"));
+    $("#current-re").html(localStorage.getItem("current-region"))
 })
