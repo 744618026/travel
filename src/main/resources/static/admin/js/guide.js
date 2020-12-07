@@ -34,15 +34,22 @@ $(document).ready(function (){
         success:function (data){
             if(data.code==0){
                 let regions = data.data;
+                localStorage.setItem("current-region",regions[0].name)
+                localStorage.setItem("current-region-id",regions[0].regionId);
                 for(let i=0;i<Object.keys(regions).length;i++){
                     let div = $("<div></div>");
                     div.addClass("item");
                     div.html(regions[i].name);
+                    div.click(function (){
+                        localStorage.setItem("current-region",regions[i].name);
+                        localStorage.setItem("current-region-id",regions[i].regionId);
+                        location.reload();
+                    });
                     $(".region").append(div);
-
                 }
                 localStorage.setItem("regionNum",Object.keys(regions).length.toString());
             }
         }
     })
+    $("#current-region").html(localStorage.getItem("current-region"));
 })

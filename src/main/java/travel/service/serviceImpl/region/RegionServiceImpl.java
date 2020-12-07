@@ -47,4 +47,22 @@ public class RegionServiceImpl implements RegionService {
         return list.subList(firstIndex,lastIndex);
     }
 
+    @Override
+    public List<Region> findByName(String regionName) {
+        return regionMapper.findByName(regionName);
+    }
+
+    @Override
+    public boolean update(Region region) {
+        Region region1 = regionMapper.findByRegionId(region.getRegionId());
+        if(region1 == null){
+            throw new NullException(ResultEnum.REGION_NOT_EXISTS.getMessage());
+        }
+        int result = regionMapper.update(region);
+        if(result>0){
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -13,4 +13,8 @@ public interface RegionService {
     Region findByRegionId(String regionId);
 
     List<Region> find(Integer currPage,Integer pageSize);
+
+    List<Region> findByName(String regionName);
+
+    boolean update(Region region);
 }
