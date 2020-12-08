@@ -1,26 +1,4 @@
 $(document).ready(function (){
-    $("#add-btn").click(function (){
-        if($("#region-input").val()!==""){
-            $.ajax({
-                url:"/travel/admin/region/add",
-                type:"post",
-                data:$("#add-form").serialize(),
-                success:function (data){
-                    if(data.code == 0){
-                        $(".error").css("display","block");
-                        $("#error-tip").html("添加成功！");
-                        setTimeout(function (){
-                            location.reload();
-                        },2000);
-
-                    }else{
-                        $(".error").css("display","block");
-                        $("#error-tip").html(data.message);
-                    }
-                }
-            })
-        }
-    });
     let datasum = parseInt(localStorage.getItem("regionNum"));
     var page = 1;
     load(1);
@@ -103,10 +81,32 @@ $(document).ready(function (){
             });
         }
     });
+    $("#add-btn").click(function (){
+        if($("#region-input").val()!==""){
+            $.ajax({
+                url:"/travel/admin/region/add",
+                type:"post",
+                data:$("#add-form").serialize(),
+                success:function (data){
+                    if(data.code == 0){
+                        $(".error").css("display","block");
+                        $("#error-tip").html("添加成功！");
+                        setTimeout(function (){
+                            location.reload();
+                        },2000);
+                    }else{
+                        $(".error").css("display","block");
+                        $("#error-tip").html(data.message);
+                    }
+                }
+            })
+        }
+    });
     $("#search-btn").click(function (){
         let search = $(".search-input").val();
         if(search !=""){
             urlAdd("搜索");
+            $("table").remove("tbody[class='search-body']");
             $.ajax({
                 url:"/travel/admin/region/search",
                 type:"post",
@@ -114,7 +114,7 @@ $(document).ready(function (){
                 success:function (data){
                     if(data.code==0){
                         let body = $("<tbody></tbody>");
-                        body.addClass(".search-body")
+                        body.addClass("search-body")
                         $("#data").css("display","none");
                         $("#pages").css("display","none");
                         let datas = data.data;
@@ -130,7 +130,11 @@ $(document).ready(function (){
                                 let td3 = $("<td></td>");
                                 td3.html(datas[i].province);
                                 let td4 = $("<td></td>");
+                                td4.addClass("modify-btn");
                                 td4.html("修改");
+                                td4.click(function (){
+                                    modify(datas[i].regionId,datas[i].name,datas[i].province);
+                                });
                                 tr.append(td1);
                                 tr.append(td2);
                                 tr.append(td3);

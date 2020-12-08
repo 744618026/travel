@@ -1,7 +1,6 @@
 package travel.controller.region;
 
 import org.apache.ibatis.annotations.Param;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

@@ -23,7 +23,7 @@
             <span>|</span>
             <a id="region">地区选择 <caret></caret></a>
             <div class="region">
-
+                <div class="current-region"><span>当前地区：</span><span id="current-region"></span></div>
             </div>
             <span>|</span>
             <img src="/travel/admin/img/userIcon.jpg">
@@ -42,9 +42,17 @@
                     </div>
                 </li>
                 <div class="list">
-                    <div class="bank"></div>
+                    <div class="bank">
+                        <div class="current-region">
+                            <span>当前地区：</span>
+                            <span id="current-re"></span>
+                        </div>
+                    </div>
                     <li class="index">
                         <a href="/travel/admin/index">首页&ensp;&ensp;</a>
+                    </li>
+                    <li class="index">
+                        <a href="/travel/admin/region/list">地区&ensp;</a>
                     </li>
                     <li class="item">
                         <a>景点 <caret class="rotate"></caret></a>
@@ -52,8 +60,8 @@
                     </li>
                     <div class="dd interests" style="display: block">
                         <div class="d active">查看</div>
-                        <div class="d">添加</div>
-                        <div class="d">订单</div>
+                        <div class="d"><a href="">添加</a></div>
+                        <div class="d"><a href="">订单</a></div>
                     </div>
                     <li class="item">
                         <a>民俗  <caret></caret></a>
