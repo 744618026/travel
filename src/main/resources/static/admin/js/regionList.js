@@ -92,7 +92,7 @@ $(document).ready(function (){
                         $(".error").css("display","block");
                         $("#error-tip").html("添加成功！");
                         setTimeout(function (){
-                            location.reload();
+                           location.reload();
                         },2000);
                     }else{
                         $(".error").css("display","block");
@@ -161,7 +161,7 @@ $(document).ready(function (){
         $("#region-id-input").val(id);
         $("#region-name").val(name);
         $("#province-m-input").val(province);
-        let ops = $(".province>option[text='"+province+"']");
+        let ops = $(".province").find("option:contains('"+province+"')");
         ops.attr("selected",true);
     }
     $("#modify-btn").click(function (){
@@ -175,12 +175,12 @@ $(document).ready(function (){
                 type:"post",
                 data:$("#modify-form").serialize(),
                 success:function (data){
-                    if(data.data==0){
+                    if(data.code==0){
                         $("#modify-error").css("display","block");
                         $("#modify-error").html("修改成功！");
                         setTimeout(function (){
                             location.reload();
-                        },2000)
+                        },2000);
                     }else{
                         $("#modify-error").css("display","block");
                         $("#modify-error").html(data.message);
