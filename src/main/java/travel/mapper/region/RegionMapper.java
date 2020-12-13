@@ -19,4 +19,7 @@ public interface RegionMapper {
     List<Region> findByName(@Param("regionName")String regionName);
     @Update("update Region set regionName=#{regionName},province=#{province} where regionId=#{regionId}")
     int update(Region region);
+
+    @Delete("delete from Region where regionId=#{regionId}")
+    int delete(@Param("regionId")String regionId);
 }

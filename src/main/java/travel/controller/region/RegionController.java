@@ -16,9 +16,7 @@ import travel.utils.RegionFrom2RegionUtil;
 import travel.utils.ResultUtil;
 import travel.vo.RegionVo;
 import travel.vo.ResultVo;
-
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,6 +24,12 @@ import java.util.List;
 public class RegionController {
     @Autowired
     private RegionServiceImpl regionService;
+    @GetMapping("/admin/region/list")
+    public ModelAndView region(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/admin/region/list.html");
+        return modelAndView;
+    }
     @GetMapping("/region/getRegions")
     @Cacheable(cacheNames = "region",key = "1")
     public ResultVo getAllRegions(){
@@ -61,7 +65,6 @@ public class RegionController {
         }catch (Exception e){
             return ResultUtil.fail(e.getMessage());
         }
-
     }
     @PostMapping("/admin/region/search")
     public ResultVo search(@RequestParam("search")String regionName){
@@ -75,7 +78,8 @@ public class RegionController {
 
     }
     @PostMapping("/admin/region/update")
-    @CacheEvict(cacheNames = "region",key = "'/admin/region?'+#regionForm.page")
+    @Caching(evict = {@CacheEvict(cacheNames = "region",key = "'/admin/region?'+#regionForm.page"),
+                       @CacheEvict(cacheNames = "region",key = "1")})
     public ResultVo update(@Valid RegionForm regionForm, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return ResultUtil.fail(bindingResult.getFieldError().getDefaultMessage());
@@ -91,11 +95,5 @@ public class RegionController {
         }catch (Exception e){
             return ResultUtil.fail(e.getMessage());
         }
-    }
-    @GetMapping("/admin/region/list")
-    public ModelAndView region(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/admin/region/list.html");
-        return modelAndView;
     }
 }

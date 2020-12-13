@@ -1,0 +1,74 @@
+.info .form{
+    width:800px;
+    height: 300px;
+    margin: 10px auto;
+}
+.info .form label{
+    display: block;
+    float: left;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 15px;
+
+}
+.info .form input{
+    display: block;
+    float: left;
+    padding-left: 5px;
+    width: 600px;
+    height: 25px;
+    font-size: 18px;
+}
+.info .form .form-item{
+    position: relative;
+    width:700px;
+    height: 30px;
+    margin: 10px auto;
+
+}
+.info .form .form-item textarea{
+    width:600px;
+    height: 72px;
+    resize: none;
+}
+.form-item textarea:focus{
+    outline: none;
+    border: 1px solid #00CED1;
+}
+.form .sub-btn{
+    position: relative;
+    width: 700px;
+    height: 50px;
+    margin: 20px auto;
+}
+.form .sub-btn button{
+    display: block;
+    margin: 30px auto;
+    background: #00CED1;
+    width:60px;
+    height: 25px;
+    border: 1px solid #00CED1;
+    color: white;
+}
+.form .sub-btn button:hover{
+    cursor: pointer;
+    background: #008f92;
+}
+.form #error-tip{
+    display: none;
+    position: relative;
+    margin: 5px auto;
+    left: 200px;
+    font-size: 15px;
+    color: red;
+    text-align: center;
+}
+.form span{
+    display: block;
+    float: left;
+    width: 250px;
+    height: 25px;
+    margin-top: 5px;
+    font-size: 15px;
+}

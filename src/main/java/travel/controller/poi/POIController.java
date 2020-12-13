@@ -35,12 +35,14 @@ public class POIController {
     private POIImageServiceImpl poiImageService;
     @Autowired
     private POICommentServiceImpl poiCommentService;
-    @Cacheable(key = "'/poi/list?'+#regionId")
+
     @GetMapping("/list")
-    public ResultVo getPoiList(@RequestParam("regionId")String regionId){
+    @Cacheable(cacheNames = "poi",key = "'poi/list?'+#regionId+'?'+#page")
+    public ResultVo getPoiList(@RequestParam("regionId")String regionId,@RequestParam(value = "page",defaultValue = "1")Integer page,
+                               @RequestParam(value = "size",defaultValue = "15")Integer size){
         try {
             regionService.findByRegionId(regionId);
-            List<POI> poiList = poiService.findByRegionId(regionId);
+            List<POI> poiList = poiService.findByRegionId(regionId,page,size);
             List<POIVo> poiVoList = new ArrayList<>();
             for(POI poi : poiList){
                 POIVo poiVo = new POIVo();
@@ -52,7 +54,19 @@ public class POIController {
             return ResultUtil.fail(e.getMessage());
         }
     }
-    @Cacheable(key = "'/poi/comments?'+#poiId")
+    @GetMapping("/totalPage")
+    @Cacheable(cacheNames = "poi/totalPage")
+    public ResultVo totalPage(@RequestParam("region")String regionId,@RequestParam(value = "size",defaultValue = "15")Integer size){
+        try{
+            Integer poiList = poiService.findByRegionId(regionId);
+            double x = (poiList*1.0)/(size*1.0);
+            Double d = Math.ceil(x);
+            Integer page = d.intValue();
+            return ResultUtil.success(page);
+        }catch (Exception e){
+            return ResultUtil.success(0);
+        }
+    }
     @GetMapping("/comments")
     public ResultVo getPOIComment(@RequestParam("POIId")String poiId){
         try{
@@ -68,7 +82,7 @@ public class POIController {
             return ResultUtil.fail(e.getMessage());
         }
     }
-    @Cacheable(key = "'/poi/images?'+#poiId")
+    @Cacheable(cacheNames = "poi/images",key = "#poiId")
     @GetMapping("/images")
     public ResultVo getImages(@RequestParam("poiId")String poiId){
         List<POIImage> poiImageList = poiImageService.findByPOIId(poiId);

@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import travel.authority.JwtUtils;
 import travel.dao.user.User;
 import travel.dataForm.UserForm;
 import travel.enums.ResultEnum;
@@ -15,6 +16,8 @@ import travel.enums.RoleEnum;
 import travel.service.serviceImpl.user.UserServiceImpl;
 import travel.utils.ResultUtil;
 import travel.vo.ResultVo;
+import travel.vo.UserVo;
+
 import javax.validation.Valid;
 
 @RestController
@@ -24,12 +27,6 @@ public class UserController {
     private UserServiceImpl userService;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    @GetMapping("/userLogin")
-    public ModelAndView login(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/login/login.html");
-        return modelAndView;
-    }
     @GetMapping("/checkUser")
     //检查用户是否存在
     public ResultVo check(@RequestParam("username")String username) {
@@ -110,6 +107,24 @@ public class UserController {
             }
         } catch (Exception e) {
             return ResultUtil.fail(e.getMessage());
+        }
+    }
+    //通过token获取用户信息
+    @PostMapping("/user/getInfo")
+    public ResultVo getUserInfo(@RequestParam("token")String token){
+        String token1 = token.replace(JwtUtils.TOKEN_PREFIX,"");
+        try{
+            boolean result = JwtUtils.isExpiration(token1);
+            if(result){
+                return ResultUtil.fail(ResultEnum.TOKEN_EXPIRED.getMessage());
+            }
+            String username = JwtUtils.getUsername(token1);
+            User user = userService.findByUserName(username);
+            UserVo userVo = new UserVo();
+            BeanUtils.copyProperties(user,userVo);
+            return ResultUtil.success(userVo);
+        }catch (Exception e){
+            return ResultUtil.fail();
         }
     }
 }

@@ -2,6 +2,7 @@ package travel.service.poi;
 
 import org.apache.ibatis.annotations.Param;
 import travel.dao.poi.POI;
+import travel.dao.region.Region;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,8 +13,9 @@ public interface POIService {
      * @param regionId 地区ID
      * @return 该地区所有的景点
      */
-    List<POI> findByRegionId(String regionId);
+    List<POI> findByRegionId(String regionId,Integer page,Integer size);
 
+    Integer findByRegionId(String regionId);
     /**
      *
      * @param POIId 景点ID
@@ -40,4 +42,5 @@ public interface POIService {
      */
     boolean  update(POI poi);
 
+    List<POI> find(Integer currPage, Integer pageSize,String regionId);
 }

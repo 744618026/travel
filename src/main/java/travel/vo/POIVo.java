@@ -5,6 +5,7 @@ import travel.dao.poi.POIImage;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 public class POIVo implements Serializable {
@@ -26,6 +27,24 @@ public class POIVo implements Serializable {
     /**门票库存*/
     @JsonProperty("ticketStock")
     private Integer poiStock;
+    @JsonProperty("updateTime")
+    private Date updateTime;
+    @JsonProperty("createTime")
+    private Date createTime;
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     public String getPoiId() {
         return poiId;
