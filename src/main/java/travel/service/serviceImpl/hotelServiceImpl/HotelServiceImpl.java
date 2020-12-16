@@ -45,7 +45,13 @@ public class HotelServiceImpl implements HotelService {
         return false;
     }
     @Override
-    public List<Hotel> findByRegionId(String regionId) {
-        return hotelMapper.findByRegionId(regionId);
+    public List<Hotel> findByRegionId(String regionId,Integer page,Integer size) {
+        List<Hotel> hotelList = hotelMapper.findByRegionId(regionId);
+        Integer startIndex = (page-1)*size;
+        Integer endIndex = page * size;
+        if(endIndex>hotelList.size()){
+            endIndex = hotelList.size();
+        }
+        return hotelList.subList(startIndex,endIndex);
     }
 }

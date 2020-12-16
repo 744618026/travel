@@ -21,16 +21,6 @@ public class HotelVo implements Serializable {
     /**地区Id**/
     @JsonProperty("regionId")
     private String regionId;
-    @JsonProperty("images")
-    private List<HotelImageVo> hotelImageVoList;
-
-    public List<HotelImageVo> getHotelImageVoList() {
-        return hotelImageVoList;
-    }
-
-    public void setHotelImageVoList(List<HotelImageVo> hotelImageVoList) {
-        this.hotelImageVoList = hotelImageVoList;
-    }
 
     public String getHotelId() {
         return hotelId;

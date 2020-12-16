@@ -11,7 +11,7 @@ public interface POICommentService {
      * @param poiId 景点ID
      * @return 返回该景点所有评论
      */
-    List<POIComment> findByPOIId(String poiId);
+    List<POIComment> findByPOIId(String poiId,Integer page,Integer size);
     /**
      *
      * @param commentId 评论Id

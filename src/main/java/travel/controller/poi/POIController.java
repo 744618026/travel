@@ -35,7 +35,6 @@ public class POIController {
     private POIImageServiceImpl poiImageService;
     @Autowired
     private POICommentServiceImpl poiCommentService;
-
     @GetMapping("/list")
     @Cacheable(cacheNames = "poi",key = "'poi/list?'+#regionId+'?'+#page")
     public ResultVo getPoiList(@RequestParam("regionId")String regionId,@RequestParam(value = "page",defaultValue = "1")Integer page,
@@ -67,10 +66,12 @@ public class POIController {
             return ResultUtil.success(0);
         }
     }
+    @Cacheable(cacheNames = "poi/comments",key = "'poiId?'+#poiId+'page?'+#page")
     @GetMapping("/comments")
-    public ResultVo getPOIComment(@RequestParam("POIId")String poiId){
+    public ResultVo getPOIComment(@RequestParam("poiId")String poiId,@RequestParam(value = "page",defaultValue = "1")Integer page,
+                                  @RequestParam(value = "size",defaultValue = "15")Integer size){
         try{
-            List<POIComment> poiCommentList = poiCommentService.findByPOIId(poiId);
+            List<POIComment> poiCommentList = poiCommentService.findByPOIId(poiId,page,size);
             List<POICommentVo> poiCommentVoList = new ArrayList<>();
             for(POIComment poiComment : poiCommentList){
                 POICommentVo poiCommentVo = new POICommentVo();

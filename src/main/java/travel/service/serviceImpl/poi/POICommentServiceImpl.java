@@ -15,9 +15,17 @@ public class POICommentServiceImpl implements POICommentService {
     @Autowired
     private POICommentMapper poiCommentMapper;
     @Override
-    public List<POIComment> findByPOIId(String poiId) {
+    public List<POIComment> findByPOIId(String poiId,Integer page,Integer size) {
         List<POIComment> poiCommentList = poiCommentMapper.findByPOIId(poiId);
-        return poiCommentList;
+        if(poiCommentList.size()==0){
+
+        }
+        Integer startIndex = (page-1)*size;
+        Integer endIndex = page * size;
+        if(endIndex>poiCommentList.size()){
+            endIndex = poiCommentList.size();
+        }
+        return poiCommentList.subList(startIndex,endIndex);
     }
 
     @Override

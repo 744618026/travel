@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>旅游后台管理系统</title>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="/travel/admin/css/poiList.css">
+    <link rel="stylesheet" href="/travel/admin/css/hotelList.css">
     <link rel="stylesheet" href="/travel/admin/css/guide.css">
     <link rel="stylesheet" href="/travel/admin/pagination/css/pagination.css">
     <link rel="stylesheet" href="/travel/admin/prew/preview.css">
     <script src="/travel/admin/pagination/js/pagination.js"></script>
     <script src="/travel/admin/prew/preview.js"></script>
-    <script src="/travel/admin/js/poiList.js"></script>
+    <script src="/travel/admin/js/hotelList.js"></script>
     <script src="/travel/admin/js/guide.js"></script>
 </head>
 <body>
@@ -59,10 +59,10 @@
                         <a href="/travel/admin/region/list">地区&ensp;</a>
                     </li>
                     <li class="item">
-                        <a>景点 <caret class="rotate"></caret></a>
+                        <a>景点 <caret></caret></a>
                         <span style="display: none">.interests</span>
                     </li>
-                    <div class="dd interests" style="display: block">
+                    <div class="dd interests">
                         <div class="d active">查看</div>
                         <div class="d"><a href="/travel/admin/poi/add">添加</a></div>
                         <div class="d"><a href="">订单</a></div>
@@ -76,11 +76,11 @@
                         <div class="d">添加</div>
                     </div>
                     <li class="item">
-                        <a>酒店  <caret></caret></a>
+                        <a>酒店  <caret class="rotate"></caret></a>
                         <span style="display: none">.hotel</span>
                     </li>
-                    <div class="dd hotel">
-                        <div class="d"><a href="/travel/admin/hotel/list">查看</a></div>
+                    <div class="dd hotel" style="display: block">
+                        <div class="d">查看</div>
                         <div class="d">添加</div>
                         <div class="d">订单</div>
                     </div>
@@ -100,14 +100,10 @@
                 <div class="info" id="table-data">
                     <table>
                         <thead>
-                            <th>景点Id</th>
-                            <th>景点名称</th>
-                            <th>景点描述</th>
-                            <th>门票价格</th>
-                            <th>门票库存</th>
-                            <th>创建时间</th>
-                            <th>上次更新时间</th>
-                            <th>操作</th>
+                        <th>酒店Id</th>
+                        <th>酒店名称</th>
+                        <th>酒店描述</th>
+                        <th>操作</th>
                         </thead>
                         <tbody id="data">
 
@@ -137,7 +133,7 @@
                                 <div>
                                     <label>景点库存:</label><input type="number" id="poi-stock" name="poiStock">
                                 </div>
-                                    <input type="text" style="display: none" name="oldRegionId" id="poi-region">
+                                <input type="text" style="display: none" name="oldRegionId" id="poi-region">
                                 <div>
                                     <button id="poi-modify">确定修改</button>
                                 </div>
