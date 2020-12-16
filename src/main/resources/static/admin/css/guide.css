@@ -3,6 +3,9 @@ body{
     margin: 0px;
     min-width: 1430px;
 }
+html{
+    scrollbar-width:none;
+}
 input:focus{
     outline: none;
     border: 1px solid #00CED1;
@@ -133,6 +136,11 @@ input:focus{
     min-height: 530px;
     overflow-y: scroll;
     overflow-x: hidden;
+    scrollbar-width:none;
+    background: #333333;
+}
+::-webkit-scrollbar{
+    display: none;
 }
 .nav ul li{
     position: relative;
