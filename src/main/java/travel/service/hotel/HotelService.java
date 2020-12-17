@@ -31,4 +31,9 @@ public interface HotelService {
      * @return
      */
     List<Hotel> findByRegionId(String regionId,Integer page,Integer size);
+
+    /**
+     *
+     */
+    boolean insert(Hotel hotel);
 }

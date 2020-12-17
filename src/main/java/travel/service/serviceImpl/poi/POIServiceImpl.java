@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import travel.dao.poi.POI;
 import travel.dao.poi.POIImage;
-import travel.dao.region.Region;
 import travel.enums.ResultEnum;
 import travel.exceptions.NullException;
 import travel.mapper.poi.POIImageMapper;
 import travel.mapper.poi.POIMapper;
 import travel.service.poi.POIService;
-import travel.utils.POIKeyUtil;
+import travel.utils.POIHotelKeyUtil;
 
 import java.io.File;
 import java.util.List;
@@ -54,7 +53,7 @@ public class POIServiceImpl implements POIService {
 
     @Override
     public  boolean insert(POI poi) {
-        poi.setPoiId(POIKeyUtil.getKey());
+        poi.setPoiId(POIHotelKeyUtil.getKey());
         int result = POIMapper.insert(poi);
         if(result ==0){
             return false;

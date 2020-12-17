@@ -2,9 +2,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>旅游后台管理系统</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="/travel/admin/css/poiadd.css">
+    <link rel="stylesheet" href="/travel/admin/css/guide.css">
+    <script src="/travel/admin/js/poiadd.js"></script>
+    <script src="/travel/admin/js/guide.js"></script>
 </head>
 <body>
+<div class="container">
+    <div class="title">
+        <div class="title-text">
+            <h1>旅游后台管理操作系统</h1>
+            <span>travel application manager operating system</span>
+        </div>
+        <div class="user">
+            <a>退出登录</a>
+            <span>|</span>
+            <a>修改密码</a>
+            <span>|</span>
+            <a id="region">地区选择 <caret></caret><div class="region">
+                <div class="current-region"><span>当前地区：</span><span id="current-region"></span></div>
+            </div></a>
 
+            <span>|</span>
+            <img src="/travel/admin/img/userIcon.jpg">
+        </div>
+    </div>
+    <div class="content">
+        <div class="nav">
+            <ul class="nav-ul">
+                <li class="user">
+                    <div class="user-icon">
+                        <img src="/travel/admin/img/userIcon.jpg">
+                    </div>
+                    <div class="user-info">
+                        <span>小小花儿</span>
+                        <span>欢迎登录！</span>
+                    </div>
+                </li>
+                <div class="list">
+                    <div class="bank">
+                        <div class="current-region">
+                            <span>当前地区：</span>
+                            <span id="current-re"></span>
+                        </div>
+                    </div>
+                    <li class="index">
+                        <a href="/travel/admin/index">首页&ensp;&ensp;</a>
+                    </li>
+                    <li class="index">
+                        <a href="/travel/admin/region/list">地区&ensp;</a>
+                    </li>
+                    <li class="item">
+                        <a>景点 <caret></caret></a>
+                        <span style="display: none">.interests</span>
+                    </li>
+                    <div class="dd interests">
+                        <div class="d"><a href="/travel/admin/poi/list">查看</a></div>
+                        <div class="d">添加</div>
+                        <div class="d"><a href="">订单</a></div>
+                    </div>
+                    <li class="item">
+                        <a>民俗  <caret></caret></a>
+                        <span style="display: none">.festival</span>
+                    </li>
+                    <div class="dd festival">
+                        <div class="d">查看</div>
+                        <div class="d">添加</div>
+                    </div>
+                    <li class="item">
+                        <a>酒店  <caret class="rotate"></caret></a>
+                        <span style="display: none">.hotel</span>
+                    </li>
+                    <div class="dd hotel " style="display: block">
+                        <div class="d"><a href="/travel/admin/hotel/list">查看</a> </div>
+                        <div class="d active">添加</div>
+                        <div class="d">订单</div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="table">
+            <div class="content">
+                <div class="top">
+                    <a style="margin-left: 15px">景点</a>
+                    <span>></span>
+                    <a href="/travel/admin/poi/add">添加</a>
+                </div>
+                <div class="operation">
+
+                </div>
+                <div class="info">
+                    <div class="form">
+                        <div class="form-item">
+                            <span id="error-tip">错误!</span>
+                        </div>
+                        <form id="form" onsubmit="return false">
+                            <div class="form-item">
+                                <label>酒店名称：</label><input type="text" name="hotelName" id="hotel-name">
+                            </div>
+                            <div class="form-item" style="height: 72px">
+                                <label>酒店描述：</label><textarea name="hotelDescribe"></textarea>
+                            </div>
+                            <div class="form-item">
+                                <label>所属地区：</label><span id="region-name"></span><input type="text" name="regionId" style="display: none" id="region-id">
+                            </div>
+                            <div class="sub-btn">
+                                <button id="sub-btn">提交</button>
+                            </div>
+                            <input name="page" style="display: none" id="page-input">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -21,6 +21,16 @@ public class HotelVo implements Serializable {
     /**地区Id**/
     @JsonProperty("regionId")
     private String regionId;
+    @JsonProperty("address")
+    private String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getHotelId() {
         return hotelId;

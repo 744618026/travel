@@ -1,32 +1,16 @@
-package travel.dao.hotel;
+package travel.dataForm;
 
-public class Hotel {
-    /**酒店Id*/
-    private String hotelId;
-    /**酒店名*/
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+public class HotelForm {
+    @NotBlank(message = "酒店名称不能为空")
     private String hotelName;
     /**酒店描述*/
     private String hotelDescribe;
     /**地区Id**/
+    @NotBlank(message = "地区Id不能为空")
     private String regionId;
-
-    private String address;
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getHotelId() {
-        return hotelId;
-    }
-
-    public void setHotelId(String hotelId) {
-        this.hotelId = hotelId;
-    }
 
     public String getHotelName() {
         return hotelName;

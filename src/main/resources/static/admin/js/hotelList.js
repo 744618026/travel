@@ -23,7 +23,7 @@ $(document).ready(function (){
     function load(page){
         $.ajax({
             url:"/travel/admin/hotel/list",
-            type: "get",
+            type: "post",
             data:{"page":page,"regionId":localStorage.getItem("current-region-id")},
             success:function (data){
                 if(data.code==0){

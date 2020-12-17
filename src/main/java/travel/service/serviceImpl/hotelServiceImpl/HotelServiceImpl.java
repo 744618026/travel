@@ -54,4 +54,13 @@ public class HotelServiceImpl implements HotelService {
         }
         return hotelList.subList(startIndex,endIndex);
     }
+
+    @Override
+    public boolean insert(Hotel hotel) {
+        int result = hotelMapper.insert(hotel);
+        if(result>0){
+            return true;
+        }
+        return false;
+    }
 }

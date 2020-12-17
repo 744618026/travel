@@ -39,4 +39,7 @@ public interface HotelMapper {
      */
     @Select("Select * from Hotel where regionId=#{regionId}")
     List<Hotel> findByRegionId(@Param("regionId") String regionId);
+
+    @Insert("insert into hotel(hotelId,hotelName,hotelDescribe,regionId) values(#{hotelId},#{hotelName},#{hotelDescribe},#{regionId})")
+    int insert(Hotel hotel);
 }
