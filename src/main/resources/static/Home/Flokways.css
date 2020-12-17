@@ -1,0 +1,147 @@
+
+.main_content5{
+    width: 100%;
+    height: auto;
+    border: 3px solid lavender;
+}
+.main_content5 .container{
+    width: 100%;
+    height: auto;
+
+}
+.main_content5 .top{
+    width: 100%;
+    height: 120px;
+}
+
+#logo{
+    width: 1000px;
+    height: 100px;
+    position: relative;
+    left: 100px;
+    top: 10px;
+    background-color: crimson;
+}
+#logo .a{
+    width: 345px;
+    height: 60px;
+    position: relative;
+    left: 80px;
+    top: 10px;
+}
+.topnav #topnav_1{
+    width: 250px;
+    height: 31px;
+    line-height: 31px;
+    position: relative;
+    left: 480px;
+    top: -40px;
+    font-size: 18px;
+}
+.content5{
+    width: 100%;
+    height: auto;
+}
+.flokways_content{
+    width: 800px;
+    height: 110px;
+    position: relative;
+    left: 200px;
+    border: 1px solid white;
+}
+.lanmu{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+.flokways_href{
+    display: block;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    left: 20px;
+    top: 10px;
+    background-color: white;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+}
+.c_content5{
+    width: 100%;
+    height: 820px;
+    position: relative;
+}
+.essay_content{
+    width: 800px;
+    height: 800px;
+    position: relative;
+    left: 200px;
+    top: 20px;
+}
+/*.e_content1{*/
+/*    display: none;*/
+/*}*/
+.e_content2{
+    display: none;
+}
+.e_content3{
+    display: none;
+}
+.e_content4{
+    display: none;
+}
+.e_content5{
+    display: none;
+}
+.e_content6{
+    display: none;
+}
+.e_content7{
+    display: none;
+}
+.e_content8{
+    display: none;
+}
+.e_content9{
+    display: none;
+}
+.e_content10{
+    display: none;
+}
+.e_content h1 {
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    left: 350px;
+}
+.e_content .title_time{
+    width: 600px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    left: 100px;
+}
+.e_content .href_title{
+    display: block;
+    width: 400px;
+    font-size: 13px;
+    color: #0E392F;
+    position: relative;
+    left: 40px;
+    margin-top: 5px;
+    text-decoration: none;
+}
+.e_content .time{
+    display: block;
+    width: 70px;
+    color: #0E392F;
+    position: relative;
+    left: 500px;
+    top: -45px;
+    margin-top: 5px;
+}

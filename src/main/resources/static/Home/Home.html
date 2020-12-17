@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/travel/Home/Home.js"></script>
+    <script src="/travel/Home/Hotel.js"></script>
+    <script src="/travel/Home/Flokways.js"></script>
+    <link rel="stylesheet" href="/travel/Home/Home.css" type="text/css"/>
+    <link rel="stylesheet" href="/travel/Home/Hotel.css" type="text/css"/>
+    <link rel="stylesheet" href="/travel/Home/Flokways.css" type="text/css"/>
+    <link rel="stylesheet" href="/travel/Home/Spots.css" type="text/css"/>
+</head>
+<body>
+<div id="Content0" class="Content0"></div>
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <img  id="item1" src="/travel/Home/img/01.jpg">
+            <div class="btn">
+                <button  id="item3">
+                    <a class="btns a3" onclick="scrollToView4()">酒&emsp;店</a>
+                </button>
+                <button id="item4">
+                    <a class="btns a4" onclick="scrollToView5()">民&emsp;俗</a>
+                </button>
+                <button id="item5">
+                    <a class="btns a5" onclick="scrollToView6()">景&emsp;点</a>
+                </button>
+            </div>
+            <div class="href">
+                <a class="hrefs a1" href="/travel/regist/regist.html">您好，请注册！</a>
+                <a class="hrefs a2" href="/travel/login/login.html">立即登录</a>
+            </div>
+            <form class="admin">
+                <div class="admin_img">
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="content">
+        <div class="main_content0">
+        </div>
+        <div class="main_content1">
+            <img src="/travel/Home/img/04.jpg">
+        </div>
+        <div class="main_content2">
+            <img src="/travel/Home/img/05.jpg">
+        </div>
+        <div class="main_content3">
+            <img src="/travel/Home/img/06.jpg">
+        </div>
+        <div class="main_content4" id="main_content4">
+            <div class="top">
+                <div class="title">
+                    <img class="logo" src="/travel/Home/img/00.jpg">
+                    <span class="a0">让居住更方便！</span>
+                    <span id="warn"></span>
+                </div>
+            </div>
+            <div class="content4">
+                <div class="first">
+                    <div id="first">
+
+                        <div class="border city">
+                            <label class="box city_box">
+                                <span class="input0 input_city">入住城市</span>
+                                <input class="input1 input_text" type="text" placeholder="City">
+                            </label>
+                        </div>
+                        <div class="date">
+                            <div id="indate">
+                                <label class="box">
+                                    <span class="input0">入住时间</span>
+                                    <input class="input1 indate1" id="indate1" type="date">
+                                    <span class="night" id="night">10晚</span>
+                                </label>
+                            </div>
+                            <div id="outdate">
+                                <label class="box">
+                                    <span class="input0">退房时间</span>
+                                    <input class="input1 outdate1" type="date">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="border select">
+                            <label class="box select_box">
+                                <span class="input0 input_outdate">关键词（选填）</span>
+                                <input class="input1 input_select" type="text" placeholder="酒店名字/位置/品牌">
+                            </label>
+                        </div>
+                        <div class="btnselect">
+                            <label class="btnselect_box">
+                                <button class="input_btnselect" type="text">搜索</button>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="second">
+                    <div class="recommend_span">
+                        <span id="recommend_span">酒店推荐</span>
+                    </div>
+                    <div class="recommend_btn">
+                        <button class="Shanghai">
+                            <span>上海</span>
+                        </button>
+                        <button class="Beijing">
+                            <span>北京</span>
+                        </button>
+                        <button class="Guangzhou">
+                            <span>广州</span>
+                        </button>
+                        <button class="Hangzhou">
+                            <span>杭州</span>
+                        </button>
+                        <button class="Chengdu">
+                            <span>成都</span>
+                        </button>
+                        <button class="Nanjing">
+                            <span>南京</span>
+                        </button>
+                        <button class="Othercity">
+                            <span>城市</span>
+                        </button>
+                    </div>
+                    <div class="imgmessage">
+                        <div class="message imgmessage1">
+                            <div class="img img1">
+
+                            </div>
+                            <div class="hotel_info hotel_info">
+
+                            </div>
+                        </div>
+                        <div class="message imgmessage2">
+                            <div class="img img2">
+
+                            </div>
+                            <div class="hotel_info hotel_info2">
+
+                            </div>
+                        </div>
+                        <div class="message imgmessage3">
+                            <div class="img img3">
+
+                            </div>
+                            <div class="hotel_info hotel_info3">
+
+                            </div>
+                        </div>
+                        <div class="message imgmessage4">
+                            <div class="img img4">
+
+                            </div>
+                            <div class="hotel_info hotel_info4">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom_info">
+                        <div class="adminLogin">
+                            <a class="join_hotel" href="/travel/adminLogin/adminLogin.html">
+                                <img src="/travel/Home/img/08.jpg">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div third>
+
+                </div>
+            </div>
+        </div>
+        <div class="main_content5" id="main_content5">
+            <div class="container">
+                <div class="top">
+                    <div class="topnav">
+                        <div class="iheader">
+                            <h1 id="logo">
+                                <img class="a" src="/travel/Home/img/09.jpg">
+                                <div class="wrap">
+                                    <ul id="topnav_1">
+                                        <li class="last">民俗网，有故事的文化网站</li>
+                                    </ul>
+                                </div>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="content5">
+                    <div class="ctop">
+                        <div class="flokways_content">
+                            <div class="lanmu">
+                                <a class="flokways_href yanjiu">民俗研究</a>
+                            </div>
+                            <div class="lanmu">
+                                <a class="flokways_href shihua">民俗史话</a>
+                            </div>
+                            <div class="lanmu">
+                                <a class="flokways_href xinyang">民俗信仰</a>
+                            </div>
+                            <div class="lanmu">
+                                <a class="flokways_href shulin">民俗书林</a>
+                            </div>
+                            <div class="lanmu">
+                                <a class="flokways_href dajia">民俗大家</a>
+                            </div>
+                            <div class="lanmu">
+                                <a class="flokways_href dongtai">民俗动态</a>
+                            </div>
+                            <div class="lanmu">
+                                <a class="flokways_href jieri">岁时节日</a>
+                            </div>
+                            <div class="lanmu">
+                                <a class="flokways_href wenwu">民间文物</a>
+                            </div>
+                            <div class="lanmu">
+                                <a class="flokways_href kaocha">田野考察</a>
+                            </div>
+                            <div class="lanmu">
+                                <a class="flokways_href zhuxing">衣食住行</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c_content5">
+                        <div class="essay_content">
+                            <div class="event">
+                                <div class="e_content e_content1">
+                                    <h1>民俗研究</h1>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4631">· [叶大兵]温州拦街福的历史、特点与当代复兴</a>
+                                        <a class="time">2020-12-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4613">· [刘礼堂 李文宁]中国古代岁时民俗文献研究</a>
+                                        <a class="time">2020-08-24</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4611">· [陶自祥]”不落夫家“：壮族女性走婚习俗的社会基础研究</a>
+                                        <a class="time">2020-08-13</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4602">· [周福岩]民生与生活世界的意义构造</a>
+                                        <a class="time">2020-07-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4586">· [王霄冰]民俗资料学的建立与意义</a>
+                                        <a class="time">2020-06-16</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4581">· [高丙中 马强]防疫救灾的社会自组织建设与韧性培育</a>
+                                        <a class="time">2020-03-17</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4575">· [王晓葵]灾害民俗志——灾害研究的民俗学视角与方法</a>
+                                        <a class="time">2020-03-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4565">· [萧放 何思琴]礼俗互动中的人生礼仪传统研究</a>
+                                        <a class="time">2019-12-05</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4555">· [顾春军]关于河北宣化地区冥婚的田野调查及文化人类学阐释</a>
+                                        <a class="time">2019-10-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4553">· [岳永逸]器具与房舍：中国民具学探微</a>
+                                        <a class="time">2019-10-03</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4549">· [漆凌云 万建中]”母题“概念再反思——兼论故事学的术语体系</a>
+                                        <a class="time">2019-08-14</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4548">· [万建中]《中国民间文学三套集成》学术价值的认定与把握</a>
+                                        <a class="time">2019-03-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4537">· [王霄冰 禤颖]身体民俗学的历史、理论与方法</a>
+                                        <a class="time">2019-06-27</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4534">· [张翠霞]现代技术、日常生活及民俗学研究思考</a>
+                                        <a class="time">2019-06-08</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4532">· [高丙中]当代财神信仰复兴的文化理解</a>
+                                        <a class="time">2019-03-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4517">· [毛巧晖]2018年民俗学研究动态一览</a>
+                                        <a class="time">2019-04-05</a>
+                                    </div>
+                                </div>
+                                <div class="e_content e_content2">
+                                    <h1>民俗史话</h1>
+                                    <div class="title_time">
+
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4623">· [陶立璠]我与中国民间文艺家协会的相识、相知</a>
+                                        <a class="time">2020-10-28</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4605">· [萧放 贾琛]70年中国民俗学学科建设历程、经验与反思</a>
+                                        <a class="time">2020-08-04</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4580">· [张孝德]人造的城市，神造的乡村</a>
+                                        <a class="time">2020-03-17</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4579">· 古代发生大瘟疫时，官方是如何应对的？</a>
+                                        <a class="time">2020-03-17</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4577">· 世界遗产中应当建立“人类灾难遗产”体系</a>
+                                        <a class="time">2020-03-03</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4576">· [王立群]历史视角看瘟疫</a>
+                                        <a class="time"> 2020-03-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4571">· 2019年全国姓名报告出炉：这50个字名字使用最多</a>
+                                        <a class="time">2020-01-20</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4568">· 从前，新娘子是要带着马桶出嫁的</a>
+                                        <a class="time">2019-12-17</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4556">· 共和国生活史——农工兵学（下）</a>
+                                        <a class="time">2019-10-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4538">· 山西洪洞大槐树移民真相深度揭秘</a>
+                                        <a class="time">2019-06-30</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4528">· 访谈 | 顾先生疑古的文章我都看了，我认为中国古史可信</a>
+                                        <a class="time">2019-05-19</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4527">· 汉族民系分类，看看福清人是属于哪一系？</a>
+                                        <a class="time">2019-05-18</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4523">· [朱婧薇]中国鼠婚故事研究90年</a>
+                                        <a class="time">2019-04-17</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4522">· 历史上的河西走廊</a>
+                                        <a class="time">2019-04-17</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4511">· [王植 周欣瑞]当代少数民族文学神话学理论研究史述</a>
+                                        <a class="time">2019-02-22</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4508">· 中国人从何而来？ 人类迁移路线图出来了</a>
+                                        <a class="time">2019-02-09</a>
+                                    </div>
+                                </div>
+                                <div class="e_content e_content3">
+                                    <h1>民俗信仰</h1>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4598">· [陶立璠]《天津天后宫行会图校注》序 言</a>
+                                        <a class="time">2020-07-09</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4583">· 巫统与血统：萨满教的祖神与祖先观念</a>
+                                        <a class="time">2020-05-04</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4546">· 民勤“打醮”的功利倾向与民俗特征</a>
+                                        <a class="time">2019-08-06</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4471">· [赵汀阳]中国人的信仰为什么是历史而非宗教？</a>
+                                        <a class="time">2018-11-21</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4463">· 一个法国人类学家导演眼中的老北京庙会</a>
+                                        <a class="time">2018-10-27</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4443">· 北京最牛钉子户无人敢拆？！鸟巢旁北顶娘娘庙至今岿然不动!!</a>
+                                        <a class="time">2018-09-25</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4442">· [金泽]当代中国民间信仰的形态建构</a>
+                                        <a class="time">2018-09-25</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4427">· [赵世瑜]民间文献研究的问题与方法</a>
+                                        <a class="time">2018-08-31</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4405">· [郭淑云]从过关仪式看科尔沁萨满教的传承与变迁</a>
+                                        <a class="time">2018-07-20</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4340">· [萧放]庙会文化是乡村振兴有效途径</a>
+                                        <a class="time">2018-03-25</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4323">· [张勃]寺庙与北京居民的休闲生活</a>
+                                        <a class="time">2018-03-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4301">· 中国岭南文化-祠堂与家谱和孝文化</a>
+                                        <a class="time">2018-02-05</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4295">· [杨富学]河西多体文字合璧六字真言私臆</a>
+                                        <a class="time">2018-01-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4273">· 舟曲人不知道的古老而神秘的苯教文化</a>
+                                        <a class="time">2018-01-11</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4267">· [二十四节气|小寒]寒冬梅花开</a>
+                                        <a class="time">2018-01-05</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4266">· 大佛寺的撼人故事——姚氏尼姑护经</a>
+                                        <a class="time">2018-01-05</a>
+                                    </div>
+                                </div>
+                                <div class="e_content e_content4">
+                                    <h1>民俗书林</h1>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4629">·《田野中国·当代民俗学术文库》出版</a>
+                                        <a class="time">2020-12-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4625">· [陈泳超]《白茆山歌的现代传承史：以“革命”为标杆》</a>
+                                        <a class="time">2020-11-05</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4624">· 国家出版基金项目《中国民间文学史》出版</a>
+                                        <a class="time">2020-11-05</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4621">· [徐赣丽]《民族文化的空间传承——对侗寨的田野研究》</a>
+                                        <a class="time">2020-10-20</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4582">· 汉画像中的民俗研究</a>
+                                        <a class="time">2020-05-04</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4554">· [白玛措]《牧民的礼物世界》</a>
+                                        <a class="time">2019-10-03</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4494">· 高等教育出版社推出《钟敬文全集》</a>
+                                        <a class="time">2019-01-08</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4478">· [美]李·哈林 编：《民俗学的宏大理论》</a>
+                                        <a class="time">2018-12-06</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4379">· 那些年倒背如流的25篇经典文言文，你还能背出吗？</a>
+                                        <a class="time">2018-06-01</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4349">· [刘祯 刘云水]《继承与发展：庆祝车锡伦先生欣开九秩论文集》</a>
+                                        <a class="time">2018-04-06</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4276">· 中国基本古籍库个人版隆重推出</a>
+                                        <a class="time">2018-01-11</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4234">·《传承人口述史方法论研究》天津发布</a>
+                                        <a class="time">2017-11-14</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4218">· [何清新]《神与诗:布岱族群交流的想象与重建》</a>
+                                        <a class="time">2017-10-23</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4213">· 北京名胜的名与实：怀古书写的断裂</a>
+                                        <a class="time">2017-10-22</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4197">· [贺萧]《记忆的性别:农村妇女和中国集体化历史》</a>
+                                        <a class="time">2017-10-03</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4178">· 新书发布会 |《北冥有鱼》姊妹篇《鹤鸣九皋》</a>
+                                        <a class="time">2017-09-13</a>
+                                    </div>
+                                </div>
+                                <div class="e_content e_content5">
+                                    <h1>民俗大家</h1>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4630">· 深切悼念民俗学大家叶大兵先生</a>
+                                        <a class="time">2020-12-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4584">· [岳永逸]李安宅的意义</a>
+                                        <a class="time">2020-06-16</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4497">· [启功先生]钟敬文先生的做人和治学 	　 </a>
+                                        <a class="time">2019-01-17</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4484">· [孟慧英]学术自传</a>
+                                        <a class="time">2018-12-22</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4424">· 民俗大家王知三</a>
+                                        <a class="time">2018-08-27</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4420">· [谭达先]后殖民语境下的海外中国民间文艺学家</a>
+                                        <a class="time">2018-08-14</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4404">· [陶立璠]耄耋之年忆丙兄</a>
+                                        <a class="time">2018-07-20</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4401">· 乌丙安教授走了</a>
+                                        <a class="time">2018-07-12</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4365">· [郑土有]深切缅怀秦笃才（秦耕）教授</a>
+                                        <a class="time">2018-05-14</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4356">· 这对日本父子创造出的这种“极致美”</a>
+                                        <a class="time">2018-04-16</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4331">· [黄永松]坚信认清自我特质才能站立于世界</a>
+                                        <a class="time">2018-03-17</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4302">· [乌丙安]不是“乌丙安”热了，而是民俗学科热了</a>
+                                        <a class="time">2018-02-05</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4286">· 中国再无王世襄</a>
+                                        <a class="time">2018-01-21</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4278">· [刘守华]︱由重申民间文艺的重要价值说起</a>
+                                        <a class="time">2018-01-15</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4241">· [陶阳]创世神话研究的始创者</a>
+                                        <a class="time">2017-11-23</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4235">· [苏永前]孙作云抗战时期神话研究的心路探寻</a>
+                                        <a class="time">2017-11-14</a>
+                                    </div>
+                                </div>
+                                <div class="e_content e_content6">
+                                    <h1>民俗动态</h1>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4634">· 中国民协七十华诞展览呈现“大美民间”</a>
+                                        <a class="time">2020-12-09</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4632">· [陶立璠]《历代梁祝史料辑存》序</a>
+                                        <a class="time">2020-12-08</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4590">· [叶敬忠]哀莫大于议题疲劳 ——关于“合村并居”运动的讨论</a>
+                                        <a class="time">2020-06-20</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4563">· “壶里壶外——东方美学茶器茶艺展”在开罗中国文化中心举办</a>
+                                        <a class="time">2019-11-20</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4545">· 文化和旅游部关于印发《曲艺传承发展计划》的通知</a>
+                                        <a class="time">2019-08-01</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4515">· 日本乡村文化建设“四大工程”</a>
+                                        <a class="time">2019-04-01</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4503">· 海昏侯墓简牍现《诗经》《礼记》《论语》等失传版本</a>
+                                        <a class="time">2019-02-04</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4498">·《钟敬文全集》出版与钟敬文学术文化思想座谈会召开</a>
+                                        <a class="time">2019-01-22</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4473">· 外媒：科学家确定人类发源地——非洲大陆</a>
+                                        <a class="time">2018-11-30</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4415">· 生活在飞速老去的国度 或许80后与90后真会晚景凄凉</a>
+                                        <a class="time">2018-08-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4413">· “江西抢棺”事件，这里是最全的观点汇总！</a>
+                                        <a class="time">2018-08-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4409">· 人民网评：“一刀切”不是好办法</a>
+                                        <a class="time">2018-07-30</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4391">· [张兵]全域推进传统村落保护发展和拯救老屋行动</a>
+                                        <a class="time">2018-06-21</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4390">· 北大教授斗胆谈了个天大问题</a>
+                                        <a class="time">2018-06-21</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4354">· [陈平原]人文学科学术评价的7个问题</a>
+                                        <a class="time">2018-04-15</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4352">· 国家社科基金重大项目“海外藏中国宝卷整理与研究”开题</a>
+                                        <a class="time">2018-04-11</a>
+                                    </div>
+                                </div>
+                                <div class="e_content e_content7">
+                                    <h1>岁时节日</h1>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4616">· 七月半鬼节的民间禁忌都有哪些？</a>
+                                        <a class="time">2020-09-01</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4615">· 中元节即将来临，莆田人都要做这些事情，你们是怎么过的？</a>
+                                        <a class="time">2020-09-01</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4608">· 8月7日立秋，今年是“早立秋”还是“晚立秋”？立秋后还会热吗？</a>
+                                        <a class="time">2020-08-06</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4594">· [张勃]端午龙舟竞渡习俗至迟出现于唐代考</a>
+                                        <a class="time">2020-07-09</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4573">· 春节：与鼠有关的风俗习惯</a>
+                                        <a class="time">2020-01-24</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4572">· 鼠年说鼠：鼠与佛教也是“缘分不浅”</a>
+                                        <a class="time">2020-01-20</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4551">· 花好·月圆·人寿，中秋节俗一览</a>
+                                        <a class="time">2019-09-12</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4541">· 三伏天的真实含义和习俗</a>
+                                        <a class="time">2019-07-25</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4507">· 原来除了中国，这些地方春节也是法定假日！</a>
+                                        <a class="time">2019-02-09</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4502">· 春节去哪儿？北京这六个庙会你一定要去看！</a>
+                                        <a class="time">2019-02-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4500">· 甘肃碱滩古城村九曲黄河灯阵亮灯迎新春</a>
+                                        <a class="time">2019-01-28</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4492">· 故宫首次最大限度还原清代场景 普通人能在宫里过年了</a>
+                                        <a class="time">2019-01-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4487">· 江南庙会的现代化转型：以上海金泽香汛和三林圣堂出巡为例</a>
+                                        <a class="time">2018-12-26</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4441">· 关于中秋的唐宋诗词</a>
+                                        <a class="time">2018-09-22</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4440">· [萧放] 中秋节的时代价值</a>
+                                        <a class="time">2018-09-22</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4389">· 吃过夏至面一天短一线 夏至习俗吃什么？</a>
+                                        <a class="time">2018-06-21</a>
+                                    </div>
+                                </div>
+                                <div class="e_content e_content8">
+                                    <h1>民间文物</h1>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4222">· 中国传统村落立档范本展亮相天津大学新校区</a>
+                                        <a class="time">2017-10-26</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4052">· [王鲁湘]《瓷行天下》万字长文（上）</a>
+                                        <a class="time">2017-03-13</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4051">· [王鲁湘]《瓷行天下》万字长文（下）</a>
+                                        <a class="time">2017-03-13</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3668">· 陕北横山现元代壁画墓 绘有“5位夫人伴夫君”(图)</a>
+                                        <a class="time">2015-01-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3667">· 中国古建筑等级制度的发展</a>
+                                        <a class="time">2015-01-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3666">· [包孝祖]花儿起源于吐谷浑《阿于（wu）歌》考</a>
+                                        <a class="time">2015-01-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3665">· 中国生肖文化：源远流长，有待开发</a>
+                                        <a class="time">2015-01-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3523">· “织出的绚烂”：藏毯在京悄然走俏</a>
+                                        <a class="time">2014-01-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3021">· 方寸之间展示西藏风情</a>
+                                        <a class="time">2011-07-30</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=2988">· [储立之]石瓢壶</a>
+                                        <a class="time">2011-06-26</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=2987">· [谢曼伦]荷塘夜曲壶</a>
+                                        <a class="time">2011-06-26</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=2981">· [马未都]刻意在关注社会 文化重建还需一代人</a>
+                                        <a class="time">2011-06-19</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=2935">· 重庆一居民收藏土家生肖工艺品将择机献给国家</a>
+                                        <a class="time">2011-04-15</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=2918">· 二十载痴迷，只为民族文字书法收藏</a>
+                                        <a class="time">2011-03-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=2907">· 土家族农民赵兴财和他的“宝贝疙瘩”</a>
+                                        <a class="time">2011-02-24</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=2877">· 如何收藏紫砂器？</a>
+                                        <a class="time">2011-01-22</a>
+                                    </div>
+                                </div>
+                                <div class="e_content e_content9">
+                                    <h1>田野考察</h1>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4592">· 山东合村并居的真实情况</a>
+                                        <a class="time">2020-06-22</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4398">· [纪录]蒙古国西部的驯鹿部落——查腾人</a>
+                                        <a class="time">2018-07-08</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4345">· 女娶男嫁，甘肃这个县的风俗你怎么看？</a>
+                                        <a class="time">2018-04-04</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4203">· 非洲的黑叔叔是怎么用充电宝的？</a>
+                                        <a class="time">2017-10-12</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4202">· 千万别总去超市了，看完你就明白了！</a>
+                                        <a class="time">2017-10-12</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4152">· 甘肃省级非物质文化遗产：岷县宝卷</a>
+                                        <a class="time">2017-08-08</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4151">· 念唱抄写传承百年 张掖一家四代的《河西宝卷》情缘</a>
+                                        <a class="time">2017-08-08</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4083">· [张润平]《岷县百名花儿歌手调查实录》后记</a>
+                                        <a class="time">2017-04-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4082">· [张润平]关于岷洮花儿调查的预设与文本整理规范的说明</a>
+                                        <a class="time">2017-04-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3834">· 广东江门：“仓东计划”唤醒古村落</a>
+                                        <a class="time">2016-03-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3795">· [张勃]修复与提升：传统村落保护的关键词</a>
+                                        <a class="time">2015-11-20</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3713">· [诗纳倮乌]民俗志及其书写</a>
+                                        <a class="time">2015-05-15</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3708">· 越看，对中国乡村的未来越迷茫</a>
+                                        <a class="time">2015-05-09</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3522">· 为了让濒危语言留存500年</a>
+                                        <a class="time">2014-01-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3499">· 互联网民族志调查扩展人类学新领域</a>
+                                        <a class="time">2013-11-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=3365">· [陶立璠]“非遗”保护应回归民间</a>
+                                        <a class="time">2013-03-13</a>
+                                    </div>
+                                </div>
+                                <div class="e_content e_content10">
+                                    <h1>衣食住行</h1>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4617">· 古代建筑上至宫殿下至民宅，为什么都选择坐北朝南</a>
+                                        <a class="time">2020-09-02</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4530">· 唐东谢蛮与短裙苗风俗变迁小考</a>
+                                        <a class="time">2019-06-04</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4529">· 黔东南大山深处有一群苗姑娘 她们穿着“世界第一短”的超短裙</a>
+                                        <a class="time">2019-06-04</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4509">· 中国最后一个原始部落——云南翁丁，值得一去！</a>
+                                        <a class="time">2019-02-09</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4505">· 不是牛街不是南锣鼓巷！这才是北京最有味儿的胡同，好吃好玩</a>
+                                        <a class="time">2019-02-07</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4499">· 中堂家具的摆放方法</a>
+                                        <a class="time">2019-01-25</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4470">· 什么体质喝什么茶，一张表告诉你（建议收藏）</a>
+                                        <a class="time">2018-11-18</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4460">· 每一个山西人，上辈子都是被酸死的</a>
+                                        <a class="time">2018-10-23</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4455">· 详解罗汉床——待客的最高级别</a>
+                                        <a class="time">2018-10-08</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4417">· 江西婺源：篁岭古村秋日“晒秋”，场面令人叹为观止</a>
+                                        <a class="time">2018-08-11</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4416">· 江西婺源：又到一年“晒秋”季</a>
+                                        <a class="time">2018-08-11</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4336">· 一篇文章，让你了解中国古建筑的精髓</a>
+                                        <a class="time">2018-03-21</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4335">· 中国的四合院，才是真正的豪宅！</a>
+                                        <a class="time">2018-03-21</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4294">· 故宫故事｜紫禁城里的“暖气”</a>
+                                        <a class="time">2018-01-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4292">· “厕所革命”在中国的缘起、现状与言说</a>
+                                        <a class="time">2018-01-29</a>
+                                    </div>
+                                    <div class="title_time">
+                                        <a class="href_title" href="http://www.chinesefolklore.com/news/news_detail.asp?id=4281">· 中国火锅简史</a>
+                                        <a class="time">2018-01-17</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_content6" id="main_content6">
+            <div class="top">
+                <div class="title">
+                    <img class="logo" src="/travel/Home/img/10.jpg">
+                    <span class="a0">让旅游更便捷！</span>
+                </div>
+            </div>
+            <div class="content6">
+                <div class="header6">
+                    <div class="input_header6">
+                        <input id="input_city1" type="text" placeholder="City">
+                        <div class="input_select">
+                            <input class="goal" type="text" placeholder="请输入目的地或关键字">
+                            <a class="in_select" href="">搜&emsp;&emsp;索</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="spots_recommend">
+                    <div class="recommend_city_spots">
+                        <div class="spots_title">
+                            <span id="recommend_spots">景点推荐</span>
+                            <a class="spots special" href="">
+                                <span>精选</span>
+                            </a>
+                            <a class="FenGe">|</a>
+                            <a class="spots XiAn" href="">
+                                <span>西安</span>
+                            </a>
+                            <a class="FenGe">|</a>
+                            <a class="spots SanYa" href="">
+                                <span>三亚</span>
+                            </a>
+                            <a class="FenGe">|</a>
+                            <a class="spots YunNan" href="">
+                                <span>云南</span>
+                            </a>
+                            <a class="FenGe">|</a>
+                            <a class="spots Chengdu" href="">
+                                <span>成都</span>
+                            </a>
+                            <a class="FenGe">|</a>
+                            <a class="spots HuaShan" href="">
+                                <span>华山</span>
+                            </a>
+                            <a class="FenGe">|</a>
+                            <a class="spots ChongQing" href="">
+                                <span>重庆</span>
+                            </a>
+                            <a class="FenGe">|</a>
+                            <a class="spots YanAn" href="">
+                                <span>延安</span>
+                            </a>
+                            <a class="FenGe">|</a>
+                            <a class="spots XiaMen" href="">
+                                <span>厦门</span>
+                            </a>
+                            <a class="FenGe">|</a>
+                            <a class="spots JiuZhaiGou" href="">
+                                <span>九寨沟</span>
+                            </a>
+                        </div>
+                        <div class="spots_messages">
+                            <div class="spots_content spots1">
+                                <div class="spots_imgs img1">
+                                </div>
+                                <div class="spots_description description1">
+                                </div>
+                                <div class="spots_price price1">
+                                </div>
+                            </div>
+                            <div class="spots_content spots2">
+                                <div class="spots_imgs img2">
+
+                                </div>
+                                <div class="spots_description description2">
+
+                                </div>
+                                <div class="spots_price price2">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots3">
+                                <div class="spots_imgs img3">
+
+                                </div>
+                                <div class="spots_description description3">
+
+                                </div>
+                                <div class="spots_price price3">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots4">
+                                <div class="spots_imgs img4">
+
+                                </div>
+                                <div class="spots_description description4">
+
+                                </div>
+                                <div class="spots_price price4">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots5">
+                                <div class="spots_imgs img5">
+
+                                </div>
+                                <div class="spots_description description5">
+
+                                </div>
+                                <div class="spots_price price5">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots6">
+                                <div class="spots_imgs img6">
+
+                                </div>
+                                <div class="spots_description description6">
+
+                                </div>
+                                <div class="spots_price price6">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots7">
+                                <div class="spots_imgs img7">
+
+                                </div>
+                                <div class="spots_description description7">
+
+                                </div>
+                                <div class="spots_price price7">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots8">
+                                <div class="spots_imgs img8">
+
+                                </div>
+                                <div class="spots_description description8">
+
+                                </div>
+                                <div class="spots_price price8">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots9">
+                                <div class="spots_imgs img9">
+
+                                </div>
+                                <div class="spots_description description9">
+
+                                </div>
+                                <div class="spots_price price9">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots10">
+                                <div class="spots_imgs img10">
+
+                                </div>
+                                <div class="spots_description description10">
+
+                                </div>
+                                <div class="spots_price price10">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots11">
+                                <div class="spots_imgs img11">
+
+                                </div>
+                                <div class="spots_description description11">
+
+                                </div>
+                                <div class="spots_price price11">
+
+                                </div>
+                            </div>
+                            <div class="spots_content spots12">
+                                <div class="spots_imgs img12">
+
+                                </div>
+                                <div class="spots_description description12">
+
+                                </div>
+                                <div class="spots_price price12">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

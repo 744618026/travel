@@ -1,0 +1,201 @@
+.main_content6{
+    width: 100%;
+    height: 1200px;
+    background-color: #ffbbba;
+    position: relative;
+    top: 10px;
+    border: 3px solid white;
+}
+.main_content6 .top{
+    display: block;
+    width: 80%;
+    height: 140px;
+    background-color: #00CED1;
+    position: relative;
+    left: 100px;
+    top: 10px;
+}
+.main_content6 .top .title{
+    width: 80%;
+    height: 120px;
+    position: relative;
+    left: 10px;
+    top: 10px;
+    background-color: #E0C3FC;
+}
+.main_content6 .top .logo{
+    width: 110px;
+    height: 110px;
+    position: relative;
+    left: 100px;
+    top: 5px;
+    border-radius: 100%;
+}
+.main_content6 .top .a0{
+    position: relative;
+    left: 120px;
+    top: -50px;
+    color: white;
+    font-size: 15px;
+}
+.content6{
+    width: 100%;
+    height: 1000px;
+    position: relative;
+    top: 15px;
+    border-top: 1px solid white;
+    background-color: #E0C3FC;
+}
+.header6{
+    width: 1000px;
+    height: 50px;
+    position: relative;
+    top: 10px;
+    left: 100px;
+    background-color: #2f86f6;
+}
+#input_city1{
+    width: 200px;
+    height: 40px;
+    position: relative;
+    left: 100px;
+    top: 5px;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 2px;
+}
+.content6 .input_select {
+    width: 224px;
+    height: 40px;
+    background-color: orange;
+    position: relative;
+    left: 350px;
+    top: -38px;
+    border-radius: 5px 0  0 5px;
+    border: 1px solid orange;
+}
+.content6 .goal{
+    width: 200px;
+    height: 38px;
+    position: relative;
+    left: 3px;
+    font-size: 17px;
+    padding: 0 10px;
+}
+.input_select .in_select{
+    display: block;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    /*text-align: center;*/
+    background-color: #fb9125;
+    box-shadow: inset 0 1px 0 0 #fcad5c;
+    border: 1px solid #e08821;
+    cursor: pointer;
+    font-size: 18px;
+    text-indent: 27px;
+    position: relative;
+    border-radius: 0 5px 5px 0;
+    text-decoration: none;
+    position: relative;
+    top: -40px;
+    left: 225px;
+    color: white;
+}
+.spots_recommend{
+    width: 100%;
+    height: 640px;
+    background-color: #ffbbba;
+    position: relative;
+    top: 10px;
+}
+.recommend_city_spots{
+    width: 1100px;
+    height: 600px;
+    background-color: #00CED1;
+    position: relative;
+    left: 50px;
+}
+.spots_title{
+    width: 1000px;
+    height: 40px;
+    position: relative;
+    left: 50px;
+    top: 10px;
+    background-color: #E0C3FC;
+}
+.recommend_city_spots #recommend_spots{
+    display: block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #0d67bb;
+    font-size: 15px;
+    color: white;
+    position: relative;
+    top: 5px;
+}
+.recommend_city_spots .spots_title .spots{
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    color: white;
+    position: relative;
+    top: -25px;
+    left: 100px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4692f4;
+}
+.recommend_city_spots .spots_title .FenGe{
+    position: relative;
+    left: 105px;
+    top: -25px;
+}
+.spots_messages{
+    width: 1000px;
+    height: 550px;
+    position: relative;
+    left: 50px;
+    top: 10px;
+    background-color: #8EC5FC;
+}
+.spots_messages .spots_content{
+    display: inline-block;
+    width: 230px;
+    height: 175px;
+    margin-left: 10px;
+    margin-top: 5px;
+    position: relative;
+    left: 10px;
+    background-color: #e08821;
+}
+.spots_content .spots_imgs{
+    display: block;
+    width: 210px;
+    height: 100px;
+    position: relative;
+    left: 10px;
+    top: 5px;
+    background-color: #ffbbba;
+}
+.spots_content .spots_description{
+    display: block;
+    width: 210px;
+    height: 40px;
+    position: relative;
+    left: 10px;
+    top: 5px;
+    background-color: #E0C3FC;
+}
+.spots_content .spots_price{
+    width: 60px;
+    height: 25px;
+    position: relative;
+    left: 10px;
+    top: 5px;
+    background-color: red;
+}

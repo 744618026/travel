@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 4271px;
+    line-height: 24px;
+    font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+    background-image: url(/travel/Home/img/0.jpg);
+}
+.container{
+    width: 100%;
+    height: 4271px;
+}
+.Content0 {
+    margin: 0px auto;
+    max-width: 720px;
+    height: auto;
+    text-align: center;
+}
+.header {
+    margin:  0px auto;
+    width: 100%;
+    height: 106px;
+    background-image: url(/travel/Home/img/top.jpg);
+}
+.header .logo{
+    width: 1200px;
+    height: 106px;
+    margin: 0px auto;
+    position: relative;
+    top: 5px;
+}
+#item1{
+    width: 80px;
+    height: 80px;
+}
+.btn{
+    width: 400px;
+    height: 90px;
+    line-height: 90px;
+    text-align: left;
+    position: relative;
+    top: -90px;
+    left: 400px;
+}
+.btn button {
+    width: 90px;
+    font-size: 20px;
+    color: black;
+    border-radius: 6px;
+    background-color: transparent;
+}
+.btns{
+    text-decoration: none;
+}
+.logo .href{
+    width: 300px;
+    height: 80px;
+    line-height: 80px;
+    position: relative;
+    left: 850px;
+    top: -175px;
+}
+.href .hrefs{
+    text-decoration: none;
+    margin-left: 50px;
+    font-weight: lighter;
+    color: black;
+}
+
+.btn button:hover{
+    background-image: linear-gradient(19deg, #8EC5FC 0%,#E0C3FC 100%);
+    cursor: pointer;
+}
+.header #search{
+    width: 300px;
+    margin-left: 20px;
+    float: right;
+    height: 106px;
+    line-height: 106px;
+    position: relative;
+    top: -110px;
+}
+
+.header #search .search-item{
+    width: 200px;
+    height: 40px;
+}
+.admin{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    background-color: #e08821;
+    left: 1200px;
+    top: -252px;
+}
+.admin_img{
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    position: relative;
+    top: 5px;
+    background-color: #4692f4;
+}
+
+.content{
+    width: 1201px;
+    height: 730px;
+    background-image: url(/travel/Home/img/02.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    left: 160px;
+}
+.content .main_content0{
+    width: 1170px;
+    margin: 55px auto 0px auto;
+    height: 706px;
+    padding: 12px 10px;
+    background-image: url(/travel/Home/img/03.jpg) ;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 13px;
+    left: 4px;
+}
+.content .main_content1{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 999;
+}
+.container .main_content2{
+    position: absolute;
+    left: -135px;
+    top: -10px;
+    z-index: 999;
+}
+.container .main_content3{
+    position: absolute;
+    right: -50px;
+    top: -10px;
+    z-index: 999;
+}
+
+

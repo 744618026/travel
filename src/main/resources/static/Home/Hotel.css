@@ -1,0 +1,229 @@
+.container{
+    width: 100%;
+    height: auto;
+    color: white;
+}
+.top{
+    width: 100%;
+    height: 120px;
+}
+.top .title{
+    width: 100%;
+    height: 90px;
+    position: relative;
+    top: 15px;
+}
+.main_content4 .top .logo{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 5px;
+    left: 100px;
+    border-radius: 100%;
+}
+.top .a0{
+    position: relative;
+    left: 120px;
+    top: -30px;
+    color: white;
+}
+.top #warn{
+    position: relative;
+    left: 300px;
+}
+
+.content4{
+    width: 100%;
+    height: 700px;
+}
+.content4 .first{
+    width: 100%;
+    height: 100px;
+}
+.content4 .first #first{
+    display: inline-block;
+    width: 1000px;
+    height: 90px;
+    position: relative;
+    left: 100px;
+    top: 5px;
+}
+.first .city{
+    width: 180px;
+    height: 80px;
+    position: relative;
+    left: 50px;
+    top: 5px;
+}
+.first .date{
+    display: inline-block;
+    width: 400px;
+    height: 80px;
+    position: relative;
+    left: 230px;
+    top: -76px;
+}
+.night{
+    display: none;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    top: -40px;
+    left: 170px;
+}
+.first #indate {
+    width: 180px;
+    height: 80px;
+    position: relative;
+}
+.first #outdate{
+    width: 180px;
+    height: 80px;
+    position: relative;
+    left: 220px;
+    top: -80px;
+}
+.first .select{
+    width: 180px;
+    height: 80px;
+    position: relative;
+    left: 631px;
+    top: -198px;
+}
+.first .btnselect{
+    width: 120px;
+    height: 80px;
+    position: relative;
+    left: 820px;
+    top: -260px;
+}
+.btnselect_box{
+    display: block;
+    width: 120px;
+    height: 80px;
+}
+.border{
+    border: 1px solid lightsteelblue;
+}
+.date{
+    border: 1px solid lightsteelblue;
+}
+.box{
+    display: block;
+    width: 150px;
+    height: 60px;
+    position: relative;
+    top: 20px;
+    left: 15px;
+}
+
+.box .input0{
+    width: 115px;
+    height: 20px;
+    font-size: 14px;
+    position: relative;
+    left: 10px;
+}
+.box .input1{
+    width: 120px;
+    height: 25px;
+    padding: 0 10px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+    text-align: center;
+}
+
+.input_btnselect{
+    width: 90px;
+    height: 40px;
+    border-radius: 5px;
+    border: 0.5px solid white;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    background-color: transparent;
+    color: white;
+    padding: 0 10px;
+}
+.input_btnselect:hover{
+    background-image: linear-gradient(19deg, #8EC5FC 0%,#E0C3FC 100%);
+    /*cursor: pointer;*/
+}
+.second{
+    width: 100%;
+    height: 700px;
+}
+.recommend_span{
+    width: 1000px;
+    height: 70px;
+    position: relative;
+    left: 100px;
+}
+#recommend_span{
+    display: block;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    position: relative;
+    left: 450px;
+    font-size: 28px;
+}
+.recommend_btn {
+    display: block;
+    width: 1000px;
+    height: 70px;
+    position: relative;
+    left: 100px;
+}
+.recommend_btn button{
+    width: 62px;
+    height: 32px;
+    line-height: 32px;
+    position: relative;
+    left: 270px;
+    top: 10px;
+}
+.second .imgmessage{
+    width: 100%;
+    height: 330px;
+}
+
+.imgmessage .message{
+    display: inline-block;
+    width: 295px;
+    height: 330px;
+}
+.imgmessage .img{
+    width: 280px;
+    height: 197px;
+    position: relative;
+    left: 7px;
+    background-color: #8EC5FC;
+}
+.imgmessage .hotel_info{
+    width: 280px;
+    height: 127px;
+    position: relative;
+    left: 7px;
+    top: 5px;
+    background-color: #0d67bb;
+}
+.bottom_info{
+    width: 100%;
+    height: 100px;
+}
+.adminLogin{
+    width: 1000px;
+    height: 100%;
+    position: relative;
+    left: 100px;
+}
+.adminLogin .join_hotel{
+    width: 400px;
+    height: 70px;
+    line-height: 70px;
+    position: relative;
+    left: 300px;
+    top: 20px;
+}
