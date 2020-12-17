@@ -65,9 +65,9 @@ public class AdminPOIController{
     }
     //添加景点
     @PostMapping("/add")
-    @Caching(evict = {@CacheEvict(cacheNames ="poi"),
-                     @CacheEvict(cacheNames = "admin/poi"),
-                        @CacheEvict(cacheNames = "poi/totalPage")})
+    @Caching(evict = {@CacheEvict(cacheNames ="poi",allEntries = true),
+                     @CacheEvict(cacheNames = "admin/poi",allEntries = true),
+                        @CacheEvict(cacheNames = "poi/totalPage",allEntries = true)})
     public ResultVo poiAdd(@Valid POIForm poiForm,BindingResult bindingResult) throws IllegalStateException{
         if(bindingResult.hasErrors()){
             return ResultUtil.fail(bindingResult.getFieldError().getDefaultMessage());
@@ -87,9 +87,9 @@ public class AdminPOIController{
             return ResultUtil.fail(e.getMessage());
         }
     }
-    @Caching(evict = {@CacheEvict(cacheNames ="poi"),
-            @CacheEvict(cacheNames = "admin/poi"),
-            @CacheEvict(cacheNames = "poi/totalPage")})
+    @Caching(evict = {@CacheEvict(cacheNames ="poi",allEntries = true),
+            @CacheEvict(cacheNames = "admin/poi",allEntries = true),
+            @CacheEvict(cacheNames = "poi/totalPage",allEntries = true)})
     //删除景点
     @GetMapping("/delete")
     public ResultVo delete(@RequestParam("poiId")String poiId,@RequestParam("regionId")String regionId){
@@ -104,8 +104,8 @@ public class AdminPOIController{
             return ResultUtil.fail(e.getMessage());
         }
     }
-    @Caching(evict = {@CacheEvict(cacheNames ="poi"),
-            @CacheEvict(cacheNames = "admin/poi")})
+    @Caching(evict = {@CacheEvict(cacheNames ="poi",allEntries = true),
+            @CacheEvict(cacheNames = "admin/poi",allEntries = true)})
     @PostMapping("/update")
     public ResultVo poiUpdate(@Valid POIForm poiForm, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
@@ -129,7 +129,7 @@ public class AdminPOIController{
     //添加景点图片
 
     @PostMapping("/image/upload")
-    @Caching(evict = {@CacheEvict(cacheNames = "poi/images",key = "#poiId")})
+    @Caching(evict = {@CacheEvict(cacheNames = "poi/images",key = "#poiId",allEntries = true)})
     public ResultVo poiImageUpload(@RequestParam("file")MultipartFile file,@RequestParam("poiId")String poiId){
         try{
             POIImage poiImage = new POIImage();

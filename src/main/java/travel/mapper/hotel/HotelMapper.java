@@ -14,7 +14,7 @@ public interface HotelMapper {
      * @param hotelId 酒店Id
      * @return 酒店信息
      */
-    @Select("select * from Hotel where hotelId=#{hotelId}")
+    @Select("select * from hotel where hotelId=#{hotelId}")
     Hotel findByHotelId(@Param("hotelId") String hotelId);
 
     /**
@@ -22,7 +22,7 @@ public interface HotelMapper {
      * @param hotelId
      * @return int
      */
-    @Delete("delete from Hotel where hotelId=#{hotelId}")
+    @Delete("delete from hotel where hotelId=#{hotelId}")
     int delete(@Param("hotelId") String hotelId);
 
     /**
@@ -37,9 +37,9 @@ public interface HotelMapper {
      * @param regionId
      * @return
      */
-    @Select("Select * from Hotel where regionId=#{regionId}")
+    @Select("Select * from hotel where regionId=#{regionId}")
     List<Hotel> findByRegionId(@Param("regionId") String regionId);
 
-    @Insert("insert into hotel(hotelId,hotelName,hotelDescribe,regionId) values(#{hotelId},#{hotelName},#{hotelDescribe},#{regionId})")
+    @Insert("insert into hotel(hotelId,hotelName,hotelDescribe,regionId,address) values(#{hotelId},#{hotelName},#{hotelDescribe},#{regionId},#{address})")
     int insert(Hotel hotel);
 }

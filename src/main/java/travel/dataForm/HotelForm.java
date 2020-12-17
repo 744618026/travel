@@ -11,6 +11,16 @@ public class HotelForm {
     /**地区Id**/
     @NotBlank(message = "地区Id不能为空")
     private String regionId;
+    @NotBlank(message = "地址不能为空")
+    private String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getHotelName() {
         return hotelName;

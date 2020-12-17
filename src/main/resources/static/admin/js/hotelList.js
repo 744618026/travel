@@ -39,8 +39,15 @@ $(document).ready(function (){
                         let td3 = $("<td></td>");
                         let textArea = $("<textarea></textarea>")
                         textArea.html(dats[i].hotelDescribe);
+                        textArea.attr("readonly",true);
                         td3.append(textArea)
                         body.append(td3);
+                        let td4 = $("<td></td>");
+                        let textArea1 = $("<textarea></textarea>")
+                        textArea1.html(dats[i].address);
+                        textArea1.attr("readonly",true);
+                        td4.append(textArea1)
+                        body.append(td4);
                         let td8 = $("<td></td>");
                         let a = $("<a></a>");
                         a.html("管理");

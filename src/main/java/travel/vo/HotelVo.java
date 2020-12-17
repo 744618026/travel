@@ -23,6 +23,36 @@ public class HotelVo implements Serializable {
     private String regionId;
     @JsonProperty("address")
     private String address;
+    @JsonProperty("phone")
+    private String phone;
+    @JsonProperty("info")
+    private String info;
+    @JsonProperty("policy")
+    private String policy;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public String getPolicy() {
+        return policy;
+    }
+
+    public void setPolicy(String policy) {
+        this.policy = policy;
+    }
 
     public String getAddress() {
         return address;

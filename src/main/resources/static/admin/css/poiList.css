@@ -15,6 +15,9 @@
     height: 40px;
     resize: none;
 }
+.content .info table td textarea:hover{
+    cursor: default;
+}
 .content .info table td a{
     color: #00CED1;
 }

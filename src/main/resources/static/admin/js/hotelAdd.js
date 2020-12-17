@@ -1,4 +1,5 @@
 $(document).ready(function (){
+    $("#region-name").html(localStorage.getItem("current-region"));
     $("#sub-btn").click(function (){
         $("#region-id").val(localStorage.getItem("current-region-id"));
         $.ajax({
@@ -14,4 +15,4 @@ $(document).ready(function (){
             }
         })
     });
-}
+});

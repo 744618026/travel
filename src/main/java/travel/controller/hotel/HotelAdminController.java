@@ -3,7 +3,9 @@ package travel.controller.hotel;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -59,8 +61,8 @@ public class HotelAdminController {
             return ResultUtil.fail(e.getMessage());
         }
     }
-
     @PostMapping("/add")
+    @Caching(evict = {@CacheEvict(cacheNames = "admin/hotel",allEntries = true)})
     public ResultVo add(@Valid HotelForm hotelForm, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             ResultUtil.fail(bindingResult.getFieldError().getDefaultMessage());

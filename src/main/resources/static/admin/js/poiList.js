@@ -46,8 +46,9 @@ $(document).ready(function (){
                         td2.html(dats[i].name);
                         body.append(td2);
                         let td3 = $("<td></td>");
-                        let textArea = $("<textarea></textarea>")
+                        let textArea = $("<textarea></textarea>");
                         textArea.html(dats[i].describe);
+                        textArea.attr("readonly",true);
                         td3.append(textArea)
                         body.append(td3);
                         let td4 = $("<td></td>");

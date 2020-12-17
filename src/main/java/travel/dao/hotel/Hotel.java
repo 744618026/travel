@@ -12,6 +12,36 @@ public class Hotel {
 
     private String address;
 
+    private String phone;
+
+    private String info;
+
+    private String policy;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public String getPolicy() {
+        return policy;
+    }
+
+    public void setPolicy(String policy) {
+        this.policy = policy;
+    }
+
     public String getAddress() {
         return address;
     }
