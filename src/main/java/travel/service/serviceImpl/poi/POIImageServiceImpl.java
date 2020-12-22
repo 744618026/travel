@@ -41,8 +41,8 @@ public class POIImageServiceImpl implements POIImageService {
             throw new NullException(ResultEnum.UPLOAD_FILE_NULL.getMessage());
         }
         try {
-            String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-            String resource = "static/poiImage/" + poiImage.getPoiId();
+            String path = "";
+            String resource = "poiImage/" + poiImage.getPoiId();
             File dir = new File(path + resource);
             if (!dir.exists()) {
                 boolean result = dir.mkdirs();
@@ -72,8 +72,8 @@ public class POIImageServiceImpl implements POIImageService {
         }
         String url = poiImage.getPoiImageUrl();
         String fileName = url.substring(url.lastIndexOf("/"));
-        String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-        String resource = "static/poiImage/"+poiImage.getPoiId()+"/";
+        String path = "";
+        String resource = "poiImage/"+poiImage.getPoiId()+"/";
         File file  = new File(path+resource+fileName);
         if(file.exists()){
             file.delete();

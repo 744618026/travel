@@ -32,4 +32,6 @@ public interface POICommentService {
      * @return boolean
      */
     boolean insert(POIComment poiComment);
+
+    boolean check(String userName,String poiId);
 }
