@@ -58,4 +58,13 @@ public class POICommentServiceImpl implements POICommentService {
         }
         return true;
     }
+
+    @Override
+    public boolean check(String userName, String poiId) {
+        List<POIComment> poiCommentList = poiCommentMapper.check(userName,poiId);
+        if(poiCommentList.size()==0){
+            return true;
+        }
+        return false;
+    }
 }

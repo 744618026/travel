@@ -38,6 +38,9 @@ public interface POICommentMapper {
      * @param poiComment 对象
      * @return int
      */
-    @Insert("Insert into poiComment(poiCommentId,poiId,userName,content) values(#{poiCommentId},#{poiId},#{username},#{content})")
+    @Insert("Insert into poiComment(poiCommentId,poiId,userName,content) values(#{poiCommentId},#{poiId},#{userName},#{content})")
     int insert(POIComment poiComment);
+
+    @Select("Select * from poiComment where userName=#{userName} and poiId=#{poiId}")
+    List<POIComment> check(@Param("userName")String userName,@Param("poiId")String poiId);
 }

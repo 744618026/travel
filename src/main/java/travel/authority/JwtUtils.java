@@ -25,17 +25,12 @@ public class JwtUtils {
                 .signWith(SignatureAlgorithm.HS256, secret).compact();
         return token;
     }
-
     public static String getUsername(String token) {
-        Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        Claims claims = getClaims(token);
         return claims.get("username").toString();
     }
-    public static String getPassword(String token){
-        Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-        return claims.get("password").toString();
-    }
     public static String getUserRole(String token) {
-        Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        Claims claims = getClaims(token);
         return claims.get("role").toString();
     }
 

@@ -29,7 +29,7 @@ $(document).ready(function (){
             data: {"page":page},
             success:function (data){
                 if(data.code==0){
-                    let datas = data.data;
+                    let datas = data.data.data;
                     let body = $("#data");
                     body.html("");
                     for(let i=0;i<Object.keys(datas).length;i++){

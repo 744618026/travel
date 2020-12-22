@@ -9,8 +9,7 @@ class poi{
 }
 $(document).ready(function (){
     var page = 1;
-    let datasum = 1;
-    load(1);
+    let datasum = load(1);
     new Pagination({
         element: '#pages', // 元素
         type: 1, // 样式类型，可选[1,2]
@@ -36,7 +35,7 @@ $(document).ready(function (){
             data:{"page":page,"regionId":localStorage.getItem("current-region-id")},
             success:function (data){
                 if(data.code==0){
-                    let dats = data.data;
+                    let dats = data.data.data;
                     for(let i=0;i<Object.keys(dats).length;i++){
                         let body = $("<tr></tr>");
                         let td1 = $("<td></td>");
@@ -73,7 +72,9 @@ $(document).ready(function (){
                         body.append(td8);
                         $("#data").append(body);
                     }
+                    return data.data.total;
                 }
+                return 1;
             }
         })
     }

@@ -1,6 +1,7 @@
 package travel.utils;
 
 import travel.enums.ReturnMessageEnum;
+import travel.vo.PageVo;
 import travel.vo.ResultVo;
 
 import java.io.Serializable;
