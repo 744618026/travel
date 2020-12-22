@@ -13,7 +13,8 @@ public enum ResultEnum {
     USER_EXISTS(10,"用户已存在"),
     EMAIL_REGISTERED(11,"邮箱已注册"),
     REGION_NOT_EXISTS(12,"地区不存在"),
-    TOKEN_EXPIRED(13,"token已过期");
+    TOKEN_EXPIRED(13,"token已过期"),
+    USER_NOT_MATCH(14,"用户名不匹配");
     private Integer code;
     private String message;
     ResultEnum(Integer code,String message){

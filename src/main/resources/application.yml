@@ -18,6 +18,7 @@ spring:
   servlet:
     multipart:
       max-file-size: 5MB
+      location: 
 
   resources:
     static-locations:
