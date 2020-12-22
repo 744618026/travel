@@ -5,7 +5,14 @@ public class HotelImage {
     private int category;
     private String url;
     private String hotelId;
+    private String productId;
+    public String getProductId() {
+        return productId;
+    }
 
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
     public String getHotelId() {
         return hotelId;
     }
