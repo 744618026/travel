@@ -137,6 +137,7 @@
     height: 150px;
     overflow-x: scroll;
     overflow-y: hidden;
+    scrollbar-width:none;
 }
 .content .modify .images .zoomImgBox img{
     position: relative;
