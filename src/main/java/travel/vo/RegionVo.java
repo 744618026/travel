@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 import java.io.Serializable;
 
-public class RegionVo implements Serializable {
-    private static final long serialVersionUID = -7678532546714224855L;
+public class RegionVo implements Serializable{
+    private static final long serialVersionUID = -7755646529627379123L;
     @JsonProperty("regionId")
     private String regionId;
 

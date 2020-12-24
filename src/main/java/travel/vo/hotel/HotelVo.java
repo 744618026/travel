@@ -1,4 +1,4 @@
-package travel.vo;
+package travel.vo.hotel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.core.serializer.Serializer;
@@ -8,8 +8,8 @@ import travel.dao.hotel.HotelImage;
 import java.io.Serializable;
 import java.util.List;
 
-public class HotelVo implements Serializable {
-    private static final long serialVersionUID = -4044478237212554787L;
+public class HotelVo implements Serializable{
+    private static final long serialVersionUID = -5825585879228785770L;
     @JsonProperty("hotelId")
     private String hotelId;
     /**酒店名*/

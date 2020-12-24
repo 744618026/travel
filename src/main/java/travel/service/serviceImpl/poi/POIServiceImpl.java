@@ -21,27 +21,18 @@ public class POIServiceImpl implements POIService {
     @Autowired
     private POIImageMapper poiImageMapper;
     @Override
-    public List<POI> findByRegionId(String regionId,Integer page,Integer size) {
-        List<POI> poiList = POIMapper.findByRegionId(regionId);
-        if(poiList.size()==0){
-            throw new NullException(ResultEnum.DATA_GET_NULL.getMessage());
-        }
-        int startIndex = (page-1)*size;
-        int endIndex = page*size;
-        if(poiList.size()<endIndex || endIndex>poiList.size()){
-            endIndex = poiList.size();
-        }
-        return poiList.subList(startIndex,endIndex);
+    public List<POI> findByRegionId(String regionId) {
+        return POIMapper.findByRegionId(regionId);
     }
 
-    @Override
-    public Integer findByRegionId(String regionId) {
-        List<POI> poiList = POIMapper.findByRegionId(regionId);
-        if(poiList.size()==0){
-            throw new NullException(ResultEnum.DATA_GET_NULL.getMessage());
-        }
-        return poiList.size();
-    }
+//    @Override
+//    public Integer findByRegionId(String regionId) {
+//        List<POI> poiList = POIMapper.findByRegionId(regionId);
+//        if(poiList.size()==0){
+//            throw new NullException(ResultEnum.DATA_GET_NULL.getMessage());
+//        }
+//        return poiList.size();
+//    }
     @Override
     public POI findByPOIId(String poiId) {
         POI poi = POIMapper.findByPOIId(poiId);
@@ -95,17 +86,17 @@ public class POIServiceImpl implements POIService {
         return true;
     }
 
-    @Override
-    public List<POI> find(Integer currPage, Integer pageSize,String regionId) {
-        List<POI> list = POIMapper.findByRegionId(regionId);
-        if(list.size()==0){
-            throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
-        }
-        Integer firstIndex = (currPage-1)*pageSize;
-        Integer lastIndex=currPage * pageSize;
-        if(list.size()<pageSize || lastIndex>list.size()){
-            lastIndex = list.size();
-        }
-        return list.subList(firstIndex,lastIndex);
-    }
+//    @Override
+//    public List<POI> find(Integer currPage, Integer pageSize,String regionId) {
+//        List<POI> list = POIMapper.findByRegionId(regionId);
+//        if(list.size()==0){
+//            throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
+//        }
+//        Integer firstIndex = (currPage-1)*pageSize;
+//        Integer lastIndex=currPage * pageSize;
+//        if(list.size()<pageSize || lastIndex>list.size()){
+//            lastIndex = list.size();
+//        }
+//        return list.subList(firstIndex,lastIndex);
+//    }
 }

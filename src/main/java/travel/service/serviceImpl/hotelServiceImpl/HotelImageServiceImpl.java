@@ -28,4 +28,24 @@ public class HotelImageServiceImpl implements HotelImageService {
         List<HotelImage> hotelImageList = hotelImageMapper.findByHotelIdAndCategory(hotelId,category);
         return hotelImageList;
     }
+
+    @Override
+    public boolean insert(HotelImage hotelImage) {
+        Hotel hotel = hotelMapper.findByHotelId(hotelImage.getHotelId());
+        if(hotel==null){
+            return false;
+        }
+
+        int result = hotelImageMapper.insert(hotelImage);
+        if(result>0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public List<HotelImage> findByHotelIdAndProductId(String hotelId, String productId) {
+        return hotelImageMapper.findByHotelIdAndProductId(hotelId,productId);
+    }
+
 }

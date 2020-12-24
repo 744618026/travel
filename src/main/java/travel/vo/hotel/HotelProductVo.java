@@ -1,8 +1,8 @@
-package travel.vo;
+package travel.vo.hotel;
 
 import java.io.Serializable;
 
-public class HotelProductVo implements Serializable {
+public class HotelProductVo implements Serializable{
     private static final long serialVersionUID = -5855729006251936878L;
     private String productId;
 

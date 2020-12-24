@@ -13,9 +13,8 @@ public interface POIService {
      * @param regionId 地区ID
      * @return 该地区所有的景点
      */
-    List<POI> findByRegionId(String regionId,Integer page,Integer size);
+    List<POI> findByRegionId(String regionId);
 
-    Integer findByRegionId(String regionId);
     /**
      *
      * @param POIId 景点ID
@@ -42,5 +41,5 @@ public interface POIService {
      */
     boolean  update(POI poi);
 
-    List<POI> find(Integer currPage, Integer pageSize,String regionId);
+//    List<POI> find(Integer currPage, Integer pageSize,String regionId);
 }

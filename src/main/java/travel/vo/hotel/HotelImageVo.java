@@ -1,12 +1,13 @@
-package travel.vo;
+package travel.vo.hotel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class HotelImageVo {
+import java.io.Serializable;
+
+public class HotelImageVo implements Serializable {
+    private static final long serialVersionUID = -4625821840500647106L;
     @JsonProperty("id")
     private String imageId;
-    @JsonProperty("category")
-    private int category;
     @JsonProperty("url")
     private String url;
     public String getImageId() {
@@ -15,14 +16,6 @@ public class HotelImageVo {
 
     public void setImageId(String imageId) {
         this.imageId = imageId;
-    }
-
-    public int getCategory() {
-        return category;
-    }
-
-    public void setCategory(int category) {
-        this.category = category;
     }
 
     public String getUrl() {

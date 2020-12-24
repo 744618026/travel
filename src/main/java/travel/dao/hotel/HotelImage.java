@@ -29,7 +29,7 @@ public class HotelImage {
         this.imageId = imageId;
     }
 
-    public int getCategory() {
+    public int getCategory(Integer integer) {
         return category;
     }
 
