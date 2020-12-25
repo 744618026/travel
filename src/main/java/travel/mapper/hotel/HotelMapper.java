@@ -30,7 +30,8 @@ public interface HotelMapper {
      * @param hotel 对象
      * @return int
      */
-    @Update("Update set hotelName=#{hotelName},hotelDescribe=#{hotelDescribe},regionId=#{regionId}")
+    @Update("Update hotel set hotelName=#{hotelName},hotelDescribe=#{hotelDescribe},regionId=#{regionId},address=#{address}," +
+            "phone=#{phone},info=#{info},policy=#{policy} where hotelId=#{hotelId}")
     int update(Hotel hotel);
     /**
      *
@@ -40,6 +41,6 @@ public interface HotelMapper {
     @Select("Select * from hotel where regionId=#{regionId}")
     List<Hotel> findByRegionId(@Param("regionId") String regionId);
 
-    @Insert("insert into hotel(hotelId,hotelName,hotelDescribe,regionId,address) values(#{hotelId},#{hotelName},#{hotelDescribe},#{regionId},#{address})")
+    @Insert("insert into hotel(hotelId,hotelName,hotelDescribe,regionId,address,phone,info,policy) values(#{hotelId},#{hotelName},#{hotelDescribe},#{regionId},#{address},#{phone},#{info},#{policy})")
     int insert(Hotel hotel);
 }

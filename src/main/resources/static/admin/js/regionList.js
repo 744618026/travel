@@ -20,8 +20,6 @@ $(document).ready(function (){
             page = index;
        }
     });
-
-    $("#totalPage").val(Math.ceil(datasum/15));
     function load(page) {
         $.ajax({
             url:"/travel/admin/region",

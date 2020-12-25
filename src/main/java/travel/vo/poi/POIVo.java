@@ -1,4 +1,4 @@
-package travel.vo;
+package travel.vo.poi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import travel.dao.poi.POIImage;
@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-public class POIVo implements Serializable {
-    private static final long serialVersionUID = -7084401949022632492L;
+public class POIVo implements Serializable{
+    private static final long serialVersionUID = 5452323549091725111L;
     @JsonProperty("poiId")
     private String poiId;
     /**景点名称*/

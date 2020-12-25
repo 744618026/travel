@@ -37,7 +37,7 @@ public class RegionController {
     }
     @GetMapping("/region/getRegions")
     public ResultVo getAllRegions(){
-        RedisBasePrefix prefix = new RedisBasePrefix("region".concat(":"));
+        RedisBasePrefix prefix = new RedisBasePrefix("region");
         ResultVo resultVo = (ResultVo) RedisUtil.get(prefix,"1",redisTemplate);
         if(resultVo==null){
             try{
@@ -77,14 +77,14 @@ public class RegionController {
     @GetMapping("/admin/region")
     public ResultVo regionPage(@RequestParam(value = "page",defaultValue = "1")Integer page,
                                @RequestParam(value = "size",defaultValue = "15") Integer size){
-        RedisBasePrefix prefix = new RedisBasePrefix("region".concat(":").concat("page").concat(":"));
+        RedisBasePrefix prefix = new RedisBasePrefix("region".concat(":").concat("pageAndSize"));
         ResultVo resultVo = (ResultVo) RedisUtil.get(prefix,page.toString(),redisTemplate);
         if(resultVo==null){
             try {
                 List<Region> regionList = regionService.find(page,size);
                 List<RegionVo> regionVoList = Region2RegionVoUtil.covert(regionList);
                 resultVo =  ResultUtil.success(PageVoUtil.getPage(page,size,regionList,regionVoList));
-                RedisUtil.set(redisTemplate,prefix,page.toString(),resultVo);
+                RedisUtil.set(redisTemplate,prefix,page.toString()+size.toString(),resultVo);
             }catch (Exception e){
                 return ResultUtil.fail(e.getMessage());
             }
@@ -129,7 +129,7 @@ public class RegionController {
     }
     private static boolean removeRedis(RedisTemplate redisTemplate){
         RedisBasePrefix prefix = new RedisBasePrefix("region".concat(":"));
-        RedisBasePrefix prefix1 = new RedisBasePrefix("region".concat(":").concat("page").concat(":"));
+        RedisBasePrefix prefix1 = new RedisBasePrefix("region".concat(":").concat("pageAndSize"));
         boolean result = RedisUtil.deleteByPrefix(prefix,redisTemplate);
         if(!result){
             return false;

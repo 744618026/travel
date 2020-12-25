@@ -63,7 +63,7 @@
                         <span style="display: none">.interests</span>
                     </li>
                     <div class="dd interests">
-                        <div class="d">查看</div>
+                        <div class="d"><a href="/travel/admin/poi/list">查看</a></div>
                         <div class="d"><a href="/travel/admin/poi/add">添加</a></div>
                         <div class="d"><a href="">订单</a></div>
                     </div>
@@ -92,7 +92,7 @@
                 <div class="top">
                     <a style="margin-left: 15px">景点</a>
                     <span>></span>
-                    <a href="/travel/admin/poi/list" class="a-active">查看</a>
+                    <a href="/travel/admin/hotel/list" class="a-active">查看</a>
                 </div>
                 <div class="operation">
 
@@ -104,7 +104,7 @@
                         <th>酒店名称</th>
                         <th>酒店描述</th>
                         <th>酒店地址</th>
-                        <th>操作</th>
+                        <th colspan="2">操作</th>
                         </thead>
                         <tbody id="data">
 
@@ -119,19 +119,28 @@
                         <div class="main-info">
                             <form onsubmit="return false;" id="poi-form">
                                 <div>
-                                    <label>酒店Id:</label><input disabled type="text" id="poi-id" name="poiId">
-                                    <input style="display: none" type="text" name="poiId" id="poiId">
+                                    <label>酒店Id:</label><input disabled type="text" id="hotel-id" name="hotelId">
+                                    <input type="text"  id="hotel-f-id" name="hotelId" style="display: none">
                                 </div>
                                 <div>
-                                    <label>酒店名称:</label><input type="text" id="poi-name" name="poiName">
+                                    <label>酒店名称:</label><input type="text" id="hotel-name" name="hotelName">
                                 </div>
                                 <div style="height: 100px">
-                                    <label>酒店描述:</label><textarea id="poi-describe" name="poiDescribe"></textarea>
+                                    <label>酒店描述:</label><textarea id="hotel-describe" name="hotelDescribe"></textarea>
                                 </div>
                                 <div>
-                                    <label>酒店地址:</label><input type="number" id="poi-stock" name="poiStock">
+                                    <label>酒店地址:</label><input type="text" id="hotel-address" name="address">
                                 </div>
-                                <input type="text" style="display: none" name="oldRegionId" id="poi-region">
+                                <div>
+                                    <label>酒店电话:</label><input type="text" id="hotel-phone" name="phone">
+                                </div>
+                                <div>
+                                    <label>酒店信息:</label><input type="text" id="hotel-info" name="info">
+                                </div>
+                                <div>
+                                    <label>酒店政策:</label><input type="text" id="hotel-policy" name="policy">
+                                </div>
+                                <input type="text" style="display: none" name="regionId" id="hotel-region">
                                 <div>
                                     <button id="poi-modify">确定修改</button>
                                 </div>
@@ -143,7 +152,7 @@
                                 <form onsubmit="return false;" action="" id="img-form" enctype="multipart/form-data">
                                     <img src="/travel/admin/img/upload.jpg" id="img">
                                     <input type="file" name="file" id="img-input">
-                                    <input type="text" style="display: none" name="poiId" id="img-poi-id">
+                                    <input type="text" style="display: none" name="hotelId" id="img-hotel-id">
                                     <button id="pic-sub">上传</button>
                                 </form>
                             </div>

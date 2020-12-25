@@ -30,7 +30,7 @@ public interface HotelService {
      * @param regionId 地区Id
      * @return
      */
-    List<Hotel> findByRegionId(String regionId,Integer page,Integer size);
+    List<Hotel> findByRegionId(String regionId);
 
     /**
      *

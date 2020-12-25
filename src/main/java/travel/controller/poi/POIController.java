@@ -22,6 +22,9 @@ import travel.utils.PageVoUtil;
 import travel.utils.RedisUtil;
 import travel.utils.ResultUtil;
 import travel.vo.*;
+import travel.vo.poi.POICommentVo;
+import travel.vo.poi.POIImageVo;
+import travel.vo.poi.POIVo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,20 +47,21 @@ public class POIController {
     @GetMapping("/list")
     public ResultVo getPoiList(@RequestParam("regionId")String regionId,@RequestParam(value = "page",defaultValue = "1")Integer page,
                                @RequestParam(value = "size",defaultValue = "15")Integer size){
-        RedisBasePrefix prefix = new RedisBasePrefix("travel".concat(":").concat(":").concat("poi").concat(":").concat(regionId));
-        ResultVo resultVo = (ResultVo) RedisUtil.get(prefix,page.toString(),redisTemplate);
+        RedisBasePrefix prefix = new RedisBasePrefix("travel".concat(":").concat("poi").concat(":").concat(regionId).concat(":").concat("pageAndSize"));
+        ResultVo resultVo = (ResultVo) RedisUtil.get(prefix,page.toString()+size.toString(),redisTemplate);
         if(resultVo==null){
             try {
                 regionService.findByRegionId(regionId);
-                List<POI> poiList = poiService.findByRegionId(regionId,page,size);
+                List<POI> poiList = poiService.findByRegionId(regionId);
                 List<POIVo> poiVoList = new ArrayList<>();
-                for(POI poi : poiList) {
+                Integer end = page*size>poiList.size()?poiList.size():page*size;
+                for(Integer i=(page-1)*size;i<end;i++){
                     POIVo poiVo = new POIVo();
-                    BeanUtils.copyProperties(poi, poiVo);
+                    BeanUtils.copyProperties(poiList.get(i),poiVo);
                     poiVoList.add(poiVo);
                 }
                 ResultVo resultVo1 = ResultUtil.success(PageVoUtil.getPage(page,size,poiList,poiVoList));
-                RedisUtil.set(redisTemplate,prefix,page.toString(),resultVo1);
+                RedisUtil.set(redisTemplate,prefix,page.toString()+size.toString(),resultVo1);
                 return resultVo1;
             }catch (Exception e){
                 return ResultUtil.fail(e.getMessage());
@@ -69,8 +73,8 @@ public class POIController {
     @GetMapping("/comments")
     public ResultVo getPOIComment(@RequestParam("poiId")String poiId,@RequestParam(value = "page",defaultValue = "1")Integer page,
                                   @RequestParam(value = "size",defaultValue = "15")Integer size){
-        RedisBasePrefix prefix = new RedisBasePrefix("travel".concat(":").concat(":").concat("poi").concat(":").concat("comment").concat(":").concat(poiId));
-        ResultVo resultVo = (ResultVo) RedisUtil.get(prefix,page.toString(),redisTemplate);
+        RedisBasePrefix prefix = new RedisBasePrefix("travel".concat(":").concat(":").concat("poi").concat(":").concat("comment").concat(":").concat(poiId).concat(":").concat("pageAndSize"));
+        ResultVo resultVo = (ResultVo) RedisUtil.get(prefix,page.toString()+size.toString(),redisTemplate);
         if(resultVo==null){
             try{
                 List<POIComment> poiCommentList = poiCommentService.findByPOIId(poiId,page,size);
@@ -81,7 +85,7 @@ public class POIController {
                     poiCommentVoList.add(poiCommentVo);
                 }
                 resultVo = ResultUtil.success(PageVoUtil.getPage(page,size,poiCommentList,poiCommentVoList));
-                RedisUtil.set(redisTemplate,prefix,page.toString(),resultVo);
+                RedisUtil.set(redisTemplate,prefix,page.toString()+size.toString(),resultVo);
             }catch (Exception e){
                 return ResultUtil.fail(e.getMessage());
             }
@@ -91,7 +95,7 @@ public class POIController {
     @PostMapping("/comment")
     public ResultVo PoiComment(@RequestParam("username")String username,@RequestParam("token")String token,@RequestParam("content")String content,
                                @RequestParam("poiId")String poiId){
-        RedisBasePrefix prefix = new RedisBasePrefix("travel".concat(":").concat(":").concat("poi").concat(":").concat("comment").concat(":").concat(poiId));
+        RedisBasePrefix prefix = new RedisBasePrefix("travel".concat(":").concat(":").concat("poi").concat(":").concat("comment").concat(":").concat(poiId).concat(":").concat("pageAndSize"));
         boolean re = RedisUtil.deleteByPrefix(prefix,redisTemplate);
         if(!re){
             LOG.info("request:/poi/comment清除缓存失败！");

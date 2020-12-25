@@ -2,6 +2,7 @@ body{
     padding: 0px;
     margin: 0px;
     min-width: 1430px;
+    overflow-y: scroll;
 }
 html{
     scrollbar-width:none;
@@ -115,6 +116,7 @@ input:focus{
     height: auto;
     margin: 0px;
     padding: 0px;
+    min-height: 650px;
 }
 .content .nav{
     width: 170px;
@@ -123,17 +125,17 @@ input:focus{
 }
 .content .nav ul{
     position: relative;
+    display: block;
     margin: 0px;
     padding: 0px;
     width: 170px;
-    height: 400px;
-    background-color: #333333;
-    min-height: 600px;
+    height: 100%;
+    background-color: #333333
 }
 .content .nav ul .list{
     margin: 0;
     width: 100%;
-    min-height: 530px;
+    height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-width:none;
@@ -306,7 +308,6 @@ caret{
 }
 .table{
     float: left;
-    min-height: 600px;
 }
 .table .content{
     width:1000px;

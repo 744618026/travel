@@ -36,7 +36,7 @@ public class HotelServiceImpl implements HotelService {
     public boolean update(Hotel hotel) {
         Hotel hotel1 = hotelMapper.findByHotelId(hotel.getHotelId());
         if(hotel1 == null){
-            throw new NullException(ResultEnum.HOTEL_NOT_EXISTS.getMessage());
+            return false;
         }
         int result = hotelMapper.update(hotel);
         if(result>0){
@@ -45,14 +45,8 @@ public class HotelServiceImpl implements HotelService {
         return false;
     }
     @Override
-    public List<Hotel> findByRegionId(String regionId,Integer page,Integer size) {
-        List<Hotel> hotelList = hotelMapper.findByRegionId(regionId);
-        Integer startIndex = (page-1)*size;
-        Integer endIndex = page * size;
-        if(endIndex>hotelList.size()){
-            endIndex = hotelList.size();
-        }
-        return hotelList.subList(startIndex,endIndex);
+    public List<Hotel> findByRegionId(String regionId) {
+        return hotelMapper.findByRegionId(regionId);
     }
 
     @Override

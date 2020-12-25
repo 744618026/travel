@@ -16,11 +16,10 @@ import travel.dataForm.POIForm;
 import travel.service.serviceImpl.poi.POIImageServiceImpl;
 import travel.service.serviceImpl.poi.POIServiceImpl;
 import travel.service.serviceImpl.region.RegionServiceImpl;
-import travel.utils.POI2POIVo;
 import travel.utils.PageVoUtil;
 import travel.utils.RedisUtil;
 import travel.utils.ResultUtil;
-import travel.vo.POIVo;
+import travel.vo.poi.POIVo;
 import travel.vo.ResultVo;
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -54,17 +53,20 @@ public class AdminPOIController{
     @GetMapping("/getPOI")
     public ResultVo Page(@RequestParam(value = "size",defaultValue = "15")Integer size,@RequestParam(value = "page",defaultValue = "1")Integer page,
                          @RequestParam("regionId")String regionId){
-        RedisBasePrefix prefix = new RedisBasePrefix("admin".concat(":").concat("poi").concat(":").concat(regionId).concat(":").concat("page").concat(":"));
+        RedisBasePrefix prefix = new RedisBasePrefix("admin".concat(":").concat("poi").concat(":").concat(regionId).concat(":").concat("pageAndSize"));
         ResultVo regionVo = (ResultVo) RedisUtil.get(prefix,page.toString(),redisTemplate);
         if(regionVo == null){
             try{
-                List<POI> poiList = poiService.find(page,size,regionId);
+                List<POI> poiList = poiService.findByRegionId(regionId);
                 List<POIVo> poiVoList = new ArrayList<>();
-                for(POI poi : poiList){
-                    poiVoList.add(POI2POIVo.convert(poi));
+                Integer end = page*size>poiList.size()?poiList.size():page*size;
+                for(Integer i=(page-1)*size;i<end;i++){
+                    POIVo poiVo = new POIVo();
+                    BeanUtils.copyProperties(poiList.get(i),poiVo);
+                    poiVoList.add(poiVo);
                 }
                 ResultVo resultVo = ResultUtil.success( PageVoUtil.getPage(page,size,poiList,poiVoList));
-                boolean result = RedisUtil.set(redisTemplate,prefix,page.toString(),resultVo);
+                boolean result = RedisUtil.set(redisTemplate,prefix,page.toString()+size.toString(),resultVo);
                 if(!result){
                     LOG.info("request：/admin/poi/getPOI缓存失败！");
                 }
@@ -184,8 +186,8 @@ public class AdminPOIController{
         }
     }
     private static boolean removeRedis(RedisTemplate redisTemplate,String prefixName){
-        RedisBasePrefix prefix = new RedisBasePrefix("admin".concat(":").concat("poi").concat(":").concat(prefixName));
-        RedisBasePrefix prefix1 = new RedisBasePrefix("travel".concat(":").concat(":").concat("poi").concat(":").concat(prefixName));
+        RedisBasePrefix prefix = new RedisBasePrefix("admin".concat(":").concat("poi").concat(":").concat(prefixName).concat(":").concat("pageAndSize"));
+        RedisBasePrefix prefix1 = new RedisBasePrefix("travel".concat(":").concat("poi").concat(":").concat(prefixName).concat(":").concat("pageAndSize"));
         boolean re = RedisUtil.deleteByPrefix(prefix,redisTemplate);
         boolean re1 = RedisUtil.deleteByPrefix(prefix1,redisTemplate);
         if(!re){

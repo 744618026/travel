@@ -3,8 +3,8 @@ package travel.vo;
 import java.io.Serializable;
 import java.util.List;
 
-public class PageVo<T> implements Serializable {
-    private static final long serialVersionUID = -4499229016028664131L;
+public class PageVo<T> implements Serializable{
+    private static final long serialVersionUID = -5378752619990244124L;
     Integer size;
 
     Integer page;
