@@ -23,7 +23,8 @@ $(document).ready(function (){
         $.ajax({
             url:"/travel/admin/hotel/list",
             type: "post",
-            data:{"page":page,"regionId":localStorage.getItem("current-region-id")},
+            data:{"page":page,"regionId":localStorage.getItem("current-region-id"),"_csrf":$.cookie("XSRF-TOKEN")},
+            headers:{"Authorization":localStorage.getItem("token")},
             success:function (data){
                 if(data.code==0){
                     let dats = data.data.data;
@@ -101,12 +102,12 @@ $(document).ready(function (){
                         url:"/travel/admin/poi/add/image",
                         type:"POST",
                         data: new FormData($("#img-form")[0]),
+                        headers:{"Authorization":localStorage.getItem("token")},
                         processData:false,   //  告诉jquery不要处理发送的数据
                         contentType:false,
                         success:function (data){
                             if(data.code==0){
                                 alert("上传成功！");
-                                loadImages(id);
                             }else{
                                 alert("上传失败！");
                             }
@@ -126,6 +127,7 @@ $(document).ready(function (){
                     url:"/travel/admin/hotel/update",
                     type:"post",
                     data:$("#poi-form").serialize(),
+                    headers:{"Authorization":localStorage.getItem("token")},
                     success:function (data){
                         if(data.code==0){
                             alert("修改成功！");
@@ -139,13 +141,14 @@ $(document).ready(function (){
                 alert("信息暂未修改！");
             }
         });
+        loadImages(id);
     }
     function loadImages(id){
         $(".zoomImgBox").html("");
         $.ajax({
             url:"/travel/hotel/images",
             type:"get",
-            data:{"poiId":id},
+            data:{"hotelId":id},
             success:function (data){
                 if(data.code==0){
                     let datas = data.data;

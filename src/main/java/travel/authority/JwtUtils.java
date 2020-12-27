@@ -9,7 +9,7 @@ import java.util.*;
 public class JwtUtils {
     public static final String TOKEN_HEADER = "Authorization";
     public static final String TOKEN_PREFIX = "Bearer ";
-    public static final long expiration = 1000 * 24 * 60 * 60;
+    public static final long expiration = 1000*24*60*60;
     public static final String secret = "secret";
     public static final String claimsRole = "role";
 

@@ -29,12 +29,6 @@ public class RegionController {
     @Autowired
     private RedisTemplate redisTemplate;
     private Logger LOG = LoggerFactory.getLogger(RegionController.class);
-    @GetMapping("/admin/region/list")
-    public ModelAndView region(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/admin/region/list.html");
-        return modelAndView;
-    }
     @GetMapping("/region/getRegions")
     public ResultVo getAllRegions(){
         RedisBasePrefix prefix = new RedisBasePrefix("region");

@@ -11,11 +11,11 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class RedisUtil {
-    public static boolean set(RedisTemplate redisTemplate, RedisBasePrefix prefix,String key,Object value){
+    public static boolean set(RedisTemplate redisTemplate,RedisBasePrefix prefix,String key,Object value){
         try {
             long time = prefix.getExpireSeconds()==null?0:prefix.getExpireSeconds();
             if(time>0){
-                redisTemplate.opsForValue().set(prefix.getPrefixName().concat(key),value,time, TimeUnit.SECONDS);
+                redisTemplate.opsForValue().set(prefix.getPrefixName().concat(key),value,time, TimeUnit.MILLISECONDS);
             }else{
                 redisTemplate.opsForValue().set(prefix.getPrefixName().concat(key),value);
             }

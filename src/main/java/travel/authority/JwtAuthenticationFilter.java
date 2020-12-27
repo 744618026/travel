@@ -1,15 +1,28 @@
 package travel.authority;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.csrf.CsrfToken;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.social.connect.web.HttpSessionSessionStrategy;
+import org.springframework.social.connect.web.SessionStrategy;
+import org.springframework.web.context.request.ServletWebRequest;
+import travel.configuration.RedisBasePrefix;
 import travel.enums.ReturnMessageEnum;
+import travel.utils.RedisUtil;
 import travel.vo.ResultVo;
 
 import javax.servlet.FilterChain;
@@ -23,13 +36,17 @@ import java.util.Locale;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private AuthenticationManager authenticationManager;
-    public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
+    private RedisTemplate redisTemplate;
+    private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
+    private static final String DEFAULT_SCRF_TOKEN_NAME = HttpSessionCsrfTokenRepository.class.getName().concat(".CSRF_TOKEN");
+    public JwtAuthenticationFilter(AuthenticationManager authenticationManager,RedisTemplate redisTemplate) {
         this.authenticationManager = authenticationManager;
+        this.redisTemplate = redisTemplate;
         super.setFilterProcessesUrl("/login");
     }
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-            String username = request.getParameter("username");
+        String username = request.getParameter("username");
             String password = request.getParameter("password");
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(username,password)
@@ -72,5 +89,4 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         return new MessageSourceService(messageSource());
     }
-
 }

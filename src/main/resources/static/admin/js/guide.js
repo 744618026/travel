@@ -1,9 +1,42 @@
 $(document).ready(function (){
+    let token = localStorage.getItem("token");
+    let body = $("body");
+    let form = $("<form></form>");
+    let input = $("<input/>")
+    let csrf = $.cookie("XSRF-TOKEN");
+    input.attr("name","_csrf");
+    input.val(csrf);
+    input.attr("type","hidden");
+    let f_input = $("<input/>")
+    f_input.val(token);
+    f_input.attr("name","token");
+    f_input.attr("type","hidden");
+    form.append(input);
+    form.append(f_input);
+    body.append(form);
+    $.ajax({
+        url:"/travel/getUserInfo",
+        type: "POST",
+        dataType:"json",
+        data:form.serialize(),
+        success:function (data){
+            if(data.code==0){
+
+            }else{
+                location.href="/travel/adminlogin/adminlog.html";
+            }
+        },
+        error:function (){
+              location.href="/travel/adminlogin/adminlog.html";
+        }
+    });
     let content =  document.querySelector(".content");
     content.style.height = window.innerHeight -70 +"px";
     let table = document.querySelector(".table");
     table.style.width = window.innerWidth - 170 +"px";
-    table.style.height = window.innerHeight - 70 + "px";;
+    table.style.height = window.innerHeight - 70 + "px";
+    let list = document.querySelector(".list");
+    list.style.height = window.innerHeight -70 - 70 +"px";
     $(window).resize(function (){
         let body =  document.querySelector("body");
         body.style.height = window.innerHeight +"px";
@@ -15,6 +48,8 @@ $(document).ready(function (){
             $(".table").css("width","1260px");
         }
         $(".table").css("height",$(window).height()-70);
+        let list = document.querySelector(".list");
+        list.style.height = window.innerHeight -70 - 70 +"px";
     });
     $(".item").click(function (){
         let caret = $(this).find("a>caret");

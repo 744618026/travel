@@ -3,21 +3,25 @@ package travel.controller.user;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import travel.authority.JwtUtils;
+import travel.configuration.RedisBasePrefix;
 import travel.dao.user.User;
 import travel.dataForm.UserForm;
 import travel.enums.ResultEnum;
 import travel.enums.RoleEnum;
 import travel.service.serviceImpl.user.UserServiceImpl;
+import travel.utils.RedisUtil;
 import travel.utils.ResultUtil;
 import travel.vo.ResultVo;
 import travel.vo.UserVo;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
@@ -27,6 +31,8 @@ public class UserController {
     private UserServiceImpl userService;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    private RedisTemplate redisTemplate;
     @GetMapping("/checkUser")
     //检查用户是否存在
     public ResultVo check(@RequestParam("username")String username) {
@@ -110,7 +116,7 @@ public class UserController {
         }
     }
     //通过token获取用户信息
-    @PostMapping("/user/getInfo")
+    @PostMapping("/getUserInfo")
     public ResultVo getUserInfo(@RequestParam("token")String token){
         String token1 = token.replace(JwtUtils.TOKEN_PREFIX,"");
         try{
