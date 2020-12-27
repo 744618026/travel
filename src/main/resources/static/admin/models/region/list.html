@@ -10,6 +10,7 @@
     <script src="/travel/admin/pagination/js/pagination.js"></script>
     <script src="/travel/admin/js/guide.js"></script>
     <script src="/travel/admin/js/regionList.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -50,7 +51,7 @@
                         </div>
                     </div>
                     <li class="index">
-                        <a href="/travel/admin/index">首页&ensp;&ensp;</a>
+                        <a href="/travel/admin/models/index.html">首页&ensp;&ensp;</a>
                     </li>
                     <li class="index active">
                         地区&ensp;
@@ -60,8 +61,8 @@
                         <span style="display: none">.interests</span>
                     </li>
                     <div class="dd interests">
-                        <div class="d"><a href="/travel/admin/poi/list">查看</a></div>
-                        <div class="d"><a href="/travel/admin/poi/add">添加</a></div>
+                        <div class="d"><a href="/travel/admin/models/poi/list.html">查看</a></div>
+                        <div class="d"><a href="/travel/admin/models/poi/add.html">添加</a></div>
                         <div class="d">订单</div>
                     </div>
                     <li class="item">
@@ -77,15 +78,15 @@
                         <span style="display: none">.hotel</span>
                     </li>
                     <div class="dd hotel">
-                        <div class="d"><a href="/travel/admin/hotel/list">查看</a></div>
-                        <div class="d"><a href="/travel/admin/hotel/add">添加</a></div>
+                        <div class="d"><a href="/travel/admin/models/hotel/list.html">查看</a></div>
+                        <div class="d"><a href="/travel/admin/models/hotel/add.html">添加</a></div>
                         <div class="d">订单</div>
                     </div>
                 </div>
             </ul>
         </div>
         <div class="table">
-            <div class="content">
+            <div class="body">
                 <div class="top">
                     <a style="margin-left: 15px">地区</a>
                     <span>></span>
@@ -93,6 +94,7 @@
                     <div class="search">
                         <form id="search" onsubmit="return false">
                             <input class="search-input" type="text" name="search"><button id="search-btn"><img src="/travel/admin/img/search.png"></button>
+                            <input type="hidden" name="_csrf" id="csrf-search">
                         </form>
                     </div>
                 </div>
@@ -107,6 +109,7 @@
                             <select id="province">
 
                             </select>
+                            <input name="_csrf" type="hidden" id="csrf-add">
                             <button id="add-btn">添加</button>
                         </form>
                     </div>
@@ -142,7 +145,7 @@
                             <select class="province">
 
                             </select>
-                            <input type="number" style="display: none" id="modify-page" name="page">
+                            <input type="hidden" name="_csrf"  id="csrf-modify">
                             <button id="modify-btn">确定</button>
                             <span style="display: none;color: red" id="modify-error"></span>
                         </form>

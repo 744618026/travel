@@ -6,8 +6,9 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link rel="stylesheet" href="/travel/admin/css/poiadd.css">
     <link rel="stylesheet" href="/travel/admin/css/guide.css">
-    <script src="/travel/admin/js/hotelAdd.js"></script>
+    <script src="/travel/admin/js/poiadd.js"></script>
     <script src="/travel/admin/js/guide.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -49,18 +50,18 @@
                         </div>
                     </div>
                     <li class="index">
-                        <a href="/travel/admin/index">首页&ensp;&ensp;</a>
+                        <a href="/travel/admin/models/index.html">首页&ensp;&ensp;</a>
                     </li>
                     <li class="index">
-                        <a href="/travel/admin/region/list">地区&ensp;</a>
+                        <a href="/travel/admin/models/region/list.html">地区&ensp;</a>
                     </li>
                     <li class="item">
-                        <a>景点 <caret></caret></a>
+                        <a>景点 <caret class="rotate"></caret></a>
                         <span style="display: none">.interests</span>
                     </li>
-                    <div class="dd interests">
-                        <div class="d"><a href="/travel/admin/poi/list">查看</a></div>
-                        <div class="d">添加</div>
+                    <div class="dd interests" style="display: block">
+                        <div class="d "><a href="/travel/admin/models/poi/list.html">查看</a></div>
+                        <div class="d active">添加</div>
                         <div class="d"><a href="">订单</a></div>
                     </div>
                     <li class="item">
@@ -72,23 +73,23 @@
                         <div class="d">添加</div>
                     </div>
                     <li class="item">
-                        <a>酒店  <caret class="rotate"></caret></a>
+                        <a>酒店  <caret></caret></a>
                         <span style="display: none">.hotel</span>
                     </li>
-                    <div class="dd hotel " style="display: block">
-                        <div class="d"><a href="/travel/admin/hotel/list">查看</a> </div>
-                        <div class="d active">添加</div>
+                    <div class="dd hotel">
+                        <div class="d"><a href="/travel/admin/models/hotel/list.html">查看</a></div>
+                        <div class="d"><a href="/travel/admin/models/hotel/list.html">添加</a><</div>
                         <div class="d">订单</div>
                     </div>
                 </div>
             </ul>
         </div>
         <div class="table">
-            <div class="content">
+            <div class="body">
                 <div class="top">
                     <a style="margin-left: 15px">景点</a>
                     <span>></span>
-                    <a href="/travel/admin/poi/add">添加</a>
+                    <a href="/travel/admin/models/poi/add.html">添加</a>
                 </div>
                 <div class="operation">
 
@@ -100,30 +101,24 @@
                         </div>
                         <form id="form" onsubmit="return false">
                             <div class="form-item">
-                                <label>酒店名称：</label><input type="text" name="hotelName" id="hotel-name">
+                                <label>景点名称：</label><input type="text" name="poiName" id="poi-name">
                             </div>
                             <div class="form-item" style="height: 72px">
-                                <label>酒店描述：</label><textarea name="hotelDescribe"></textarea>
-                            </div>
-                            <div class="form-item" style="height: 72px">
-                                <label>酒店地址：</label><input type="text" name="address" id="address">
+                                <label>景点描述：</label><textarea name="poiDescribe"></textarea>
                             </div>
                             <div class="form-item">
-                                <label>所属地区：</label><span id="region-name"></span><input type="text" name="regionId" style="display: none" id="region-id">
+                                <label>所属地区：</label><span id="region-name"></span><input type="text" name="oldRegionId" style="display: none" id="region-id">
                             </div>
                             <div class="form-item">
-                                <label>联系电话：</label></span><input type="text" name="phone" id="hotel-phone">
+                                <label>门票价格：</label><input type="number" name="poiTicketPrice" id="price">
                             </div>
                             <div class="form-item">
-                                <label>酒店信息：</label></span><input type="text" name="info" id="hotel-info">
-                            </div>
-                            <div class="form-item">
-                                <label>酒店政策：</label></span><input type="text" name="policy" id="hotel-policy">
+                                <label>门票库存：</label><input type="number" name="poiStock" id="stock">
                             </div>
                             <div class="sub-btn">
                                 <button id="sub-btn">提交</button>
                             </div>
-                            <input name="page" style="display: none" id="page-input">
+                            <input type="hidden" name="_csrf" id="csrf-modify">
                         </form>
                     </div>
                 </div>

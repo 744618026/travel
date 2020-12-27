@@ -7,13 +7,12 @@ $(document).ready(function (){
         let stock = $("#stock").val();
         let regionId =  $("#region-id").val();
         if(name!=""&&price!=""&&stock!=""&&regionId!=""){
-            let page = localStorage.getItem("poiTotalPage")==0? 1:localStorage.getItem("poiTotalPage");
-            localStorage.removeItem("poiTotalPage");
-            $("#page-input").val(page);
+            $("#csrf-modify").css($.cookie("XSRF-TOKEN"));
             $.ajax({
                 url:"/travel/admin/poi/add",
                 type:"post",
                 data:$("#form").serialize(),
+                headers:{"Authorization":localStorage.getItem("token")},
                 success:function (data) {
                     if(data.code==0){
                         $("#error-tip").html("添加成功！");
@@ -32,16 +31,4 @@ $(document).ready(function (){
             $("#error-tip").css("display","block");
         }
     });
-    if(localStorage.getItem("poiTotalPage")==null){
-        $.ajax({
-            url:"/travel/poi/totalPage",
-            type: "get",
-            data: {"region":localStorage.getItem("current-region-id")},
-            success:function (data){
-                if(data.code==0){
-                    localStorage.setItem("poiTotalPage",data.data);
-                }
-            }
-        })
-    }
 })

@@ -34,6 +34,7 @@ $(document).ready(function (){
             url:"/travel/admin/poi/getPOI",
             type: "get",
             data:{"page":page,"regionId":localStorage.getItem("current-region-id"),"size":9},
+            headers:{"Authorization":localStorage.getItem("token")},
             async:false,
             success:function (data){
                 if(data.code==0){
@@ -100,11 +101,13 @@ $(document).ready(function (){
         $("#poi-modify").click(function (){
             $("#poi-region").val(localStorage.getItem("current-region-id"));
             $("#poiId").val(poi.id);
+            $("#csrf-modify").val($.cookie("XSRF-TOKEN"));
             if($("#poi-name").val()!=poi.name|| $("#poi-describe").val()!=poi.describe||$("#poi-stock").val()!=poi.stock||$("#poi-price").val()!=poi.price){
                 $.ajax({
                         url:"/travel/admin/poi/update",
                         type:"post",
                         data:$("#poi-form").serialize(),
+                        headers:{"Authorization":localStorage.getItem("token")},
                         success:function (data){
                             if(data.code==0){
                                 alert("修改成功！");
@@ -127,10 +130,12 @@ $(document).ready(function (){
                 let point = file.lastIndexOf(".");
                 let type = file.substr(point);
                 if(type==".jpg"||type==".png"||type==".JPG"||type==".PNG"||type==".jpeg"||type==".JPEG"){
+                    $("#csrf-upload").val($.cookie("XSRF-TOKEN"));
                     $.ajax({
                         url:"/travel/admin/poi/image/upload",
                         type:"POST",
                         data: new FormData($("#img-form")[0]),
+                        headers:{"Authorization":localStorage.getItem("token")},
                         processData:false,   //  告诉jquery不要处理发送的数据
                         contentType:false,
                         success:function (data){

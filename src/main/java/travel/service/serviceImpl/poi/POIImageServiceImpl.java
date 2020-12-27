@@ -1,5 +1,7 @@
 package travel.service.serviceImpl.poi;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,6 +24,7 @@ public class POIImageServiceImpl implements POIImageService {
     private POIImageMapper poiImageMapper;
     @Autowired
     private POIMapper poiMapper;
+    private Logger LOG = LoggerFactory.getLogger(POIImageServiceImpl.class);
     @Override
     public List<POIImage> findByPOIId(String POIId) {
         List<POIImage> poiImageList = poiImageMapper.findByPOIId(POIId);
@@ -41,7 +44,7 @@ public class POIImageServiceImpl implements POIImageService {
             throw new NullException(ResultEnum.UPLOAD_FILE_NULL.getMessage());
         }
         try {
-            String path = "";
+            String path = "/home/images/travel/";
             String resource = "poiImage/" + poiImage.getPoiId();
             File dir = new File(path + resource);
             if (!dir.exists()) {
@@ -61,6 +64,7 @@ public class POIImageServiceImpl implements POIImageService {
             }
         } catch (Exception e) {
             //TODO
+            LOG.info(e.getMessage());
             throw new NullException(e.getMessage());
         }
     }

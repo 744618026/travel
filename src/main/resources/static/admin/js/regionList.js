@@ -25,6 +25,7 @@ $(document).ready(function (){
             url:"/travel/admin/region",
             type:"get",
             data: {"page":page},
+            headers:{"Authorization":localStorage.getItem("token")},
             success:function (data){
                 if(data.code==0){
                     let datas = data.data.data;
@@ -59,6 +60,7 @@ $(document).ready(function (){
     $.ajax({
         url:"/travel/admin/js/province.json",
         type:"get",
+        headers:{"Authorization":localStorage.getItem("token")},
         success:function (data){
             $("#province-input").val(data[0].name);
             for(let i=0;i<Object.keys(data).length;i++){
@@ -81,9 +83,11 @@ $(document).ready(function (){
     });
     $("#add-btn").click(function (){
         if($("#region-input").val()!==""){
+            $("#csrf-add").val($.cookie("XSRF-TOKEN"));
             $.ajax({
                 url:"/travel/admin/region/add",
                 type:"post",
+                headers:{"Authorization":localStorage.getItem("token")},
                 data:$("#add-form").serialize(),
                 success:function (data){
                     if(data.code == 0){
@@ -105,10 +109,12 @@ $(document).ready(function (){
         if(search !=""){
             urlAdd("搜索");
             $("table").remove("tbody[class='search-body']");
+            $("#csrf-modify").val($.cookie("XSRF-TOKEN"))
             $.ajax({
                 url:"/travel/admin/region/search",
                 type:"post",
                 data:{"search":search},
+                headers:{"Authorization":localStorage.getItem("token")},
                 success:function (data){
                     if(data.code==0){
                         let body = $("<tbody></tbody>");
@@ -167,10 +173,11 @@ $(document).ready(function (){
             $(".table-content").css("display","block");
             $(".modify").css("display","none");
         }else{
-            $("#modify-page").val(page);
+            $("#csrf-modify").val($.cookie("XSRF-TOKEN"));
             $.ajax({
                 url:"/travel/admin/region/update",
                 type:"post",
+                headers:{"Authorization":localStorage.getItem("token")},
                 data:$("#modify-form").serialize(),
                 success:function (data){
                     if(data.code==0){

@@ -11,7 +11,6 @@ $(document).ready(function (){
     let username = false;
     let password = false;
     let code = false;
-
     $("#exampleInputEmail1").focus(function (){
         username = focus("#exampleInputEmail1")
     })
@@ -31,6 +30,7 @@ $(document).ready(function (){
         code = blur("#exampleInputPassword1");
     });
     $("#log-btn").click(function (){
+        $("#csrf").val($.cookie("XSRF-TOKEN"))
         if(username&&password&&code){
             $.ajax({
                 url:"/travel/login",
@@ -43,7 +43,9 @@ $(document).ready(function (){
                    }
                 },
                 complete:function (xhr,data){
+                    localStorage.removeItem("token");
                     localStorage.setItem("token",xhr.getResponseHeader("token"));
+                    location.href ="/travel/admin/models/index.html";
                 }
             })
         }else{

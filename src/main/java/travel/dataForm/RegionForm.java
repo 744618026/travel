@@ -9,14 +9,6 @@ public class RegionForm {
     private String regionName;
     @NotEmpty(message = "省份不为空")
     private String province;
-    private Integer page;
-    public Integer getPage() {
-        return page;
-    }
-
-    public void setPage(Integer page) {
-        this.page = page;
-    }
 
     public String getRegionId() {
         return regionId;

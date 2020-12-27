@@ -41,18 +41,6 @@ public class HotelAdminController {
     @Autowired
     private HotelImageService hotelImageService;
     private Logger LOG = LoggerFactory.getLogger(HotelAdminController.class);
-    @GetMapping("/list")
-    public ModelAndView list(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/admin/hotel/list.html");
-        return mv;
-    }
-    @GetMapping("/add")
-    public ModelAndView add(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/admin/hotel/add.html");
-        return mv;
-    }
     @PostMapping("/list")
     public ResultVo findByRegionId(@RequestParam("regionId")String regionId, @RequestParam(value = "page",defaultValue = "1")Integer page,
                                    @RequestParam(value = "size",defaultValue = "15")Integer size){

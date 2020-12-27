@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/travel/admin/css/guide.css">
     <script src="/travel/admin/js/index.js"></script>
     <script src="/travel/admin/js/guide.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -52,15 +53,15 @@
                         首页&ensp;&ensp;
                     </li>
                     <li class="index">
-                        <a href="/travel/admin/region/list">地区&ensp;</a>
+                        <a href="/travel/admin/models/region/list.html">地区&ensp;</a>
                     </li>
                     <li class="item">
                         <a>景点 <caret></caret></a>
                         <span style="display: none">.interests</span>
                     </li>
                     <div class="dd interests">
-                        <div class="d"><a href="/travel/admin/poi/list">查看</a></div>
-                        <div class="d"><a href="/travel/admin/poi/list">添加</a><</div>
+                        <div class="d"><a href="/travel/admin/models/poi/list.html">查看</a></div>
+                        <div class="d"><a href="/travel/admin/models/poi/add.html">添加</a><</div>
                         <div class="d">订单</div>
                     </div>
                     <li class="item">
@@ -76,8 +77,8 @@
                         <span style="display: none">.hotel</span>
                     </li>
                     <div class="dd hotel">
-                        <div class="d"><a href="/travel/admin/hotel/list">查看</a></div>
-                        <div class="d"><a href="/travel/admin/hotel/add">添加</a></div>
+                        <div class="d"><a href="/travel/admin/models/hotel/list.html">查看</a></div>
+                        <div class="d"><a href="/travel/admin/models/hotel/add.html">添加</a></div>
                         <div class="d">订单</div>
                     </div>
                 </div>

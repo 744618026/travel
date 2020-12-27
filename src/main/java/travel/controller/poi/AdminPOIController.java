@@ -36,20 +36,7 @@ public class AdminPOIController{
     private RegionServiceImpl regionService;
     @Autowired
     private RedisTemplate redisTemplate;
-
     private Logger LOG = LoggerFactory.getLogger(AdminPOIController.class);
-    @GetMapping("/list")
-    public ModelAndView list(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/admin/poi/list.html");
-        return modelAndView;
-    }
-    @GetMapping("/add")
-    public ModelAndView add(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/admin/poi/add.html");
-        return modelAndView;
-    }
     @GetMapping("/getPOI")
     public ResultVo Page(@RequestParam(value = "size",defaultValue = "15")Integer size,@RequestParam(value = "page",defaultValue = "1")Integer page,
                          @RequestParam("regionId")String regionId){
@@ -154,13 +141,12 @@ public class AdminPOIController{
         RedisBasePrefix prefix = new RedisBasePrefix("travel".concat(":").concat(":").concat("poi").concat(":").concat("images"));
         boolean re = RedisUtil.delete(prefix,poiId,redisTemplate);
         if (!re) {
-            LOG.info("request:/admin/poi/image/upload清除redis缓存失败！");
+            LOG.info("request:/admin/poi/image/upload cannot remove redis cache!");
         }
-        LOG.info("request:/admin/poi/image/upload清除redis缓存！");
+        LOG.info("request:/admin/poi/image/upload has removed redis cache!");
         try{
             POIImage poiImage = new POIImage();
             poiImage.setPoiId(poiId);
-            file.getOriginalFilename();
             boolean result = poiImageService.insert(poiImage,file);
             if(result){
                 return ResultUtil.success();
@@ -168,6 +154,7 @@ public class AdminPOIController{
                 return ResultUtil.fail();
             }
         }catch (Exception e){
+            LOG.info(e.getMessage());
             return ResultUtil.fail(e.getMessage());
         }
     }

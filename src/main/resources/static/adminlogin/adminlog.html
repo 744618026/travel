@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>后台管理登录</title>
@@ -7,6 +7,7 @@
     <link type="text/css" href="/travel/adminLogin/adminLogin.css" rel="stylesheet">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script src="/travel/adminLogin/adminlogin.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 <body>
 <div class="back">
@@ -35,6 +36,7 @@
                         <label for="exampleInputPassword1" class="label">验证码</label><input type="text" name="imageCode" class="form-control verify" id="exampleInputPassword1" />
                         <img src="/travel/code/getCode" style="float: left" class="img">
                     </div>
+                    <input type="hidden" id="csrf" name="_csrf">
                     <div class="button">
                         <button type="button" class="btn btn-default btn-primary btn-block" id="log-btn">登录</button>
                     </div>

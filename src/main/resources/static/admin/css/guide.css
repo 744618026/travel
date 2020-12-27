@@ -16,7 +16,6 @@ input:focus{
     height: 100%;
 }
 .title{
-    position: relative;
     width:100%;
     height: 70px;
     background-color: #00CED1;
@@ -114,11 +113,12 @@ input:focus{
     position: relative;
     width: 100%;
     height: auto;
-    margin: 0px;
+    margin: 0px;;
     padding: 0px;
-    min-height: 650px;
+    min-height: 700px;
 }
 .content .nav{
+    position: relative;
     width: 170px;
     height: 100%;
     float: left;
@@ -140,6 +140,7 @@ input:focus{
     overflow-x: hidden;
     scrollbar-width:none;
     background: #333333;
+    min-height: 630px;
 }
 ::-webkit-scrollbar{
     display: none;
@@ -307,9 +308,10 @@ caret{
     height: 40px;
 }
 .table{
+    position: relative;
     float: left;
 }
-.table .content{
+.table .body{
     width:1000px;
     margin: 0px auto;
 }
@@ -356,4 +358,10 @@ caret{
 }
 #region:hover .region{
     display: block;
+}
+#pages{
+    height: 100px;
+}
+.table .info{
+    position: relative;
 }
