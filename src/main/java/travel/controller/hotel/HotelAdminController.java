@@ -23,9 +23,13 @@ import travel.service.serviceImpl.hotelServiceImpl.ProductServiceImpl;
 import travel.service.serviceImpl.region.RegionServiceImpl;
 import travel.utils.*;
 import travel.vo.ResultVo;
+import travel.vo.hotel.HotelProductVo;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/admin/hotel")
@@ -83,11 +87,10 @@ public class HotelAdminController {
     }
     @PostMapping("/product/add")
     public ResultVo add(@Valid ProductForm productForm,BindingResult bindingResult){
-        RedisBasePrefix redisBasePrefix = new RedisBasePrefix(productForm.getHotelId());
-        boolean re = RedisUtil.deleteByPrefix(redisBasePrefix,redisTemplate);
+        RedisBasePrefix prefix = new RedisBasePrefix("hotel".concat(":").concat("product"));
+        boolean re = RedisUtil.delete(prefix,productForm.getHotelId(),redisTemplate);
         if(!re){
-            //TODO
-            System.out.println("缓存未清除！");
+            LOG.info("request:/admin/hotel/product/add remove cache failed");
         }
         if(bindingResult.hasErrors()){
             return  ResultUtil.fail(bindingResult.getFieldError().getDefaultMessage());
@@ -102,30 +105,14 @@ public class HotelAdminController {
         return ResultUtil.fail();
     }
     @PostMapping("/add/image")
-    public ResultVo getImages(@RequestParam("hotelId")String hotelId, @RequestParam("file") MultipartFile file){
+    public ResultVo getImages(@RequestParam("hotelId")String hotelId, @RequestParam("file") MultipartFile file,HttpServletRequest request){
         RedisBasePrefix prefix = new RedisBasePrefix("hotel".concat(":").concat("images"));
         boolean re = RedisUtil.delete(prefix,hotelId,redisTemplate);
         if(!re){
             LOG.info("request:/poi/add/images清除缓存失败！");
         }
         try {
-            String path = "";
-            String resource = "hotel/" + hotelId;
-            File dir = new File(path + resource);
-            if (!dir.exists()) {
-                boolean result = dir.mkdirs();
-
-            }
-            String fileName = FileNameUtil.getNewFileName(file);
-            File file1 = new File(path + resource + "/" + fileName);
-            file.transferTo(file1);
-            String url = "/travel/hotel/" + hotelId + "/" + fileName;
-            HotelImage hotelImage = new HotelImage();
-            hotelImage.setHotelId(hotelId);
-            hotelImage.getCategory(HotelEnum.HOTEL_IMAGE.getInteger());
-            hotelImage.setUrl(url);
-            hotelImage.setImageId(KeyUtil.getUniqueKey());
-            boolean result = hotelImageService.insert(hotelImage);
+            boolean result = hotelImageService.insert(hotelId,file,request);
             if(result){
                 return ResultUtil.success();
             }
@@ -133,6 +120,38 @@ public class HotelAdminController {
         }catch (Exception e){
             LOG.info("request:/poi/add/images 出现异常！reason："+e.getMessage());
             return ResultUtil.fail();
+        }
+    }
+    @PostMapping("/image/delete")
+    public ResultVo deleteImage(@RequestParam("hotelId")String hotelId, @RequestParam("imageId")Integer imageId, HttpServletRequest request){
+        RedisBasePrefix prefix = new RedisBasePrefix("hotel".concat(":").concat("images"));
+        boolean re = RedisUtil.delete(prefix,hotelId,redisTemplate);
+        if(!re){
+            LOG.info("request:/admin/hotel/product/delete remove cache failed");
+        }
+        try {
+            String path = request.getServletContext().getRealPath("");
+            HotelImage hotelImage = hotelImageService.findByImageId(imageId);
+            if(hotelImage==null){
+                LOG.info("request:/admin/hotel/product/delete this image not exists!");
+                return ResultUtil.fail();
+            }
+            String url = hotelImage.getUrl().replace("/travel/","");
+            File file = new File(path+url);
+            if(file.exists()) {
+                boolean r = file.delete();
+                if (!r) {
+                    return ResultUtil.fail();
+                }
+            }
+            boolean ru = hotelImageService.deleteByImageId(imageId);
+            if (ru) {
+                return ResultUtil.success();
+            }
+            return ResultUtil.fail();
+        }catch (Exception e) {
+            LOG.info(e.getMessage());
+            return ResultUtil.fail("出现异常！");
         }
     }
     @PostMapping("/update")
@@ -162,5 +181,27 @@ public class HotelAdminController {
             return ResultUtil.success();
         }
         return ResultUtil.fail();
+    }
+    @GetMapping("/getProduct")
+    public ResultVo getProduct(@RequestParam("hotelId")String hotelId,@RequestParam(value = "page",defaultValue = "1")Integer page,
+                               @RequestParam(value = "size",defaultValue = "size")Integer size){
+        RedisBasePrefix prefix = new RedisBasePrefix("hotel".concat(":").concat("product"));
+        ResultVo resultVo = (ResultVo) RedisUtil.get(prefix,hotelId,redisTemplate);
+        if(resultVo==null){
+            List<Product>  products = productService.findByHotelId(hotelId);
+            List<HotelProductVo> hotelProductVos = new ArrayList<>();
+            Integer endIndex = page*size>products.size()?products.size():page*size;
+            for(Integer i=(page-1)*size;i<endIndex;i++){
+                HotelProductVo hotelProductVo = new HotelProductVo();
+                BeanUtils.copyProperties(products.get(i),hotelProductVo);
+                hotelProductVos.add(hotelProductVo);
+            }
+            resultVo = ResultUtil.success(PageVoUtil.getPage(page,size,products,hotelProductVos));
+            boolean result = RedisUtil.set(redisTemplate,prefix,hotelId,resultVo);
+            if(!result){
+                LOG.info("request:/admin/hotel/getProduct save cache failed");
+            }
+        }
+        return resultVo;
     }
 }

@@ -91,6 +91,7 @@ $(document).ready(function (){
         $("#hotel-policy").val(policy);
         $("#pic-sub").click(function (){
             $("#img-hotel-id").val(id);
+            $("#img-csrf").val($.cookie("XSRF-TOKEN"));
             let file=$("#img-input").val();
             if(file ==""){
                 alert("请添加图片！");
@@ -99,7 +100,7 @@ $(document).ready(function (){
                 let type = file.substr(point);
                 if(type==".jpg"||type==".png"||type==".JPG"||type==".PNG"||type==".jpeg"||type==".JPEG"){
                     $.ajax({
-                        url:"/travel/admin/poi/add/image",
+                        url:"/travel/admin/hotel/add/image",
                         type:"POST",
                         data: new FormData($("#img-form")[0]),
                         headers:{"Authorization":localStorage.getItem("token")},
@@ -108,6 +109,7 @@ $(document).ready(function (){
                         success:function (data){
                             if(data.code==0){
                                 alert("上传成功！");
+                                loadImages(id);
                             }else{
                                 alert("上传失败！");
                             }
@@ -123,6 +125,7 @@ $(document).ready(function (){
             $("#hotel-f-id").val(id);
             if($("#hotel-name").val()!=name|| $("#hotel-describe").val()!=des||$("#hotel-info").val()!=info||$("#hotel-address").val()!=address
                 ||$("#hotel-phone").val()!=phone||$("#hotel-policy").val()!=policy){
+                $("#hotel-csrf").val($.cookie("XSRF-TOKEN"));
                 $.ajax({
                     url:"/travel/admin/hotel/update",
                     type:"post",
@@ -154,15 +157,45 @@ $(document).ready(function (){
                     let datas = data.data;
                     let length = Object.keys(datas).length;
                     for(let i=0;i<length;i++){
+                        let div = $("<div></div>")
                         let img = $("<img>");
                         img.attr("src",datas[i].url);
                         img.addClass("zoomImg");
                         img.attr("data-caption",datas[i].url);
-                        $(".zoomImgBox").append(img);
+                        let button = $("<button></button>");
+                        button.html("删除");
+                        button.click(function (){
+                            let x = window.confirm("确定删除此图片？");
+                            if(x){
+                                $.ajax({
+                                    url:"/travel/admin/hotel/image/delete",
+                                    type:"post",
+                                    dataType:"json",
+                                    data:{"_csrf":$.cookie("XSRF-TOKEN"),"hotelId":id,"imageId":datas[i].id},
+                                    headers:{"Authorization":localStorage.getItem("token")},
+                                    success:function (data){
+                                        if(data.code==0){
+                                            alert("删除成功！");
+                                            loadImages(id);
+                                        }
+                                        else{
+                                            alert("删除失败！reason:"+data.message);
+                                            location.reload();
+                                        }
+                                    }
+                                })
+                            }
+                        });
+                        div.addClass("img-item");
+                        div.append(img);div.append(button);
+                        $(".zoomImgBox").append(div);
                     }
                     showZoomImg(".zoomImg","img");
                 }
             }
         })
     }
+    $("#img-input").change(function (){
+        $("#img").attr("src", URL.createObjectURL($(this)[0].files[0]));
+    })
 });

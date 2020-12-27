@@ -118,6 +118,9 @@ public class UserController {
     //通过token获取用户信息
     @PostMapping("/getUserInfo")
     public ResultVo getUserInfo(@RequestParam("token")String token){
+        if(token==null){
+            return ResultUtil.fail();
+        }
         String token1 = token.replace(JwtUtils.TOKEN_PREFIX,"");
         try{
             boolean result = JwtUtils.isExpiration(token1);

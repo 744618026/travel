@@ -164,11 +164,39 @@ $(document).ready(function (){
                     let datas = data.data;
                     let length = Object.keys(datas).length;
                     for(let i=0;i<length;i++){
+                        let div = $("<div></div>")
+                        div.addClass("img-item");
                         let img = $("<img>");
                         img.attr("src",datas[i].url);
                         img.addClass("zoomImg");
                         img.attr("data-caption",datas[i].url);
-                        $(".zoomImgBox").append(img);
+                        let button = $("<button></button>");
+                        button.html("删除");
+                        button.click(function (){
+                            let x = window.confirm("确定删除此图片？");
+                            if(x){
+                                $.ajax({
+                                    url:"/travel/admin/poi/image/delete",
+                                    type:"post",
+                                    dataType:"json",
+                                    data:{"_csrf":$.cookie("XSRF-TOKEN"),"poiId":id,"imageId":datas[i].imageId},
+                                    headers:{"Authorization":localStorage.getItem("token")},
+                                    success:function (data){
+                                        if(data.code==0){
+                                            alert("删除成功！");
+                                            loadImages(id);
+                                        }
+                                        else{
+                                            alert("删除失败！reason:"+data.message);
+                                            location.reload();
+                                        }
+                                    }
+                                })
+                            }
+                        });
+                        div.append(img);
+                        div.append(button);
+                        $(".zoomImgBox").append(div);
                     }
                     showZoomImg(".zoomImg","img");
                 }

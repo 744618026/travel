@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.web.multipart.MultipartFile;
 import travel.dao.poi.POIImage;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface POIImageService {
@@ -18,7 +19,7 @@ public interface POIImageService {
      * @param imageId 图片Id
      * @return boolean
      */
-    boolean deleteByImageId(Integer imageId);
+    boolean deleteByImageId(Integer imageId,HttpServletRequest request);
 
     /**
      *
@@ -33,5 +34,5 @@ public interface POIImageService {
      * @param file 上传文件
      * @return boolean
      */
-    boolean insert(POIImage poiImage, MultipartFile file);
+    boolean insert(POIImage poiImage, MultipartFile file, HttpServletRequest request);
 }

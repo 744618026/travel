@@ -1,9 +1,6 @@
 package travel.mapper.hotel;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import travel.dao.hotel.HotelImage;
 
@@ -20,9 +17,13 @@ public interface HotelImageMapper {
      */
     @Select("Select * from hotelImage where hotelId=#{hotelId} and category=#{category}")
     List<HotelImage> findByHotelIdAndCategory(@Param("hotelId")String hotelId,@Param("category")Integer category);
-    @Insert("Insert into hotelImage(imageId,category,url,hotelId,productId) values(" +
-            "#{imageId},#{category},#{url},#{hotelId},#{productId})")
+    @Insert("Insert into hotelImage(category,url,hotelId,productId) values(" +
+            "#{category},#{url},#{hotelId},#{productId})")
     int insert(HotelImage hotelImage);
     @Select("Select * from hotelImage where hotelId=#{hotelId} and productId=#{productId}")
     List<HotelImage> findByHotelIdAndProductId(@Param("hotelId")String hotelId,@Param("productId")String productId);
+    @Select("select  * from hotelImage where imageId=#{imageId}")
+    HotelImage findByImageId(@Param("imageId")Integer imageId);
+    @Delete("delete from hotelImage where imageId=#{imageId}")
+    int deleteByImageId(@Param("imageId")Integer imageId);
 }
