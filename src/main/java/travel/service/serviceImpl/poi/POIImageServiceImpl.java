@@ -14,6 +14,7 @@ import travel.mapper.poi.POIMapper;
 import travel.service.poi.POIImageService;
 import travel.utils.FileNameUtil;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.List;
 import java.util.Random;
@@ -35,7 +36,7 @@ public class POIImageServiceImpl implements POIImageService {
         return poiImageMapper.findByImageId(ImageId);
     }
     @Override
-    public boolean insert(POIImage poiImage, MultipartFile file) {
+    public boolean insert(POIImage poiImage, MultipartFile file, HttpServletRequest request) {
         POI poi = poiMapper.findByPOIId(poiImage.getPoiId());
         if (poi == null) {
             throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
@@ -44,12 +45,14 @@ public class POIImageServiceImpl implements POIImageService {
             throw new NullException(ResultEnum.UPLOAD_FILE_NULL.getMessage());
         }
         try {
-            String path = "/home/images/travel/";
+            String path = request.getServletContext().getRealPath("");
             String resource = "poiImage/" + poiImage.getPoiId();
             File dir = new File(path + resource);
             if (!dir.exists()) {
                 boolean result = dir.mkdirs();
-
+                if(!result){
+                    return false;
+                }
             }
             String fileName = FileNameUtil.getNewFileName(file);
             File file1 = new File(path + resource +"/"+ fileName);
@@ -69,16 +72,14 @@ public class POIImageServiceImpl implements POIImageService {
         }
     }
     @Override
-    public boolean deleteByImageId(Integer imageId) {
+    public boolean deleteByImageId(Integer imageId,HttpServletRequest request) {
         POIImage poiImage = poiImageMapper.findByImageId(imageId);
         if(poiImage == null){
             throw new NullException(ResultEnum.IMAGE_NOT_EXISTS.getMessage());
         }
-        String url = poiImage.getPoiImageUrl();
-        String fileName = url.substring(url.lastIndexOf("/"));
-        String path = "";
-        String resource = "poiImage/"+poiImage.getPoiId()+"/";
-        File file  = new File(path+resource+fileName);
+        String url = poiImage.getPoiImageUrl().replace("/travel/","");
+        String path = request.getServletContext().getRealPath("");
+        File file  = new File(path+url);
         if(file.exists()){
             file.delete();
         }

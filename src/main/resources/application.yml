@@ -18,7 +18,7 @@ spring:
   servlet:
     multipart:
       max-file-size: 5MB
-      location:
+      location: /Users/liuwenjun/IdeaProjects/travel/static
   resources:
     static-locations:
       - classpath:/resources/

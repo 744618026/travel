@@ -21,6 +21,8 @@ import travel.utils.RedisUtil;
 import travel.utils.ResultUtil;
 import travel.vo.poi.POIVo;
 import travel.vo.ResultVo;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -137,17 +139,18 @@ public class AdminPOIController{
 
     //添加景点图片
     @PostMapping("/image/upload")
-    public ResultVo poiImageUpload(@RequestParam("file")MultipartFile file,@RequestParam("poiId")String poiId){
+    public ResultVo poiImageUpload(@RequestParam("file")MultipartFile file, @RequestParam("poiId")String poiId, HttpServletRequest request){
         RedisBasePrefix prefix = new RedisBasePrefix("travel".concat(":").concat(":").concat("poi").concat(":").concat("images"));
         boolean re = RedisUtil.delete(prefix,poiId,redisTemplate);
         if (!re) {
             LOG.info("request:/admin/poi/image/upload cannot remove redis cache!");
+            return ResultUtil.fail();
         }
         LOG.info("request:/admin/poi/image/upload has removed redis cache!");
         try{
             POIImage poiImage = new POIImage();
             poiImage.setPoiId(poiId);
-            boolean result = poiImageService.insert(poiImage,file);
+            boolean result = poiImageService.insert(poiImage,file,request);
             if(result){
                 return ResultUtil.success();
             }else{
@@ -159,10 +162,16 @@ public class AdminPOIController{
         }
     }
     //删除景点图片
-    @GetMapping("/image/delete")
-    public ResultVo poiImageDelete(@RequestParam("imageId")Integer imageId,@RequestParam("poiId")String poiId){
+    @PostMapping("/image/delete")
+    public ResultVo poiImageDelete(@RequestParam("imageId")Integer imageId,@RequestParam("poiId")String poiId,HttpServletRequest request){
+        RedisBasePrefix prefix = new RedisBasePrefix("travel".concat(":").concat(":").concat("poi").concat(":").concat("images"));
+        boolean re = RedisUtil.delete(prefix,poiId,redisTemplate);
+        if (!re) {
+            LOG.info("request:/admin/poi/image/upload cannot remove redis cache!");
+            return ResultUtil.fail();
+        }
         try{
-            boolean result = poiImageService.deleteByImageId(imageId);
+            boolean result = poiImageService.deleteByImageId(imageId,request);
             if(result){
                 return ResultUtil.success();
             }else{

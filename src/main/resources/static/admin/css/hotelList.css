@@ -129,22 +129,43 @@
     color: white;
     margin-top: 3px;
 }
+.content .modify .images .item button:hover{
+    cursor: pointer;
+}
+.content .modify .images .image{
+    width: 800px;
+    height: 140px;
+    float: left;
+    overflow-x: scroll;
+    scrollbar-width:none;
+}
 .content .modify .images .zoomImgBox{
     position: relative;
     float: left;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 0px;
     height: 140px;
-    overflow-x: scroll;
-    overflow-y: hidden;
 }
 .content .modify .images .zoomImgBox img{
-    position: relative;
-    display: block;
     margin-left: 20px;
-    float: left;
+    margin-top: 10px;
     width:150px;
     height: 100px;
+}
+.content .modify .images .zoomImgBox .img-item{
+    float: left;
+    width: 170px;
+    height: 130px;
+    margin-top: 10px;
+    text-align: center;
+}
+.content .modify .images .zoomImgBox .img-item button{
+    width: 40px;
+    height: 20px;
+    background: red;
+    color: white;
+
+    border: 1px solid red;
 }
 .content .product{
 
