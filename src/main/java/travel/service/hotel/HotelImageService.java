@@ -13,7 +13,7 @@ public interface HotelImageService {
 
     List<HotelImage> findByHotelIdAndCategory(String hotelId,Integer category);
 
-    boolean insert(String hotelId, MultipartFile file, HttpServletRequest request) throws IOException;
+    boolean insert(HotelImage hotelImage);
 
     List<HotelImage>  findByHotelIdAndProductId(String hotelId,String productId);
 

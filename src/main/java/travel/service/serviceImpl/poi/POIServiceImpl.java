@@ -41,7 +41,6 @@ public class POIServiceImpl implements POIService {
         }
         return poi;
     }
-
     @Override
     public  boolean insert(POI poi) {
         poi.setPoiId(POIHotelKeyUtil.getKey());
@@ -86,17 +85,8 @@ public class POIServiceImpl implements POIService {
         return true;
     }
 
-//    @Override
-//    public List<POI> find(Integer currPage, Integer pageSize,String regionId) {
-//        List<POI> list = POIMapper.findByRegionId(regionId);
-//        if(list.size()==0){
-//            throw new NullException(ResultEnum.POI_NOT_EXISTS.getMessage());
-//        }
-//        Integer firstIndex = (currPage-1)*pageSize;
-//        Integer lastIndex=currPage * pageSize;
-//        if(list.size()<pageSize || lastIndex>list.size()){
-//            lastIndex = list.size();
-//        }
-//        return list.subList(firstIndex,lastIndex);
-//    }
+    @Override
+    public Integer countById(String regionId) {
+        return POIMapper.countById(regionId);
+    }
 }

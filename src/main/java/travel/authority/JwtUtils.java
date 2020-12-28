@@ -1,6 +1,7 @@
 package travel.authority;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -36,15 +37,17 @@ public class JwtUtils {
 
     public static boolean isExpiration(String token) {
         Claims claims = getClaims(token);
+        if(claims==null){
+            return true;
+        }
         return claims.getExpiration().before(new Date());
     }
-
-    private static Claims getClaims(String token) {
+    private static Claims getClaims(String token) throws ExpiredJwtException {
         try {
             Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
             return claims;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }

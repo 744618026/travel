@@ -21,7 +21,7 @@ $(document).ready(function (){
         data:form.serialize(),
         success:function (data){
             if(data.code==0){
-
+                //TODO
             }else{
                 location.href="/travel/adminlogin/adminlog.html";
             }

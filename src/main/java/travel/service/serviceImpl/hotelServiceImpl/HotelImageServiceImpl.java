@@ -13,6 +13,7 @@ import travel.mapper.hotel.HotelMapper;
 import travel.service.hotel.HotelImageService;
 import travel.service.hotel.HotelService;
 import travel.utils.FileNameUtil;
+import travel.utils.FileUploadUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -36,28 +37,12 @@ public class HotelImageServiceImpl implements HotelImageService {
     }
 
     @Override
-    public boolean insert(String hotelId, MultipartFile file, HttpServletRequest request) throws IOException {
+    public boolean insert(HotelImage hotelImage){
+        String hotelId = hotelImage.getHotelId();
         Hotel hotel = hotelMapper.findByHotelId(hotelId);
         if(hotel==null){
             return false;
         }
-        String path = request.getServletContext().getRealPath("");;
-        String resource = "/hotel/" + hotelId;
-        File dir = new File(path + resource);
-        if (!dir.exists()) {
-            boolean result = dir.mkdirs();
-            if(!result){
-                return false;
-            }
-        }
-        String fileName = FileNameUtil.getNewFileName(file);
-        File file1 = new File(path + resource + "/" + fileName);
-        file.transferTo(file1);
-        String url = "/travel/hotel/" + hotelId + "/" + fileName;
-        HotelImage hotelImage = new HotelImage();
-        hotelImage.setHotelId(hotelId);
-        hotelImage.setCategory(HotelEnum.HOTEL_IMAGE.getInteger());
-        hotelImage.setUrl(url);
         int result = hotelImageMapper.insert(hotelImage);
         if(result>0){
             return true;

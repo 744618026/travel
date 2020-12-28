@@ -20,6 +20,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Collections;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
@@ -37,7 +38,8 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
             chain.doFilter(request, response);
             return;
         }
-        SecurityContextHolder.getContext().setAuthentication(getAuthentication(tokenHeader,request));
+        UsernamePasswordAuthenticationToken token = getAuthentication(tokenHeader,request);
+        SecurityContextHolder.getContext().setAuthentication(token);
         super.doFilterInternal(request, response, chain);
     }
     private UsernamePasswordAuthenticationToken getAuthentication(String tokenHeader,HttpServletRequest request) {

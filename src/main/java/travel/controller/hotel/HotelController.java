@@ -50,10 +50,10 @@ public class HotelController {
                 resultVo = getResultVo(regionId, page, size, hotelService);
                 boolean result = RedisUtil.set(redisTemplate,prefix,page.toString()+size.toString(),resultVo);
                 if(!result){
-                    LOG.info("request:/poi/list缓存失败！");
+                    LOG.info("request:/poi/list saves cache Failed！");
                 }
             }catch (Exception e){
-                LOG.info("request:/poi/list出现异常！reason："+e.getMessage());
+                LOG.info("request:/poi/list occurred exceptions！reason："+e.getMessage());
                 return ResultUtil.fail(e.getMessage());
             }
         }
@@ -89,10 +89,10 @@ public class HotelController {
                 resultVo = ResultUtil.success(hotelImageVoList);
                 boolean result = RedisUtil.set(redisTemplate,prefix,hotelId,resultVo);
                 if(!result){
-                    LOG.info("request:/poi/images 缓存失败！");
+                    LOG.info("request:/poi/images saves cache failed！");
                 }
             }catch (Exception e){
-                LOG.info("request：/poi/images出现异常！reason："+e.getMessage());
+                LOG.info("request：/poi/images occurred exceptions!reason："+e.getMessage());
                 return ResultUtil.fail(e.getMessage());
             }
         }
@@ -120,5 +120,24 @@ public class HotelController {
         }
         return resultVo;
     }
-
+    @GetMapping("/product/images")
+    public ResultVo getImages(@RequestParam("productId")String productId,@RequestParam("hotelId")String hotelId){
+        RedisBasePrefix prefix = new RedisBasePrefix("hotel".concat(":").concat("images").concat(":").concat("product").concat(":").concat(hotelId));
+        ResultVo resultVo = (ResultVo) RedisUtil.get(prefix,productId,redisTemplate);
+        if(resultVo==null){
+            List<HotelImage> hotelImages = hotelImageService.findByHotelIdAndProductId(hotelId,productId);
+            List<HotelImageVo> hotelImageVoList = new ArrayList<>();
+            for(HotelImage hotelImage : hotelImages){
+                HotelImageVo hotelImageVo = new HotelImageVo();
+                BeanUtils.copyProperties(hotelImage,hotelImageVo);
+                hotelImageVoList.add(hotelImageVo);
+            }
+            resultVo = ResultUtil.success(hotelImageVoList);
+            boolean result = RedisUtil.set(redisTemplate,prefix,productId,resultVo);
+            if(!result){
+                LOG.info("request:/poi/product/images saves cache failed！");
+            }
+        }
+        return resultVo;
+    }
 }

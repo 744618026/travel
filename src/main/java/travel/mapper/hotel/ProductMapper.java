@@ -1,10 +1,7 @@
 package travel.mapper.hotel;
 
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import travel.dao.hotel.Product;
 
@@ -19,4 +16,8 @@ public interface ProductMapper {
             "hotelId,bedType,internet,bath,area,window) values (#{productId},#{productName},#{productPrice}" +
             ",#{productStock},#{hotelId},#{bedType},#{internet},#{bath},#{area},#{window})")
     int insert(Product product);
+
+    @Update("update hotelProduct set productName=#{productName},productPrice=#{productPrice},productStock=#{productStock}" +
+            ",bedType=#{bedType},internet=#{internet},bath=#{bath},area=#{area},window=#{window}")
+    int update(Product product);
 }

@@ -49,4 +49,7 @@ public interface POIMapper {
      */
     @Update("update POI set poiName=#{poiName},poiDescribe=#{poiDescribe},regionId=#{regionId},poiTicketPrice=#{poiTicketPrice},poiStock=#{poiStock} where poiId=#{poiId}")
     int update(POI poi);
+
+    @Select("Select count * from POI where regionId=#{regionId}")
+    Integer countById(@Param("regionId")String regionId);
 }

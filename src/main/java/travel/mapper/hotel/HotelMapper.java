@@ -43,4 +43,7 @@ public interface HotelMapper {
 
     @Insert("insert into hotel(hotelId,hotelName,hotelDescribe,regionId,address,phone,info,policy) values(#{hotelId},#{hotelName},#{hotelDescribe},#{regionId},#{address},#{phone},#{info},#{policy})")
     int insert(Hotel hotel);
+
+    @Select("select count * from hotel where regionId=#{regionId}")
+    Integer countByRegionId(@Param("regionId")String regionId);
 }

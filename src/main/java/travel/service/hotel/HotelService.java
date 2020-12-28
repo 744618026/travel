@@ -1,5 +1,6 @@
 package travel.service.hotel;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import travel.dao.hotel.Hotel;
 
@@ -36,4 +37,6 @@ public interface HotelService {
      *
      */
     boolean insert(Hotel hotel);
+
+    Integer countByRegionId(String regionId);
 }
