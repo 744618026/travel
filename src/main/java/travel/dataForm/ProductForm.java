@@ -1,14 +1,16 @@
 package travel.dataForm;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 public class ProductForm {
     @NotEmpty(message = "商品名不能为空")
     private String productName;
-    @NotEmpty(message = "商品价格不能为空")
-    private String productPrice;
-    @NotEmpty(message = "商品库存不能为空")
-    private String productStock;
+    @NotNull(message = "商品价格不能为空")
+    private BigDecimal productPrice;
+    @NotNull(message = "商品库存不能为空")
+    private Integer productStock;
     @NotEmpty(message = "酒店Id不能为空")
     private String hotelId;
     @NotEmpty(message = "床型不能为空")
@@ -30,19 +32,19 @@ public class ProductForm {
         this.productName = productName;
     }
 
-    public String getProductPrice() {
+    public BigDecimal getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(BigDecimal productPrice) {
         this.productPrice = productPrice;
     }
 
-    public String getProductStock() {
+    public Integer getProductStock() {
         return productStock;
     }
 
-    public void setProductStock(String productStock) {
+    public void setProductStock(Integer productStock) {
         this.productStock = productStock;
     }
 

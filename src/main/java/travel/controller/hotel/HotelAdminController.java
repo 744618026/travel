@@ -6,17 +6,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.security.core.parameters.P;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 import travel.configuration.RedisBasePrefix;
 import travel.dao.hotel.Hotel;
 import travel.dao.hotel.HotelImage;
 import travel.dao.hotel.Product;
 import travel.dataForm.HotelForm;
-import travel.dataForm.HotelProductFrom;
 import travel.dataForm.ProductForm;
 import travel.enums.HotelEnum;
 import travel.service.hotel.HotelImageService;
@@ -30,7 +27,6 @@ import travel.vo.hotel.HotelProductVo;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -222,7 +218,7 @@ public class HotelAdminController {
         return resultVo;
     }
     @PostMapping("/product/update")
-    public ResultVo update(@Valid HotelProductFrom hotelProductFrom,BindingResult bindingResult){
+    public ResultVo update(@Valid ProductForm hotelProductFrom,BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return ResultUtil.fail(bindingResult.getFieldError().getDefaultMessage());
         }
