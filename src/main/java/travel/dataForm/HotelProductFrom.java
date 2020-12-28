@@ -1,8 +1,10 @@
-package travel.dao.hotel;
+package travel.dataForm;
 
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 
-public class Product {
+public class HotelProductFrom {
+    @NotEmpty(message = "商品id不能为空")
     private String productId;
 
     private String productName;
@@ -37,10 +39,6 @@ public class Product {
 
     public void setProductName(String productName) {
         this.productName = productName;
-    }
-
-    public BigDecimal getProductPrice() {
-        return productPrice;
     }
 
     public void setProductPrice(BigDecimal productPrice) {

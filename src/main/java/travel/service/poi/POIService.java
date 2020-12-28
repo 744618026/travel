@@ -41,5 +41,6 @@ public interface POIService {
      */
     boolean  update(POI poi);
 
+    Integer countById(String regionId);
 //    List<POI> find(Integer currPage, Integer pageSize,String regionId);
 }

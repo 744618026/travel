@@ -57,4 +57,9 @@ public class HotelServiceImpl implements HotelService {
         }
         return false;
     }
+
+    @Override
+    public Integer countByRegionId(String regionId) {
+        return hotelMapper.countByRegionId(regionId);
+    }
 }
